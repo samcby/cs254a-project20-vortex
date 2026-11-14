@@ -9,12 +9,11 @@ import os
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import log_path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import log_path, result_path
 import re
 
 HERE=Path(__file__).resolve().parent
-COURSE=HERE.parents[1]
 FIELDS=('m','n','k','ctas','mode','aw','reserve','seed')
 def local(p):
     return log_path(p)
@@ -214,14 +213,14 @@ def trace(c):
         ctas=[dict(block=b,start=min(v['start'] for (bb,_),v in lifetime.items() if bb==b),end=max(v['end'] for (bb,_),v in lifetime.items() if bb==b)) for b in range(c['ctas'])])
 
 def main():
-    runs={(w,p):json.loads((COURSE/f'cost_w{w}_{p}_results.json').read_text()) for w in (8,16) for p in ('normal','validate','trace')}
+    runs={(w,p):json.loads(result_path(f'cost_w{w}_{p}_results.json').read_text()) for w in (8,16) for p in ('normal','validate','trace')}
     assert all(r['status']=='complete' for r in runs.values())
     assert len({r['binary_sha256'] for r in runs.values()})==1
     assert len({json.dumps(r['source_hashes'],sort_keys=True) for r in runs.values()})==1
     originals={(w,key(c)):c for (w,p),r in runs.items() if p=='normal' for c in r['cases']}
     # Old baselines and the original three-stage variants must remain exact.
     for w in (8,16):
-        prior=json.loads((COURSE/f'multicta_w{w}_matrix_results.json').read_text())['cases']
+        prior=json.loads(result_path(f'multicta_w{w}_matrix_results.json').read_text())['cases']
         for c in runs[w,'normal']['cases']:
             if c['mode'] in (2,3,4) and not c['reserve']:
                 old=next(x for x in prior if (x['m'],x['n'],x['k'],x['ctas'],x['mode'],x['activation_warps'])==(c['m'],c['n'],c['k'],c['ctas'],c['mode'],c['aw']))
@@ -240,7 +239,7 @@ def main():
                 traces.append(dict(hardware_warps=w,**{n:c[n] for n in FIELDS},label=label(c),cycles=c['chain']['cycles'],
                     trace=c['trace'],detail=trace(c)))
     assert all(len(v)==1 for v in hashes.values())
-    smoke=json.loads((COURSE/'cost_w8_smoke_results.json').read_text())
+    smoke=json.loads(result_path('cost_w8_smoke_results.json').read_text())
     assert smoke['status']=='complete' and len(smoke['cases'])==3 and all(c['passed'] for c in smoke['cases'])
     assert smoke['binary_sha256']==next(iter(runs.values()))['binary_sha256']
     result=dict(runs=sum(len(r['cases']) for r in runs.values())+len(smoke['cases']),formal_runs=sum(len(r['cases']) for r in runs.values()),
@@ -248,7 +247,7 @@ def main():
         source_hashes=next(iter(runs.values()))['source_hashes'],
         phases={f'w{w}_{p}':len(r['cases']) for (w,p),r in runs.items()},traces=traces,
         provenance={f'w{w}_{p}':r['logs'] for (w,p),r in runs.items()})
-    capacity_runs={(w,p):json.loads((COURSE/f'cost_capacity_w{w}_{p}_results.json').read_text()) for w in (8,16) for p in ('normal','validate','trace')}
+    capacity_runs={(w,p):json.loads(result_path(f'cost_capacity_w{w}_{p}_results.json').read_text()) for w in (8,16) for p in ('normal','validate','trace')}
     assert all(r['status']=='complete' for r in capacity_runs.values())
     assert len({r['binary_sha256'] for r in capacity_runs.values()})==1
     capacity_originals={(w,key(c)):c for (w,p),r in capacity_runs.items() if p=='normal' for c in r['cases']}

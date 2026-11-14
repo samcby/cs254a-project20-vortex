@@ -9,11 +9,10 @@ from pathlib import Path
 import re
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import log_path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import log_path, result_path
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent / 'warp_capacity'))
 from trace_residency import parse as residency
 
@@ -97,8 +96,8 @@ def work(case):
 
 def main():
     specs = [(8, 'smoke')] + [(w,p) for w in (8,16) for p in ('matrix','validation','repeat','trace','best')] + [(16,'besttrace')]
-    runs = {(w,p): json.loads((COURSE / f'multicta_w{w}_{p}_results.json').read_text()) for w,p in specs}
-    previous = json.loads((COURSE / 'activation_w16_matrix_results.json').read_text())
+    runs = {(w,p): json.loads(result_path(f'multicta_w{w}_{p}_results.json').read_text()) for w,p in specs}
+    previous = json.loads(result_path('activation_w16_matrix_results.json').read_text())
     groups, hashes, matrix_cases = {}, {}, {}
     for (w,p), run in runs.items():
         assert run['status'] == 'complete', (w,p,run['status'])

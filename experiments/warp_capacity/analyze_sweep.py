@@ -7,13 +7,12 @@ import os
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import log_path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import log_path, result_path
 
 from config_probe import HERE, differences
 from trace_residency import parse
 
-COURSE = HERE.parents[1]
 
 
 def local(path):
@@ -31,10 +30,10 @@ def change(after, before):
 
 
 def main():
-    runs = {(w, phase): json.loads((COURSE / f'warp{w}_{phase}_results.json').read_text())
+    runs = {(w, phase): json.loads(result_path(f'warp{w}_{phase}_results.json').read_text())
             for w in (8, 16) for phase in ('matrix', 'trace')}
-    previous = json.loads((COURSE / 'relu_matrix_results.json').read_text())
-    previous_extra = json.loads((COURSE / 'relu_validation_results.json').read_text())
+    previous = json.loads(result_path('relu_matrix_results.json').read_text())
+    previous_extra = json.loads(result_path('relu_validation_results.json').read_text())
     old = {(c['m'], c['n'], c['k'], c['seed'], c['mode']): c
            for c in previous['cases'] + previous_extra['cases'] if c['mode'] in (2, 3)}
     cases = {}

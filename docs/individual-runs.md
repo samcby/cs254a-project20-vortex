@@ -3,10 +3,10 @@
 Use the pinned upstream and toolchain from [the setup instructions](../README.md#build-vortex-and-rerun-the-cost-study). Run commands from the root of a disposable copy of this repository so the original measurements and frozen inputs remain available for comparison.
 
 ```bash
-python3 install_apps.py
+python3 scripts/install_apps.py
 ```
 
-The archived JSON includes the exact historical commands and local paths for provenance. The analyzers resolve archived logs relative to the checkout. The launch scripts resolve the Vortex workspace using `PROJECT20_WORK_ROOT` and the toolchain using `PROJECT20_TOOLCHAIN_DIR` when set. The original experiment reports contain each batch's commands and configuration.
+The JSON under `results/<study>/` includes the original commands and local paths. The analyzers resolve those log paths against `archive/logs/<study>/` in the checkout. The launch scripts resolve the Vortex workspace using `PROJECT20_WORK_ROOT` and the toolchain using `PROJECT20_TOOLCHAIN_DIR` when set. The original experiment reports contain each batch's commands and configuration.
 
 | Study | Inputs to keep when rerunning an individual batch |
 | --- | --- |

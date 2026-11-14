@@ -8,13 +8,12 @@ import os
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import log_path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import log_path, result_path
 import re
 from statistics import median
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 
 
 def local(path):
@@ -96,7 +95,7 @@ def parse_activity(case):
 
 def main():
     specs = [(16, 'matrix'), (16, 'depth'), (8, 'depth'), (16, 'trace'), (16, 'repeat')]
-    runs = {(w, p): json.loads((COURSE / f'persistent_w{w}_{p}_results.json').read_text()) for w, p in specs}
+    runs = {(w, p): json.loads(result_path(f'persistent_w{w}_{p}_results.json').read_text()) for w, p in specs}
     reference = runs[(16, 'matrix')]
     cases = {}
     for key, run in runs.items():
@@ -144,7 +143,7 @@ def main():
         values = [c['chain']['cycles'] for c in runs[(16, 'repeat')]['cases']
                   if c['mode'] == mode and c['c_depth'] == depth]
         repeats.append([mode, depth, min(values), median(values), max(values)])
-    rtl_path = COURSE / 'persistent_w16_rtl_results.json'
+    rtl_path = result_path('persistent_w16_rtl_results.json')
     rtl = json.loads(rtl_path.read_text()) if rtl_path.exists() else None
     if rtl and rtl.get('source_hashes') != reference['source_hashes']:
         raise RuntimeError('RTL source differs from the final SimX source')

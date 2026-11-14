@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Freeze a history-only configuration table before measuring holdout shapes."""
 
+import sys
 import hashlib
 import json
 import math
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
+
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 VARIANTS = [(2, 0, 1), (3, 0, 1), (4, 1, 4), (4, 2, 4)]
 SHAPES = [(64,128,64),(256,32,64),(256,64,128),(192,128,64),(384,128,256),(320,128,192)]
 CONFIG_FIELDS = ('mode','activation_warps','unroll','ctas')
@@ -33,9 +36,9 @@ def freeze():
            ('multicta_w8_matrix_results.json',8),('multicta_w16_matrix_results.json',16)]
     sources={}
     rows=[]
-    reference=json.loads((COURSE/files[0][0]).read_text())
+    reference=json.loads(result_path(files[0][0]).read_text())
     for name,w in files:
-        path=COURSE/name
+        path=result_path(name)
         run=json.loads(path.read_text())
         assert run['status']=='complete' and run['source_hashes']==reference['source_hashes']
         assert run['binary_sha256']==reference['binary_sha256']

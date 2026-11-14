@@ -11,9 +11,8 @@ import shutil
 import subprocess
 import sys
 
-from project_paths import SOURCE, TOOLS, WORK
+from scripts.project_paths import ROOT, SOURCE, TOOLS, WORK, result_path
 
-ROOT = Path(__file__).resolve().parent
 COST = Path("experiments/cost_attribution")
 ANALYSES = (
     "pc_pipeline/analyze.py",
@@ -89,10 +88,9 @@ def main():
     if output.is_relative_to(ROOT):
         parser.error("Choose an output directory outside the repository checkout")
     output.mkdir(parents=True, exist_ok=False)
-    shutil.copy2(ROOT / "project_paths.py", output)
+    shutil.copytree(ROOT / "scripts", output / "scripts", ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(ROOT / "experiments", output / "experiments", ignore=shutil.ignore_patterns("__pycache__"))
-    for path in ROOT.glob("*.json"):
-        shutil.copy2(path, output / path.name)
+    shutil.copytree(ROOT / "results", output / "results")
 
     if args.profile == "archive":
         for script in ANALYSES:
@@ -115,7 +113,7 @@ def main():
         run_script(output, COST / "run_cost.py", "--warps", str(warps), "--phase", phase, *extra)
         prefix = "cost_capacity" if capacity else "cost"
         name = f"{prefix}_w{warps}_{phase}_results.json"
-        passed += compare_run(output / name, ROOT / name)
+        passed += compare_run(result_path(name, output), result_path(name))
     if args.profile == "full":
         run_script(output, COST / "analyze_cost.py")
         compare_cost_report(output)

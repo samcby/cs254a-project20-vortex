@@ -6,12 +6,11 @@ import json
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import SOURCE, WORK
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import SOURCE, WORK, result_path
 import shutil
 
 HERE=Path(__file__).resolve().parent
-COURSE=HERE.parents[1]
 OVERLAY = WORK / 'cost-attribution-observer' / 'simx'
 OLD=HERE.parent/'activation_balance/activation_balance'
 APP=HERE/'cost_pipeline'
@@ -26,7 +25,7 @@ def once(text,old,new):
 
 
 def prepare_app():
-    ref=json.loads((COURSE/'activation_w16_matrix_results.json').read_text())
+    ref=json.loads(result_path('activation_w16_matrix_results.json').read_text())
     assert all(sha(OLD/n)==h for n,h in ref['source_hashes'].items())
     APP.mkdir(exist_ok=True)
     kernel=(OLD/'kernel.cpp').read_text()

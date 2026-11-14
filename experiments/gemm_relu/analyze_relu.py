@@ -4,13 +4,16 @@
 import csv
 import json
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 
 
 def main():
-    runs = {phase: json.loads((COURSE / f'relu_{phase}_results.json').read_text())
+    runs = {phase: json.loads(result_path(f'relu_{phase}_results.json').read_text())
             for phase in ('matrix', 'activation', 'validation')}
     cases = {}
     launches = 0

@@ -9,8 +9,8 @@ import os
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import SOURCE, TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import SOURCE, TOOLS, result_path, run_log_dir
 import re
 import shlex
 import shutil
@@ -18,7 +18,6 @@ import signal
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 BUILD = SOURCE / 'build32-pipeline'
 COMMIT = '7fe19369587c087f902c3e2bc2add612aa910a95'
 FLAGS = ('-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 '
@@ -35,7 +34,7 @@ def main():
     if actual != COMMIT or subprocess.check_output(['git', 'diff', '--name-only'], cwd=SOURCE, text=True):
         raise RuntimeError('Expected pinned source without tracked modifications')
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs = COURSE / 'logs' / ('pc_' + args.phase + '_' + stamp)
+    logs = run_log_dir('pc_' + args.phase + '_' + stamp)
     logs.mkdir(parents=True, exist_ok=False)
     result = dict(source_commit=actual, phase=args.phase, build=str(BUILD),
                   configs=FLAGS, logs=str(logs), protocol='ready/free with final drain',
@@ -56,7 +55,7 @@ def main():
 
     def save():
         (logs / 'results.json').write_text(json.dumps(result, indent=2) + '\n')
-        (COURSE / ('pc_' + args.phase + '_results.json')).write_text(json.dumps(result, indent=2) + '\n')
+        result_path('pc_' + args.phase + '_results.json').write_text(json.dumps(result, indent=2) + '\n')
 
     def run(name, command, case_env=None, timeout=300, required=True):
         print(name + ': ' + shlex.join(command), flush=True)

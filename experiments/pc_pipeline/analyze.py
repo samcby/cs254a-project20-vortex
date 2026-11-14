@@ -7,12 +7,11 @@ import os
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import log_path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import log_path, result_path
 import re
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 
 
 def local_path(path):
@@ -20,8 +19,8 @@ def local_path(path):
 
 
 def main():
-    old = json.loads((COURSE / 'proposal_probe_results.json').read_text())
-    runs = {phase: json.loads((COURSE / f'pc_{phase}_results.json').read_text())
+    old = json.loads(result_path('proposal_probe_results.json').read_text())
+    runs = {phase: json.loads(result_path(f'pc_{phase}_results.json').read_text())
             for phase in ('micro', 'gemm', 'diagnostic', 'trace', 'indexing')}
     for phase, run in runs.items():
         if phase != 'diagnostic' and run['status'] != 'complete':

@@ -15,15 +15,14 @@ import signal
 import subprocess
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
 from prepare_sources import APP, HERE, prepare
 sys.path.insert(0, str(HERE.parent / 'warp_capacity'))
 from config_probe import SOURCE, config
 from run_sweep import COMMIT, parse_case
 
-COURSE = HERE.parents[1]
 
 
 def selection(tiles=5, k=64, mode=4, aw=1, unroll=1, producer=0, depth=1, seed=1):
@@ -55,11 +54,11 @@ def main():
     if subprocess.check_output(['git', 'diff', '--name-only'], cwd=SOURCE, text=True):
         raise RuntimeError('Unexpected tracked changes')
     flags, resolved = config(args.warps)
-    expected = json.loads((COURSE / 'persistent_w16_matrix_results.json').read_text())['effective_config']
+    expected = json.loads(result_path('persistent_w16_matrix_results.json').read_text())['effective_config']
     if resolved != dict(expected, VX_CFG_NUM_WARPS=str(args.warps)):
         raise RuntimeError('Unexpected effective configuration')
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs = COURSE / 'logs' / f'activation_w{args.warps}_{args.phase}_{stamp}'
+    logs = run_log_dir(f'activation_w{args.warps}_{args.phase}_{stamp}')
     logs.mkdir(parents=True, exist_ok=False)
     hashes = prepare()
     target = SOURCE / 'tests/regression/activation_balance'
@@ -86,7 +85,7 @@ def main():
     def save():
         content = json.dumps(result, indent=2) + '\n'
         (logs / 'results.json').write_text(content)
-        (COURSE / f'activation_w{args.warps}_{args.phase}_results.json').write_text(content)
+        result_path(f'activation_w{args.warps}_{args.phase}_results.json').write_text(content)
 
     def run(name, command, timeout=300):
         print(name + ': ' + shlex.join(command), flush=True)

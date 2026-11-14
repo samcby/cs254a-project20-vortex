@@ -2,13 +2,17 @@
 """Generate the source-backed Chinese attribution report after validation."""
 import json
 from pathlib import Path
-from analyze_cost import HERE,COURSE,label,table
+import sys
+from analyze_cost import HERE,label,table
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
 
 
 def main():
     result=json.loads((HERE/'analysis.json').read_text(encoding='utf-8'))
-    normal={w:json.loads((COURSE/f'cost_w{w}_normal_results.json').read_text(encoding='utf-8'))['cases'] for w in (8,16)}
-    cap={w:json.loads((COURSE/f'cost_capacity_w{w}_normal_results.json').read_text(encoding='utf-8'))['cases'] for w in (8,16)}
+    normal={w:json.loads(result_path(f'cost_w{w}_normal_results.json').read_text(encoding='utf-8'))['cases'] for w in (8,16)}
+    cap={w:json.loads(result_path(f'cost_capacity_w{w}_normal_results.json').read_text(encoding='utf-8'))['cases'] for w in (8,16)}
     def find(w,v,a=0,r=0,g=None):
         return next(c for c in normal[w] if (c['mode'],c['aw'],c['reserve'],c['ctas'])==(v,a,r,g or (4 if w==8 else 2)))
     def tr(w,v,g=None):return next(t for t in result['traces'] if (t['hardware_warps'],t['mode'],t['ctas'])==(w,v,g or (4 if w==8 else 2)))

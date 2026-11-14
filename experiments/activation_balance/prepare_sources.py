@@ -4,6 +4,10 @@
 import hashlib
 import json
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
 
 HERE = Path(__file__).resolve().parent
 OLD = HERE.parent / 'persistent_pipeline/persistent_pipeline'
@@ -17,7 +21,7 @@ def replace_once(text, before, after):
 
 
 def prepare():
-    reference = json.loads((HERE.parents[1] / 'persistent_w16_matrix_results.json').read_text())['source_hashes']
+    reference = json.loads(result_path('persistent_w16_matrix_results.json').read_text())['source_hashes']
     if any(hashlib.sha256((OLD / n).read_bytes()).hexdigest() != h for n, h in reference.items()):
         raise RuntimeError('The previous validated app changed')
     APP.mkdir(exist_ok=True)

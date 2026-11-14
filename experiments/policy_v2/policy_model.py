@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """Freeze the v2 data/feature ablation and an independent holdout plan."""
 
+import sys
 import hashlib
 import importlib.util
 import json
 import math
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
+
 HERE=Path(__file__).resolve().parent
-COURSE=HERE.parents[1]
 OLD=HERE.parent/'policy_generalization'
 FIELDS=('mode','activation_warps','unroll','ctas')
 VARIANTS=[(2,0,1),(3,0,1),(4,1,4),(4,2,4)]
@@ -38,9 +41,9 @@ def base_training():
     rows=list(v1['training_rows'])
     for w in (8,16):
         name=f'policy_w{w}_oracle_results.json'
-        run=json.loads((COURSE/name).read_text())
+        run=json.loads(result_path(name).read_text())
         assert run['status']=='complete' and run['source_hashes']==v1['source_hashes'] and run['binary_sha256']==v1['binary_sha256']
-        sources[name]=sha(COURSE/name)
+        sources[name]=sha(result_path(name))
         for c in run['cases']:
             rows.append(row(c,w,name))
     return v1,sources,rows
@@ -95,10 +98,10 @@ def freeze():
     v1,sources,rows=base_training()
     for w in (8,16):
         name=f'policy2_w{w}_train_results.json'
-        run=json.loads((COURSE/name).read_text())
+        run=json.loads(result_path(name).read_text())
         assert run['status']=='complete' and run['plan_sha256']==sha(HERE/'experiment_plan.json')
         assert run['source_hashes']==v1['source_hashes'] and run['binary_sha256']==v1['binary_sha256']
-        sources[name]=sha(COURSE/name)
+        sources[name]=sha(result_path(name))
         rows.extend(row(c,w,name) for c in run['cases'])
     grouped={}
     for r in rows:

@@ -13,10 +13,9 @@ import shutil
 import subprocess
 import sys
 
-from project_paths import WORK
+from project_paths import WORK, result_path, run_log_dir
 
 COMMIT = "7fe19369587c087f902c3e2bc2add612aa910a95"
-COURSE = Path(__file__).resolve().parent
 
 
 def main():
@@ -47,7 +46,7 @@ def main():
                  "source": str(source), "build": str(build), "tools": str(tools),
                  "installed_components": [], "steps": []}
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    logs = COURSE / "logs" / (args.phase + "_" + stamp)
+    logs = run_log_dir(f"{args.phase}_{stamp}")
     logs.mkdir(parents=True, exist_ok=False)
     state.update(status="running", phase=args.phase, latest_logs=str(logs))
     env = os.environ.copy()
@@ -61,7 +60,7 @@ def main():
     def save():
         contents = json.dumps(state, indent=2) + "\n"
         marker.write_text(contents)
-        (COURSE / "baseline_state.json").write_text(contents)
+        result_path("baseline_state.json").write_text(contents)
 
     def run(name, command, cwd=work, timeout=1800, extra_env=None):
         command = [str(c) for c in command]

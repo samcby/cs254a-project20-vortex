@@ -15,11 +15,10 @@ import signal
 import subprocess
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent / 'warp_capacity'))
 from config_probe import SOURCE, config
 from run_sweep import COMMIT, parse_case
@@ -61,7 +60,7 @@ def main():
         raise RuntimeError('Pinned source required')
     if subprocess.check_output(['git', 'diff', '--name-only'], cwd=SOURCE, text=True):
         raise RuntimeError('Unexpected tracked changes')
-    reference = json.loads((COURSE / 'activation_w16_matrix_results.json').read_text())
+    reference = json.loads(result_path('activation_w16_matrix_results.json').read_text())
     app = SOURCE / 'tests/regression/activation_balance'
     hashes = {name: hashlib.sha256((app / name).read_bytes()).hexdigest() for name in reference['source_hashes']}
     mirror = HERE.parent / 'activation_balance/activation_balance'
@@ -73,7 +72,7 @@ def main():
     build = SOURCE / f'build32-warp-capacity-{args.warps}'
     build.mkdir(exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs = COURSE / 'logs' / f'multicta_w{args.warps}_{args.phase}_{stamp}'
+    logs = run_log_dir(f'multicta_w{args.warps}_{args.phase}_{stamp}')
     logs.mkdir(parents=True, exist_ok=False)
     for name in hashes:
         shutil.copyfile(app / name, logs / name)
@@ -90,7 +89,7 @@ def main():
     def save():
         text = json.dumps(result, indent=2) + '\n'
         (logs / 'results.json').write_text(text)
-        (COURSE / f'multicta_w{args.warps}_{args.phase}_results.json').write_text(text)
+        result_path(f'multicta_w{args.warps}_{args.phase}_results.json').write_text(text)
 
     def run(name, command, timeout=300):
         print(name + ': ' + shlex.join(command), flush=True)
@@ -124,7 +123,7 @@ def main():
             raise RuntimeError('Device binary no longer reproduces the previous experiment')
         selected = cases(args.phase)
         if args.phase == 'best':
-            matrix = json.loads((COURSE / f'multicta_w{args.warps}_matrix_results.json').read_text())
+            matrix = json.loads(result_path(f'multicta_w{args.warps}_matrix_results.json').read_text())
             if matrix['status'] != 'complete':
                 raise RuntimeError('The full matrix must precede best-CTA validation')
             selected = []

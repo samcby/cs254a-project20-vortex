@@ -14,10 +14,10 @@ import signal
 import subprocess
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
-from freeze_policy import COURSE,HERE,CONFIG_FIELDS,predict,sha
+from freeze_policy import HERE,CONFIG_FIELDS,predict,sha
 sys.path.insert(0,str(HERE.parent/'warp_capacity'))
 from config_probe import SOURCE,config
 from run_sweep import COMMIT,parse_case
@@ -29,7 +29,7 @@ def selections(phase,w,policy,manifest):
     if phase=='oracle':
         return [dict(m=s['m'],n=s['n'],k=s['k'],seed=1,**c) for s in manifest['shapes']
             for c in manifest['oracle_candidates'] if c['ctas']<=s['tiles']]
-    oracle=json.loads((COURSE/f'policy_w{w}_oracle_results.json').read_text())
+    oracle=json.loads(result_path(f'policy_w{w}_oracle_results.json').read_text())
     assert oracle['status']=='complete'
     selected=[]
     for s in manifest['shapes']:
@@ -54,19 +54,19 @@ def main():
     policy=json.loads((HERE/'policy.json').read_text(encoding='utf-8'))
     manifest=json.loads((HERE/'holdout_manifest.json').read_text(encoding='utf-8'))
     assert sha(HERE/'policy.json')==manifest['policy_sha256']
-    assert all(sha(COURSE/n)==h for n,h in policy['training_sources'].items()), 'Training record changed'
+    assert all(sha(result_path(n))==h for n,h in policy['training_sources'].items()), 'Training record changed'
     app=SOURCE/'tests/regression/activation_balance'
     if any(sha(app/n)!=h for n,h in policy['source_hashes'].items()):
         raise RuntimeError('Validated application changed')
     flags,resolved=config(args.warps)
     assert resolved==dict(policy['effective_config_16'],VX_CFG_NUM_WARPS=str(args.warps))
     if args.phase!='policy':
-        first=json.loads((COURSE/f'policy_w{args.warps}_policy_results.json').read_text())
+        first=json.loads(result_path(f'policy_w{args.warps}_policy_results.json').read_text())
         assert first['status']=='complete' and first['policy_sha256']==manifest['policy_sha256']
     build=SOURCE/f'build32-warp-capacity-{args.warps}'
     build.mkdir(exist_ok=True)
     stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs=COURSE/'logs'/f'policy_w{args.warps}_{args.phase}_{stamp}'
+    logs=run_log_dir(f'policy_w{args.warps}_{args.phase}_{stamp}')
     logs.mkdir(parents=True,exist_ok=False)
     for name in policy['source_hashes']:
         shutil.copyfile(app/name,logs/name)
@@ -85,7 +85,7 @@ def main():
     def save():
         text=json.dumps(result,indent=2)+'\n'
         (logs/'results.json').write_text(text)
-        (COURSE/f'policy_w{args.warps}_{args.phase}_results.json').write_text(text)
+        result_path(f'policy_w{args.warps}_{args.phase}_results.json').write_text(text)
 
     def run(name,command,timeout=300):
         print(name+': '+shlex.join(command),flush=True)

@@ -104,8 +104,8 @@ python3 'experiments/gemm_relu/analyze_relu.py'
 
 源码镜像在本目录 `gemm_relu/`；`analysis.json` 包含日志路径和汇总，`measurements.csv` 保存逐例数据。正式批次日志目录分别为：
 
-- `/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081809Z`
-- `/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z`
-- `/mnt/d/UCLA_Master/CS 254A/project/logs/relu_validation_20261028T082014Z`
+- [`relu_matrix_20261028T081809Z`](../../archive/logs/gemm_relu/relu_matrix_20261028T081809Z/)
+- [`relu_activation_20261028T081828Z`](../../archive/logs/gemm_relu/relu_activation_20261028T081828Z/)
+- [`relu_validation_20261028T082014Z`](../../archive/logs/gemm_relu/relu_validation_20261028T082014Z/)
 
 本轮是 kernel 软件/运行时 API 层实验；验证范围为 SimX，未声称已通过 RTL、XRT、FPGA 或 PPA 验证。

@@ -10,12 +10,12 @@ import shlex
 import subprocess
 import sys
 
-from bootstrap_v3 import COMMIT, COURSE
-from project_paths import SOURCE, TOOLS
+from bootstrap_v3 import COMMIT
+from project_paths import SOURCE, TOOLS, result_path, run_log_dir
 
 
 def main():
-    baseline = json.loads((COURSE / "baseline_state.json").read_text())
+    baseline = json.loads(result_path("baseline_state.json").read_text())
     source = SOURCE
     build = source / "build32-wgmma"
     build.mkdir(exist_ok=True)
@@ -23,7 +23,7 @@ def main():
     if actual != COMMIT or subprocess.check_output(["git", "diff", "--name-only"], cwd=source, text=True):
         raise RuntimeError("The pinned, unmodified source is required")
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    logs = COURSE / "logs" / ("proposal_probe_" + stamp)
+    logs = run_log_dir(f"proposal_probe_{stamp}")
     logs.mkdir(parents=True, exist_ok=False)
     flags = next(c["configs"] for c in baseline["measurements"]
                  if c["variant"] == "single" and c["profile"] == 7)
@@ -42,7 +42,7 @@ def main():
     env.update(CCACHE_DISABLE="1", MAKEFLAGS="-j4")
 
     def save():
-        (COURSE / "proposal_probe_results.json").write_text(json.dumps(result, indent=2) + "\n")
+        result_path("proposal_probe_results.json").write_text(json.dumps(result, indent=2) + "\n")
 
     def run(name, command, case_env):
         print(name + ": " + shlex.join(command), flush=True)

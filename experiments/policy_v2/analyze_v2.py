@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Compare frozen v1 and two v2 feature ablations on identical new holdouts."""
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
 import csv
 import json
 from statistics import geometric_mean
 
-from policy_model import HERE,COURSE,OLD,FIELDS,predict,sha
+from policy_model import HERE,OLD,FIELDS,predict,sha
 
 KINDS=('v1','v2_tk','v2_mnk')
 
@@ -41,10 +46,10 @@ def main():
     assert p['v1_policy_sha256']==sha(OLD/'policy.json')
     assert policy['plan_sha256']==manifest['plan_sha256']==sha(HERE/'experiment_plan.json')
     assert manifest['policy_sha256']==sha(HERE/'policy_v2.json')
-    assert all(sha(COURSE/n)==h for n,h in policy['training_sources'].items())
+    assert all(sha(result_path(n))==h for n,h in policy['training_sources'].items())
     assert len(manifest['predictions'])==len(KINDS)*2*len(p['holdout_shapes'])
     specs=[(w,phase) for w in (8,16) for phase in ('train','policy','oracle','validate')]
-    runs={(w,phase):json.loads((COURSE/f'policy2_w{w}_{phase}_results.json').read_text()) for w,phase in specs}
+    runs={(w,phase):json.loads(result_path(f'policy2_w{w}_{phase}_results.json').read_text()) for w,phase in specs}
     groups,hashes={},{}
     for (w,phase),run in runs.items():
         assert run['status']=='complete' and run['plan_sha256']==manifest['plan_sha256']

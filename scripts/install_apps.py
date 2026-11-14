@@ -2,14 +2,13 @@
 """Install the archived Project 20 application sources into the pinned Vortex tree."""
 
 import argparse
-from pathlib import Path
 import shutil
 import subprocess
 
-from project_paths import SOURCE
+from project_paths import ROOT, SOURCE
 
 COMMIT = "7fe19369587c087f902c3e2bc2add612aa910a95"
-EXPERIMENTS = Path(__file__).resolve().parent / "experiments"
+EXPERIMENTS = ROOT / "experiments"
 
 
 def main():

@@ -15,11 +15,10 @@ import signal
 import subprocess
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent / 'warp_capacity'))
 from config_probe import SOURCE, config
 from run_sweep import COMMIT, parse_case
@@ -100,7 +99,7 @@ def main():
     build = SOURCE / f'build32-warp-capacity-{args.warps}'
     build.mkdir(exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs = COURSE / 'logs' / f'persistent_w{args.warps}_{args.phase}_{stamp}'
+    logs = run_log_dir(f'persistent_w{args.warps}_{args.phase}_{stamp}')
     logs.mkdir(parents=True, exist_ok=False)
     result = dict(status='running', phase=args.phase, warps=args.warps, source_commit=COMMIT,
                   configs=flags, effective_config=resolved, ordinary_prefetch='cross-output-tile',
@@ -117,7 +116,7 @@ def main():
     def save():
         text = json.dumps(result, indent=2) + '\n'
         (logs / 'results.json').write_text(text)
-        (COURSE / f'persistent_w{args.warps}_{args.phase}_results.json').write_text(text)
+        result_path(f'persistent_w{args.warps}_{args.phase}_results.json').write_text(text)
 
     def run(name, command, timeout=300):
         print(name + ': ' + shlex.join(command), flush=True)

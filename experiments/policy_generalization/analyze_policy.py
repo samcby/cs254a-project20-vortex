@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Evaluate the frozen table against diagnostic holdout grids without updating it."""
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import result_path
 import csv
 import json
 from statistics import geometric_mean,median
 
-from freeze_policy import HERE,COURSE,CONFIG_FIELDS,predict,sha
+from freeze_policy import HERE,CONFIG_FIELDS,predict,sha
 
 
 def name(c):
@@ -30,9 +35,9 @@ def main():
     policy=json.loads((HERE/'policy.json').read_text(encoding='utf-8'))
     manifest=json.loads((HERE/'holdout_manifest.json').read_text(encoding='utf-8'))
     assert sha(HERE/'policy.json')==manifest['policy_sha256']
-    assert all(sha(COURSE/n)==h for n,h in policy['training_sources'].items())
+    assert all(sha(result_path(n))==h for n,h in policy['training_sources'].items())
     specs=[(w,p) for w in (8,16) for p in ('policy','oracle','validate')]
-    runs={(w,p):json.loads((COURSE/f'policy_w{w}_{p}_results.json').read_text()) for w,p in specs}
+    runs={(w,p):json.loads(result_path(f'policy_w{w}_{p}_results.json').read_text()) for w,p in specs}
     groups,hashes={},{}
     for (w,p),run in runs.items():
         assert run['status']=='complete'

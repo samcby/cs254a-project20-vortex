@@ -14,11 +14,10 @@ import signal
 import subprocess
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent / 'pc_pipeline'))
 from run import BUILD, COMMIT, FLAGS, SOURCE
 
@@ -31,12 +30,12 @@ def main():
         raise RuntimeError('Pinned Vortex commit required')
     if subprocess.check_output(['git', 'diff', '--name-only'], cwd=SOURCE, text=True):
         raise RuntimeError('Unexpected tracked source edits')
-    prior = json.loads((COURSE / 'pc_indexing_results.json').read_text())
+    prior = json.loads(result_path('pc_indexing_results.json').read_text())
     pc_source = SOURCE / 'tests/regression/sgemm_tcu_wg_pc_mask/kernel.cpp'
     if hashlib.sha256(pc_source.read_bytes()).hexdigest() != prior['source_hashes']['kernel.cpp']:
         raise RuntimeError('Prior tested PC source changed')
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs = COURSE / 'logs' / ('relu_' + args.phase + '_' + stamp)
+    logs = run_log_dir('relu_' + args.phase + '_' + stamp)
     logs.mkdir(parents=True, exist_ok=False)
     result = dict(status='running', phase=args.phase, source_commit=COMMIT, configs=FLAGS,
                   effective_config=prior['effective_config'], logs=str(logs),
@@ -53,7 +52,7 @@ def main():
     def save():
         text = json.dumps(result, indent=2) + '\n'
         (logs / 'results.json').write_text(text)
-        (COURSE / ('relu_' + args.phase + '_results.json')).write_text(text)
+        result_path('relu_' + args.phase + '_results.json').write_text(text)
 
     def run(name, command, timeout=300):
         print(name + ': ' + shlex.join(command), flush=True)

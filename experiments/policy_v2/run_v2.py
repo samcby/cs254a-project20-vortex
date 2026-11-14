@@ -13,10 +13,10 @@ import subprocess
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
-from policy_model import HERE,COURSE,OLD,FIELDS,sha
+from policy_model import HERE,OLD,FIELDS,sha
 sys.path.insert(0,str(HERE.parent/'warp_capacity'))
 from config_probe import SOURCE,config
 from run_sweep import COMMIT,parse_case
@@ -39,7 +39,7 @@ def choices(phase,w,p,manifest):
     selected=[]
     oracle=None
     if phase=='validate':
-        oracle=json.loads((COURSE/f'policy2_w{w}_oracle_results.json').read_text())
+        oracle=json.loads(result_path(f'policy2_w{w}_oracle_results.json').read_text())
         assert oracle['status']=='complete'
     for shape in p['holdout_shapes']:
         m,n,k=(shape[f] for f in ('m','n','k'))
@@ -61,7 +61,7 @@ def main():
     parser.add_argument('--warps',type=int,choices=[8,16],required=True);args=parser.parse_args()
     p=json.loads((HERE/'experiment_plan.json').read_text(encoding='utf-8'))
     assert sha(OLD/'policy.json')==p['v1_policy_sha256']
-    assert all(sha(COURSE/n)==h for n,h in p['base_training_sources'].items())
+    assert all(sha(result_path(n))==h for n,h in p['base_training_sources'].items())
     assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=SOURCE,text=True).strip()==COMMIT
     assert not subprocess.check_output(['git','diff','--name-only'],cwd=SOURCE,text=True)
     app=SOURCE/'tests/regression/activation_balance'
@@ -74,15 +74,15 @@ def main():
         manifest=json.loads((HERE/'holdout_manifest.json').read_text(encoding='utf-8'))
         assert manifest['policy_sha256']==sha(HERE/'policy_v2.json')
         assert policy['plan_sha256']==manifest['plan_sha256']==sha(HERE/'experiment_plan.json')
-        assert all(sha(COURSE/n)==h for n,h in policy['training_sources'].items())
+        assert all(sha(result_path(n))==h for n,h in policy['training_sources'].items())
     if args.phase in ('oracle','validate'):
         for w in (8,16):
-            run=json.loads((COURSE/f'policy2_w{w}_policy_results.json').read_text())
+            run=json.loads(result_path(f'policy2_w{w}_policy_results.json').read_text())
             assert run['status']=='complete' and run['policy_sha256']==manifest['policy_sha256']
     build=SOURCE/f'build32-warp-capacity-{args.warps}'
     build.mkdir(exist_ok=True)
     stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs=COURSE/'logs'/f'policy2_w{args.warps}_{args.phase}_{stamp}';logs.mkdir(parents=True,exist_ok=False)
+    logs=run_log_dir(f'policy2_w{args.warps}_{args.phase}_{stamp}');logs.mkdir(parents=True,exist_ok=False)
     for n in p['source_hashes']:
         shutil.copyfile(app/n,logs/n)
     artifacts=['experiment_plan.json']+(['policy_v2.json','holdout_manifest.json'] if policy else [])
@@ -99,7 +99,7 @@ def main():
     env.update(CONFIGS=flags,CCACHE_DISABLE='1',MAKEFLAGS='-j4')
     def save():
         text=json.dumps(result,indent=2)+'\n'
-        (logs/'results.json').write_text(text);(COURSE/f'policy2_w{args.warps}_{args.phase}_results.json').write_text(text)
+        (logs/'results.json').write_text(text);result_path(f'policy2_w{args.warps}_{args.phase}_results.json').write_text(text)
     def run(name,command,timeout=300):
         print(name+': '+shlex.join(command),flush=True)
         path=logs/(name+'.log')

@@ -14,10 +14,10 @@ import signal
 import subprocess
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import TOOLS
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import TOOLS, result_path, run_log_dir
 
-from prepare_cost import HERE,COURSE,SOURCE,OVERLAY,APP,prepare_app,prepare_capacity,prepare_observer,once,sha
+from prepare_cost import HERE,SOURCE,OVERLAY,APP,prepare_app,prepare_capacity,prepare_observer,once,sha
 sys.path.insert(0,str(HERE.parent/'warp_capacity'))
 from config_probe import config
 from run_sweep import COMMIT,parse_case
@@ -63,10 +63,10 @@ def main():
     build=SOURCE/(f'build32-cost-observer-{args.warps}' if observer else f'build32-warp-capacity-{args.warps}')
     build.mkdir(exist_ok=True)
     flags,resolved=config(args.warps)
-    reference=json.loads((COURSE/'activation_w16_matrix_results.json').read_text())
+    reference=json.loads(result_path('activation_w16_matrix_results.json').read_text())
     assert resolved==dict(reference['effective_config'],VX_CFG_NUM_WARPS=str(args.warps))
     stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    logs=COURSE/'logs'/f'{prefix}_w{args.warps}_{args.phase}_{stamp}';logs.mkdir(parents=True,exist_ok=False)
+    logs=run_log_dir(f'{prefix}_w{args.warps}_{args.phase}_{stamp}');logs.mkdir(parents=True,exist_ok=False)
     for n in hashes:shutil.copyfile(mirror/n,logs/n)
     if observer:shutil.copyfile(HERE/'observer_sources.json',logs/'observer_sources.json')
     result=dict(status='running',phase=args.phase,warps=args.warps,source_commit=COMMIT,source_hashes=hashes,
@@ -77,7 +77,7 @@ def main():
         env.pop(n,None)
     env.update(CONFIGS=flags,CCACHE_DISABLE='1',MAKEFLAGS='-j4')
     def save():
-        t=json.dumps(result,indent=2)+'\n';(logs/'results.json').write_text(t);(COURSE/f'{prefix}_w{args.warps}_{args.phase}_results.json').write_text(t)
+        t=json.dumps(result,indent=2)+'\n';(logs/'results.json').write_text(t);result_path(f'{prefix}_w{args.warps}_{args.phase}_results.json').write_text(t)
     def run(name,command,timeout=300):
         print(name+': '+shlex.join(command),flush=True);path=logs/(name+'.log')
         with path.open('w') as out:

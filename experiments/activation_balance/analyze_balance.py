@@ -8,13 +8,12 @@ import os
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from project_paths import log_path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from project_paths import log_path, result_path
 import re
 from statistics import median
 
 HERE = Path(__file__).resolve().parent
-COURSE = HERE.parents[1]
 FIELDS = ('tiles', 'k', 'mode', 'activation_warps', 'unroll', 'producer_relu', 'c_depth', 'seed')
 
 
@@ -85,7 +84,7 @@ def activity(case):
 
 def main():
     specs = [(16, p) for p in ('smoke', 'matrix', 'controls', 'repeat', 'trace')] + [(8, 'capacity')]
-    runs = {(w, p): json.loads((COURSE / f'activation_w{w}_{p}_results.json').read_text()) for w, p in specs}
+    runs = {(w, p): json.loads(result_path(f'activation_w{w}_{p}_results.json').read_text()) for w, p in specs}
     reference = runs[(16, 'matrix')]
     groups = {}
     hashes = {}
@@ -104,7 +103,7 @@ def main():
             hashes.setdefault((case['tiles'], case['k'], case['seed']), set()).add(case['output_hash'])
     assert all(len(h) == 1 for h in hashes.values()), 'Cross-method output mismatch'
     assert all(len({tuple(c['chain'].values()) for c in cases}) == 1 for cases in groups.values()), 'Counter instability'
-    previous = json.loads((COURSE / 'persistent_w16_matrix_results.json').read_text())
+    previous = json.loads(result_path('persistent_w16_matrix_results.json').read_text())
     for old in previous['cases']:
         if old['mode'] in (2, 3):
             current = next(c for c in reference['cases'] if all(c[n] == old[n] for n in ('tiles', 'k', 'mode')))

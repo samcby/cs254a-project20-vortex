@@ -15,6 +15,16 @@ The three-stage design reduces cycles by 3.33% in the selected 16-warp case. In 
 
 The configuration selector was also checked on held-out shapes. The v2-TK policy was within 5% of the fastest point in the measured candidate grid for all 12 shape/warp configurations in the v2 study. [Policy v2 report](experiments/policy_v2/RESULTS.md)
 
+## Repository layout
+
+| Path | Contents |
+| --- | --- |
+| [experiments/](experiments/) | Kernel and host code, experiment runners, reports, and summary CSVs |
+| [results/](results/) | Run records by study, including command lines, configurations, hashes, and counters |
+| [archive/logs/](archive/logs/) | Original logs, traces, binaries, and source snapshots by study and run date |
+| [scripts/](scripts/) | Vortex setup, application installation, and shared paths |
+| [docs/](docs/) | Proposal, WSL notebook, and individual run instructions |
+
 ## Experiment files
 
 | Study | Report and files |
@@ -29,7 +39,7 @@ The configuration selector was also checked on held-out shapes. The v2-TK policy
 | Expanded training data and feature comparison | [policy_v2](experiments/policy_v2/RESULTS.md) |
 | Cost attribution, including occupancy and synchronization controls | [cost_attribution](experiments/cost_attribution/RESULTS.md) |
 
-[logs/](logs/) holds the original run directories, including numerical checks, compressed traces, source snapshots, compiler output, kernel binaries and disassembly where captured. Top-level `*_results.json` files index the runs and retain command lines, simulator configuration, checksums, and counters. [simx-observer/](simx-observer/) contains the locally modified C++ files. The trace runner generates that overlay from the pinned upstream files using [prepare_cost.py](experiments/cost_attribution/prepare_cost.py). The archive includes failed development and RTL build attempts with their original statuses. The performance results are from single-core timing SimX. Cross-core queues, KMU placement, RTL execution and PPA remain follow-up work.
+The archive includes failed development and RTL build attempts with their original statuses. The trace runner generates the C++ observer overlay from the pinned Vortex source. The performance results are from single-core timing SimX. Cross-core queues, KMU placement, RTL execution and PPA remain follow-up work. [Observer source](experiments/cost_attribution/simx-observer/) · [Overlay generator](experiments/cost_attribution/prepare_cost.py)
 
 ## Reproduce
 
@@ -79,11 +89,11 @@ Both profiles compare each new run's configuration, binary SHA-256, numerical ou
 
 Release verification on Ubuntu 22.04.5 under WSL2 used a fresh upstream clone, freshly downloaded tools, and new build directories. All 90 cost-study executions and the 20 derived trace summaries matched. All nine reports were also recomputed from the packaged data, and the 11 selected 8-warp policy v2 runs matched their archived counters and output hashes.
 
-For the original experiment-by-experiment commands, work in a separate copy of this checkout and run `python3 install_apps.py` after setup. This places the nine apps under the pinned Vortex regression tree. Follow the commands in the study reports from the root of that copy. The runners write fresh `*_results.json` files and logs there. Re-run the configuration selector's freeze steps only when building a new model from new training records. See [individual run notes](docs/individual-runs.md) for ordering and the saved frozen-policy workflow.
+For the original experiment-by-experiment commands, work in a separate copy of this checkout and run `python3 scripts/install_apps.py` after setup. This places the nine apps under the pinned Vortex regression tree. Follow the commands in the study reports from the root of that copy. The runners write updated records under `results/<study>/` and new run batches under `archive/logs/<study>/`. Re-run the configuration selector's freeze steps only when building a new model from new training records. [Individual run notes](docs/individual-runs.md)
 
 ## Project documents and references
 
-- [Original proposal source with student IDs removed](docs/proposal/main.tex) · [Lab notebook and original WSL setup notes](WSL_GUIDE.md)
+- [Original proposal source with student IDs removed](docs/proposal/main.tex) · [Lab notebook and original WSL setup notes](docs/WSL_GUIDE.md)
 - [WASP, HPCA 2024](https://doi.org/10.1109/HPCA57654.2024.00086) · [Kitsune, ACM TACO 2025](https://doi.org/10.1145/3777466)
 - [Vortex v3.0](https://github.com/vortexgpgpu/vortex/releases/tag/v3.0) · [Vortex Apache 2.0 license](licenses/Vortex-Apache-2.0.txt)
 
