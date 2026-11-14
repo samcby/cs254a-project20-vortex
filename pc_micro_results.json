@@ -1,0 +1,682 @@
+{
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "phase": "micro",
+  "build": "/root/cs254a/project20/vortex/build32-pipeline",
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z",
+  "protocol": "ready/free with final drain",
+  "status": "complete",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build_micro",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/dxa_pc"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/build_micro.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_n1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d1 -n1 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_n2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d1 -n2 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_n3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d1 -n3 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_n9",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d1 -n9 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n9.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_n1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n1 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_n2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n2 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_n3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n3 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_n9",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n9 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n9.log",
+      "exit_code": 0
+    },
+    {
+      "name": "perf_p0_w0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p0 -d2 -n64 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p0_w0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "perf_p1_w0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n64 -w0",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p1_w0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "perf_p0_w32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p0 -d2 -n64 -w32",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p0_w32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "perf_p1_w32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n64 -w32",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p1_w32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "trace_p0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p0 -d2 -n9 -w32 -t",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/trace_p0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "trace_p1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_pc",
+        "--args=-p1 -d2 -n9 -w32 -t",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/trace_p1.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "pc_d1_n1",
+      "app": "dxa_pc",
+      "options": "-p1 -d1 -n1 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "177",
+        "1558",
+        "0.114"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=68, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=42 (r=30, w=12), lat=35.9 cyc, bank_st=2 (utility=95%)",
+        "PERF: instrs=177, cycles=1558, IPC=0.114"
+      ],
+      "verification": [
+        "tiles=1 depth=1 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n1.log"
+    },
+    {
+      "name": "pc_d1_n2",
+      "app": "dxa_pc",
+      "options": "-p1 -d1 -n2 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "257",
+        "2317",
+        "0.111"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=136, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=54 (r=38, w=16), lat=33.3 cyc, bank_st=2 (utility=96%)",
+        "PERF: instrs=257, cycles=2317, IPC=0.111"
+      ],
+      "verification": [
+        "tiles=2 depth=1 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n2.log"
+    },
+    {
+      "name": "pc_d1_n3",
+      "app": "dxa_pc",
+      "options": "-p1 -d1 -n3 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "337",
+        "3053",
+        "0.110"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=204, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=66 (r=46, w=20), lat=31.6 cyc, bank_st=2 (utility=97%)",
+        "PERF: instrs=337, cycles=3053, IPC=0.110"
+      ],
+      "verification": [
+        "tiles=3 depth=1 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n3.log"
+    },
+    {
+      "name": "pc_d1_n9",
+      "app": "dxa_pc",
+      "options": "-p1 -d1 -n9 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "817",
+        "7469",
+        "0.109"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=612, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=138 (r=94, w=44), lat=27.6 cyc, bank_st=2 (utility=99%)",
+        "PERF: instrs=817, cycles=7469, IPC=0.109"
+      ],
+      "verification": [
+        "tiles=9 depth=1 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d1_n9.log"
+    },
+    {
+      "name": "pc_d2_n1",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n1 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "177",
+        "1558",
+        "0.114"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=68, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=42 (r=30, w=12), lat=35.9 cyc, bank_st=2 (utility=95%)",
+        "PERF: instrs=177, cycles=1558, IPC=0.114"
+      ],
+      "verification": [
+        "tiles=1 depth=2 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n1.log"
+    },
+    {
+      "name": "pc_d2_n2",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n2 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "263",
+        "2286",
+        "0.115"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=136, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=54 (r=38, w=16), lat=33.4 cyc, bank_st=2 (utility=96%)",
+        "PERF: instrs=263, cycles=2286, IPC=0.115"
+      ],
+      "verification": [
+        "tiles=2 depth=2 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n2.log"
+    },
+    {
+      "name": "pc_d2_n3",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n3 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "343",
+        "3031",
+        "0.113"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=204, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=66 (r=46, w=20), lat=31.7 cyc, bank_st=2 (utility=97%)",
+        "PERF: instrs=343, cycles=3031, IPC=0.113"
+      ],
+      "verification": [
+        "tiles=3 depth=2 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n3.log"
+    },
+    {
+      "name": "pc_d2_n9",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n9 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "823",
+        "7357",
+        "0.112"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=612, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=138 (r=94, w=44), lat=27.7 cyc, bank_st=2 (utility=99%)",
+        "PERF: instrs=823, cycles=7357, IPC=0.112"
+      ],
+      "verification": [
+        "tiles=9 depth=2 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/pc_d2_n9.log"
+    },
+    {
+      "name": "perf_p0_w0",
+      "app": "dxa_pc",
+      "options": "-p0 -d2 -n64 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "5656",
+        "55911",
+        "0.101"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4352, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=800 (r=536, w=264), lat=24.3 cyc, bank_st=2 (utility=100%)",
+        "PERF: instrs=5656, cycles=55911, IPC=0.101"
+      ],
+      "verification": [
+        "tiles=64 depth=2 work=0 pipeline=0 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p0_w0.log"
+    },
+    {
+      "name": "perf_p1_w0",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n64 -w0",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "5223",
+        "47112",
+        "0.111"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4352, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=803 (r=539, w=264), lat=24.3 cyc, bank_st=2 (utility=100%)",
+        "PERF: instrs=5223, cycles=47112, IPC=0.111"
+      ],
+      "verification": [
+        "tiles=64 depth=2 work=0 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p1_w0.log"
+    },
+    {
+      "name": "perf_p0_w32",
+      "app": "dxa_pc",
+      "options": "-p0 -d2 -n64 -w32",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "22168",
+        "246759",
+        "0.090"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4352, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=800 (r=536, w=264), lat=24.3 cyc, bank_st=2 (utility=100%)",
+        "PERF: instrs=22168, cycles=246759, IPC=0.090"
+      ],
+      "verification": [
+        "tiles=64 depth=2 work=32 pipeline=0 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p0_w32.log"
+    },
+    {
+      "name": "perf_p1_w32",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n64 -w32",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "21735",
+        "237962",
+        "0.091"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4352, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=803 (r=539, w=264), lat=24.3 cyc, bank_st=2 (utility=100%)",
+        "PERF: instrs=21735, cycles=237962, IPC=0.091"
+      ],
+      "verification": [
+        "tiles=64 depth=2 work=32 pipeline=1 errors=0"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/perf_p1_w32.log"
+    },
+    {
+      "name": "trace_p0",
+      "app": "dxa_pc",
+      "options": "-p0 -d2 -n9 -w32 -t",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "3481",
+        "38934",
+        "0.089"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=612, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=139 (r=93, w=46), lat=27.7 cyc, bank_st=4 (utility=97%)",
+        "PERF: instrs=3481, cycles=38934, IPC=0.089"
+      ],
+      "verification": [
+        "tiles=9 depth=2 work=32 pipeline=0 errors=0"
+      ],
+      "tiles": [
+        {
+          "tile": 0,
+          "issue": 777,
+          "begin": 1047,
+          "end": 4605
+        },
+        {
+          "tile": 1,
+          "issue": 5063,
+          "begin": 5309,
+          "end": 8843
+        },
+        {
+          "tile": 2,
+          "issue": 9301,
+          "begin": 9547,
+          "end": 13081
+        },
+        {
+          "tile": 3,
+          "issue": 13539,
+          "begin": 13785,
+          "end": 17319
+        },
+        {
+          "tile": 4,
+          "issue": 17777,
+          "begin": 18023,
+          "end": 21557
+        },
+        {
+          "tile": 5,
+          "issue": 22015,
+          "begin": 22261,
+          "end": 25795
+        },
+        {
+          "tile": 6,
+          "issue": 26253,
+          "begin": 26499,
+          "end": 30033
+        },
+        {
+          "tile": 7,
+          "issue": 30491,
+          "begin": 30737,
+          "end": 34271
+        },
+        {
+          "tile": 8,
+          "issue": 34729,
+          "begin": 34975,
+          "end": 38509
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/trace_p0.log"
+    },
+    {
+      "name": "trace_p1",
+      "app": "dxa_pc",
+      "options": "-p1 -d2 -n9 -w32 -t",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "3442",
+        "36728",
+        "0.094"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=612, bank_stalls=0 (utility=100%)",
+        "PERF: core0: coalescer: misses=0",
+        "PERF: memory: reqs=142 (r=96, w=46), lat=27.4 cyc, bank_st=4 (utility=97%)",
+        "PERF: instrs=3442, cycles=36728, IPC=0.094"
+      ],
+      "verification": [
+        "tiles=9 depth=2 work=32 pipeline=1 errors=0"
+      ],
+      "tiles": [
+        {
+          "tile": 0,
+          "issue": 715,
+          "begin": 1004,
+          "end": 4588
+        },
+        {
+          "tile": 1,
+          "issue": 1088,
+          "begin": 5020,
+          "end": 8554
+        },
+        {
+          "tile": 2,
+          "issue": 4922,
+          "begin": 8986,
+          "end": 12520
+        },
+        {
+          "tile": 3,
+          "issue": 8888,
+          "begin": 12952,
+          "end": 16486
+        },
+        {
+          "tile": 4,
+          "issue": 12854,
+          "begin": 16918,
+          "end": 20452
+        },
+        {
+          "tile": 5,
+          "issue": 16820,
+          "begin": 20884,
+          "end": 24418
+        },
+        {
+          "tile": 6,
+          "issue": 20786,
+          "begin": 24850,
+          "end": 28384
+        },
+        {
+          "tile": 7,
+          "issue": 24752,
+          "begin": 28816,
+          "end": 32350
+        },
+        {
+          "tile": 8,
+          "issue": 28718,
+          "begin": 32782,
+          "end": 36316
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z/trace_p1.log"
+    }
+  ],
+  "source_hashes": {
+    "common.h": "67b4b87dc3028b344ec93e01e3de2e9b065e935708d79d1af679252c16eea66f",
+    "kernel.cpp": "c1826bebc228bcb0861d0924f99ffb897eb56f633970723f6bb9245a5cacb5ff",
+    "main.cpp": "e43247f4af84bdd979c2839db284b71b71b57a39f01151dcd373bad645261a65",
+    "Makefile": "3f5dc3be39035c1ad964d8414c104844a34a90b71c9ac4c8b2dfdfbe89164a55"
+  },
+  "git_status": " ? third_party/cocogfx\n?? tests/regression/dxa_pc/\n?? tests/regression/sgemm_tcu_wg_pc/\n"
+}

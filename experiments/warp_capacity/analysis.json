@@ -1,0 +1,229 @@
+{
+  "successful_runs": 36,
+  "matrix_runs": 32,
+  "trace_runs": 4,
+  "controlled_differences": {
+    "VX_CFG_NUM_WARPS": [
+      "8",
+      "16"
+    ]
+  },
+  "source_hashes": {
+    "base.cpp": "096054f59bf345f103506fbc2e772b63e175c1ad4baa030bec1a4061b1ce283b",
+    "common.h": "61c9a5c9a33a6755793b747bc60f1ba254ea1f93520ba93a65f48e5f8ab07b0a",
+    "main.cpp": "1ef0ebd0e8775bdd195f5f2f633807c7b32c42d63f9dd811f507666fe9e37edc",
+    "Makefile": "d2eb4f5bee9af7841b15e582c4a49c150f60ba1c5315320041c876893b10b01c",
+    "pc.cpp": "68d1abfb8bfe1dc8b9021eda42bfc37045e0e121259d1a31394bf2781e1a8e7e",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "identical_binary_sha256": "9eed0a1f46b1d217071a6872e6f3fb7f3f5c2dcdf91b661291f09569a70c9f62",
+  "performance": [
+    [
+      "64×32×64",
+      6442,
+      6628,
+      "+2.89%",
+      6435,
+      6621,
+      "+2.89%"
+    ],
+    [
+      "64×32×256",
+      20825,
+      18999,
+      "-8.77%",
+      20818,
+      18995,
+      "-8.76%"
+    ],
+    [
+      "128×128×64",
+      43658,
+      52052,
+      "+19.23%",
+      44181,
+      43031,
+      "-2.60%"
+    ],
+    [
+      "128×128×256",
+      121769,
+      150189,
+      "+23.34%",
+      118245,
+      119417,
+      "+0.99%"
+    ],
+    [
+      "256×128×64",
+      84688,
+      103850,
+      "+22.63%",
+      85147,
+      84592,
+      "-0.65%"
+    ],
+    [
+      "256×128×256",
+      242393,
+      299175,
+      "+23.43%",
+      238939,
+      240871,
+      "+0.81%"
+    ]
+  ],
+  "scaling_16_vs_8": [
+    [
+      "64×32×64",
+      "-0.11%",
+      "-0.11%"
+    ],
+    [
+      "64×32×256",
+      "-0.03%",
+      "-0.02%"
+    ],
+    [
+      "128×128×64",
+      "+1.20%",
+      "-17.33%"
+    ],
+    [
+      "128×128×256",
+      "-2.89%",
+      "-20.49%"
+    ],
+    [
+      "256×128×64",
+      "+0.54%",
+      "-18.54%"
+    ],
+    [
+      "256×128×256",
+      "-1.42%",
+      "-19.49%"
+    ]
+  ],
+  "memory_request_totals": [
+    [
+      "64×32×64",
+      604,
+      611,
+      604,
+      611
+    ],
+    [
+      "64×32×256",
+      1564,
+      1571,
+      1564,
+      1571
+    ],
+    [
+      "128×128×64",
+      5243,
+      4701,
+      5289,
+      5139
+    ],
+    [
+      "128×128×256",
+      12802,
+      12381,
+      12564,
+      12591
+    ],
+    [
+      "256×128×64",
+      10444,
+      9375,
+      10872,
+      10404
+    ],
+    [
+      "256×128×256",
+      25406,
+      24735,
+      25415,
+      25336
+    ]
+  ],
+  "residency": [
+    {
+      "hardware_warps": 8,
+      "cta_warps": 4,
+      "ctas": 8,
+      "warp_dispatches": 32,
+      "warp_exits": 32,
+      "peak": {
+        "live_warps": 8,
+        "started_live_ctas": 3,
+        "fully_admitted_live_ctas": 3,
+        "all_warps_live_ctas": 2
+      },
+      "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle.",
+      "mode": 2,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps8_trace_20261028T182147Z/m128_n128_k64_s1_v2.trace.log.gz"
+    },
+    {
+      "hardware_warps": 8,
+      "cta_warps": 5,
+      "ctas": 8,
+      "warp_dispatches": 40,
+      "warp_exits": 40,
+      "peak": {
+        "live_warps": 8,
+        "started_live_ctas": 3,
+        "fully_admitted_live_ctas": 2,
+        "all_warps_live_ctas": 1
+      },
+      "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle.",
+      "mode": 3,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps8_trace_20261028T182147Z/m128_n128_k64_s1_v3.trace.log.gz"
+    },
+    {
+      "hardware_warps": 16,
+      "cta_warps": 4,
+      "ctas": 8,
+      "warp_dispatches": 32,
+      "warp_exits": 32,
+      "peak": {
+        "live_warps": 16,
+        "started_live_ctas": 6,
+        "fully_admitted_live_ctas": 5,
+        "all_warps_live_ctas": 4
+      },
+      "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle.",
+      "mode": 2,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps16_trace_20261028T182212Z/m128_n128_k64_s1_v2.trace.log.gz"
+    },
+    {
+      "hardware_warps": 16,
+      "cta_warps": 5,
+      "ctas": 8,
+      "warp_dispatches": 40,
+      "warp_exits": 40,
+      "peak": {
+        "live_warps": 16,
+        "started_live_ctas": 4,
+        "fully_admitted_live_ctas": 4,
+        "all_warps_live_ctas": 3
+      },
+      "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle.",
+      "mode": 3,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps16_trace_20261028T182212Z/m128_n128_k64_s1_v3.trace.log.gz"
+    }
+  ],
+  "provenance": {
+    "w8_matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps8_matrix_20261028T181928Z",
+    "w8_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps8_trace_20261028T182147Z",
+    "w16_matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps16_matrix_20261028T182006Z",
+    "w16_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/warps16_trace_20261028T182212Z"
+  },
+  "limitations": [
+    "not an equal-area or equal-register-capacity comparison",
+    "CTA residency peaks are event-order peaks, not average occupancy",
+    "only finite exact-dyadic inputs and timing SimX are verified"
+  ]
+}

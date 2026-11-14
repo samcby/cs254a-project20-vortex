@@ -1,0 +1,91 @@
+{
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "phase": "trace",
+  "build": "/root/cs254a/project20/vortex/build32-pipeline",
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z",
+  "protocol": "ready/free with final drain",
+  "status": "complete",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build_pc_trace",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/sgemm_tcu_wg_pc"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/build_pc_trace.log",
+      "exit_code": 0
+    },
+    {
+      "name": "trace_depth1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k64 -b1",
+        "--debug=3",
+        "--perf=16",
+        "--log=/root/cs254a/project20/vortex/build32-pipeline/pc_gemm_depth1.trace.log"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/trace_depth1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "trace_depth2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k64 -b2",
+        "--debug=3",
+        "--perf=16",
+        "--log=/root/cs254a/project20/vortex/build32-pipeline/pc_gemm_depth2.trace.log"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/trace_depth2.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [],
+  "debug_traces": [
+    {
+      "depth": 1,
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/gemm_depth1.trace.log",
+      "bytes": 6984747,
+      "passed": true
+    },
+    {
+      "depth": 2,
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/gemm_depth2.trace.log",
+      "bytes": 6982321,
+      "passed": true
+    }
+  ],
+  "git_status": " ? third_party/cocogfx\n?? tests/regression/dxa_pc/\n?? tests/regression/sgemm_tcu_wg_control5/\n?? tests/regression/sgemm_tcu_wg_pc/\n"
+}

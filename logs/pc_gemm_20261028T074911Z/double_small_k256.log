@@ -1,0 +1,45 @@
+command=./ci/blackbox.sh --driver=simx --app=sgemm_tcu_wg_dxa '--args=-m64 -n32 -k256' --perf=7
+cwd=/root/cs254a/project20/vortex/build32-pipeline
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER -DPERF_ENABLE
+Running: CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER -DPERF_ENABLE" make -C "./ci/../tests/regression/sgemm_tcu_wg_dxa" runtime-simx > /dev/null
+Running: OPTS="-m64 -n32 -k256" CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER -DPERF_ENABLE" make -C "./ci/../tests/regression/sgemm_tcu_wg_dxa" run-simx
+make: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/sgemm_tcu_wg_dxa'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER -DPERF_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER -DPERF_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime make -C /root/cs254a/project20/vortex/build32-pipeline/sim/simx /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/libsimx.so
+make[2]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[2]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+LD_LIBRARY_PATH=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime: VORTEX_DRIVER=simx ./sgemm_tcu_wg_dxa -m64 -n32 -k256
+open device connection
+input type: fp16, output type: fp32
+WGMMA tile: M=16, N=32, K=16
+CTA tile: M=64 (warps=4)
+grid: 1x1
+block: 128x1
+matrix A: 64x256
+matrix B: 256x32
+smem: 6144 bytes
+allocate device memory
+A_addr=0x10000
+B_addr=0x18000
+C_addr=0x1c000
+upload source data
+load kernel module
+start device
+download result
+wait for completion
+Elapsed time: 57 ms
+verify result
+reference drift: max=5 ULP, bound=51 ULP (K=256)
+PERF: core0: lmem: reqs=18002, bank_stalls=5160 (utility=78%)
+PERF: core0: coalescer: misses=128
+PERF: memory: reqs=1563 (r=1427, w=136), lat=37.4 cyc, bank_st=52 (utility=97%)
+PERF: instrs=4755, cycles=16827, IPC=0.283
+PASSED!
+make: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/sgemm_tcu_wg_dxa'

@@ -1,0 +1,25 @@
+command=./ci/blackbox.sh --driver=simx --app=gemm_relu '--args=-m64 -n32 -k48 -s2026 -v0' --perf=7
+cwd=/root/cs254a/project20/vortex/build32-pipeline
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE
+Running: CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE" make -C "./ci/../tests/regression/gemm_relu" runtime-simx > /dev/null
+Running: OPTS="-m64 -n32 -k48 -s2026 -v0" CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE" make -C "./ci/../tests/regression/gemm_relu" run-simx
+make: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/gemm_relu'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime make -C /root/cs254a/project20/vortex/build32-pipeline/sim/simx /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/libsimx.so
+make[2]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[2]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+LD_LIBRARY_PATH=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime: VORTEX_DRIVER=simx ./gemm_relu -m64 -n32 -k48 -s2026 -v0
+CONFIG mode=0 M=64 N=32 K=48 seed=2026 hardware_warps=8 compute_warps=4 active_CTA_warps=4
+COVERAGE positive=1016 negative=936 zero=96
+STAGE gemm cycles=5276 instructions=1201 reads=388 writes=136
+CHAIN cycles=5276 instructions=1201 reads=388 writes=136 launches=1
+VERIFY errors=0 output_hash=9452026035051176741
+PASSED!
+make: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/gemm_relu'

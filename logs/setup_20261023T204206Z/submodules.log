@@ -1,0 +1,40 @@
+command=git submodule update --init --recursive --depth=1
+cwd=/root/cs254a/project20/vortex
+Submodule 'third_party/cocogfx' (https://github.com/gtcasl/cocogfx.git) registered for path 'third_party/cocogfx'
+Submodule 'third_party/cvfpu' (https://github.com/openhwgroup/cvfpu.git) registered for path 'third_party/cvfpu'
+Submodule 'third_party/hardfloat' (https://github.com/bsg-external/HardFloat.git) registered for path 'third_party/hardfloat'
+Submodule 'third_party/ramulator' (https://github.com/CMU-SAFARI/ramulator2.git) registered for path 'third_party/ramulator'
+Submodule 'third_party/softfloat' (https://github.com/ucb-bar/berkeley-softfloat-3.git) registered for path 'third_party/softfloat'
+Cloning into '/root/cs254a/project20/vortex/third_party/cocogfx'...
+Cloning into '/root/cs254a/project20/vortex/third_party/cvfpu'...
+Cloning into '/root/cs254a/project20/vortex/third_party/hardfloat'...
+Cloning into '/root/cs254a/project20/vortex/third_party/ramulator'...
+Cloning into '/root/cs254a/project20/vortex/third_party/softfloat'...
+From https://github.com/gtcasl/cocogfx
+ * branch            b1befdb36df8af7ac9e2c96acaf81957aab5d107 -> FETCH_HEAD
+Submodule path 'third_party/cocogfx': checked out 'b1befdb36df8af7ac9e2c96acaf81957aab5d107'
+From https://github.com/openhwgroup/cvfpu
+ * branch            79e453139072df42c9ec8f697132ba485d74e23d -> FETCH_HEAD
+Submodule path 'third_party/cvfpu': checked out '79e453139072df42c9ec8f697132ba485d74e23d'
+Submodule 'src-sv/common_cells' (https://github.com/pulp-platform/common_cells.git) registered for path 'third_party/cvfpu/src/common_cells'
+Submodule 'src-sv/fpu_div_sqrt_mvp' (https://github.com/pulp-platform/fpu_div_sqrt_mvp.git) registered for path 'third_party/cvfpu/src/fpu_div_sqrt_mvp'
+Submodule 'tb/flexfloat' (https://github.com/oprecomp/flexfloat.git) registered for path 'third_party/cvfpu/tb/flexfloat'
+Cloning into '/root/cs254a/project20/vortex/third_party/cvfpu/src/common_cells'...
+Cloning into '/root/cs254a/project20/vortex/third_party/cvfpu/src/fpu_div_sqrt_mvp'...
+Cloning into '/root/cs254a/project20/vortex/third_party/cvfpu/tb/flexfloat'...
+From https://github.com/pulp-platform/common_cells
+ * branch            6aeee85d0a34fedc06c14f04fd6363c9f7b4eeea -> FETCH_HEAD
+Submodule path 'third_party/cvfpu/src/common_cells': checked out '6aeee85d0a34fedc06c14f04fd6363c9f7b4eeea'
+From https://github.com/pulp-platform/fpu_div_sqrt_mvp
+ * branch            86e1f558b3c95e91577c41b2fc452c86b04e85ac -> FETCH_HEAD
+Submodule path 'third_party/cvfpu/src/fpu_div_sqrt_mvp': checked out '86e1f558b3c95e91577c41b2fc452c86b04e85ac'
+From https://github.com/oprecomp/flexfloat
+ * branch            28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61 -> FETCH_HEAD
+Submodule path 'third_party/cvfpu/tb/flexfloat': checked out '28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61'
+Submodule path 'third_party/hardfloat': checked out 'aaf5736dffa521603b681fd5853760c671446c85'
+From https://github.com/CMU-SAFARI/ramulator2
+ * branch            e62c84a6f0e06566ba6e182d308434b4532068a5 -> FETCH_HEAD
+Submodule path 'third_party/ramulator': checked out 'e62c84a6f0e06566ba6e182d308434b4532068a5'
+From https://github.com/ucb-bar/berkeley-softfloat-3
+ * branch            b51ef8f3201669b2288104c28546fc72532a1ea4 -> FETCH_HEAD
+Submodule path 'third_party/softfloat': checked out 'b51ef8f3201669b2288104c28546fc72532a1ea4'

@@ -1,0 +1,20 @@
+command=git clone --depth=1 --branch v3.0 https://github.com/vortexgpgpu/vortex.git /root/cs254a/project20/vortex
+cwd=/root/cs254a/project20
+Cloning into '/root/cs254a/project20/vortex'...
+Note: switching to '7fe19369587c087f902c3e2bc2add612aa910a95'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+

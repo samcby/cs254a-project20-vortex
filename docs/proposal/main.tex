@@ -1,0 +1,169 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.25em}
+\setlength{\emergencystretch}{1em}
+\pagestyle{plain}
+
+% Team information.
+\newcommand{\MemberOne}{Bingyu Chen}
+\newcommand{\MemberTwo}{Yaxin Wang}
+
+\newcommand{\proposalheading}[1]{%
+  \par\addvspace{0.55em}\noindent\textbf{#1}\par\nobreak\vspace{0.08em}}
+\newenvironment{compactitems}{%
+  \begin{list}{\arabic{enumi}.}{\usecounter{enumi}%
+  \setlength{\itemsep}{0.18em}\setlength{\topsep}{0.2em}%
+  \setlength{\partopsep}{0pt}\setlength{\parsep}{0pt}}%
+}{\end{list}}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Project 20: Dataflow Pipelines on Vortex}\\[0.25em]
+CS 254A, Fall 2026 --- Project Proposal\\[0.25em]
+\MemberOne{} (withheld)\quad and\quad \MemberTwo{} (withheld)
+\end{center}
+\vspace{-0.45em}
+
+\proposalheading{1. Why this project}
+We chose this project because we want to learn more about GPU architecture through
+hands-on experiments. Vortex lets us work with C++ simulation while also exploring
+the corresponding RTL. Our interests in digital IC design, computer architecture,
+and AI accelerators also make this a good opportunity to explore how AI and other
+algorithm workloads are mapped to GPUs, and how their execution can be improved.
+
+\proposalheading{2. Problem and goal}
+An operator chain can expose memory stalls and materialize intermediate tensors even
+when different hardware units could process different tiles concurrently. However,
+splitting work into pipeline stages also consumes execution resources and introduces
+synchronization and queue-management overhead. Our question is:
+\emph{under what conditions can explicit producer--consumer pipelines improve
+end-to-end latency and data locality on Vortex?}
+We aim to adapt the core warp-specialization and asynchronous synchronization ideas
+of WASP~\cite{wasp} to Vortex, then extend communication across cores using
+Kitsune-inspired queues and placement~\cite{kitsune}.
+
+\proposalheading{3. Approach and preliminary exploration}
+\textbf{Starting point.}
+We have built Vortex v3.0 and run the existing asynchronous-copy (DXA) and
+warpgroup matrix-multiply (WGMMA) examples in SimX~\cite{vortex}.
+We can collect performance counters and export Perfetto traces.
+In a one-core FP16-input/FP32-output GEMM experiment with $M=N=128$ and
+$K\in\{32,64,128,256\}$, double buffering ranged from 4.67\% fewer to 5.10\% more
+cycles than single buffering. All cases passed the existing numerical checks.
+These initial results suggest that extra buffering alone is not always helpful;
+we would like to understand when overlapping stages is worth its overhead.
+
+\textbf{Planned implementation.}
+\begin{compactitems}
+\item \textbf{Start with a small operator chain.}
+Use data loading/staging, GEMM, and ReLU to compute $Y=\mathrm{ReLU}(AB)$.
+Compare separate kernels with a conventional fused kernel, so we can see what
+fusion already saves before adding a pipeline.
+\item \textbf{Try different warp roles within one core.}
+Adapt the C++ DXA/WGMMA example so producer warps load tiles while consumer warps
+perform matrix multiplication, then add activation processing. Shared-memory
+buffers and arrive/wait barriers will let the stages exchange tiles safely.
+We will explore tile sizes, buffer counts, and warp allocations to see where
+useful overlap appears and where stages spend time waiting.
+\item \textbf{Let stages run on different cores.}
+Build bounded queues using global memory and atomics, with L2 as the intended
+communication path. Extend the SimX kernel-management unit (KMU) to place stages
+on selected cores. We will first check that tiles arrive correctly and execution
+makes progress, then study how placement and queue size affect traffic and latency.
+\end{compactitems}
+We will start in SimX, using WASP for warp specialization and asynchronous
+coordination, and Kitsune for cross-core pipelines. Alongside the C++ work, we will
+trace the relevant scheduling and synchronization paths in RTL and implement and
+test corresponding RTL changes where our design changes hardware behavior.
+Our report will explain which paper mechanisms we reproduced or adapted for Vortex.
+
+\newpage
+
+\proposalheading{4. Expected outcome and evaluation}
+We hope to finish with working intra-core and cross-core load--GEMM--ReLU examples,
+queue and placement support, and repeatable experiment scripts. We want to understand
+when specialized stages help and when a simpler fused kernel works better.
+
+We will compare separate kernels, conventional fusion, and both pipeline versions
+using the same total hardware resources and precision. We will measure end-to-end
+device cycles, throughput, and off-chip traffic, and check results against a CPU
+reference. Experiments will vary matrix/tile sizes, buffer depths, and stage allocations;
+counters and traces will help explain stage waiting. Success means correct execution
+and a clear account of where pipelining saves time or traffic and where it slows down.
+
+\proposalheading{5. Stretch goal}
+Our main extension would be a small Transformer feed-forward block using
+SwiGLU~\cite{glu}:
+\[
+H=\mathrm{SiLU}(XW_g)\odot(XW_u),\qquad Y=HW_d.
+\]
+Two GEMM branches feed an activation and elementwise multiply, followed by an
+output GEMM. We would explore passing intermediate tiles between stages instead of
+writing full tensors to off-chip memory, comparing separate, fused, and pipelined
+kernels across input sizes. This tests whether pipelining remains useful when stages
+must join two input streams.
+As a further architectural exploration, DICE~\cite{dice} motivates estimating
+whether direct forwarding between simple stages could save buffer accesses,
+starting with a small SimX model and access counts.
+
+\proposalheading{6. Milestones and schedule}
+We plan roughly seven weeks of work, ending with submission on December~10, 2026:
+\begin{compactitems}
+\item \textbf{Weeks 1--2: baselines and design exploration.}
+Read the papers, reproduce baselines, build separate/fused chain examples,
+and trace DXA, WGMMA, and barriers through SimX and RTL.
+\item \textbf{Weeks 3--4: intra-core pipeline.}
+Implement loader/compute roles, tile-ready and buffer-release synchronization,
+and ReLU; compare buffering and warp allocation.
+\item \textbf{Weeks 5--6: cross-core pipeline.}
+Implement atomic queues and KMU placement; test ordering and progress,
+then study stage balance and communication cost. Attempt the stretch workload if time permits.
+\item \textbf{Final week: evaluation and report.}
+Finish comparisons, explain results with counters/traces, and package code,
+scripts, and the report.
+\end{compactitems}
+
+\proposalheading{7. Risks and instructor feedback}
+The main risk is that synchronization and communication overhead may limit the
+benefits of pipelining. We would welcome the instructor's feedback on what this
+project should cover and what outcomes to aim for, including any specific
+requirements, suggested priorities, or ideas for further exploration.
+
+\begingroup
+\footnotesize
+\setlength{\parskip}{0pt}
+\begin{thebibliography}{5}
+\setlength{\itemsep}{0.15em}
+\bibitem{wasp}
+N.~C.~Crago, S.~Damani, K.~Sankaralingam, and S.~W.~Keckler,
+\emph{WASP: Exploiting GPU Pipeline Parallelism with Hardware-Accelerated Automatic
+Warp Specialization}, HPCA, 2024.
+\href{https://doi.org/10.1109/HPCA57654.2024.00086}{doi:10.1109/HPCA57654.2024.00086}.
+
+\bibitem{kitsune}
+M.~Davies, N.~Crago, K.~Sankaralingam, and S.~W.~Keckler,
+\emph{Kitsune: Enabling Dataflow Execution on GPUs with Spatial Pipelines},
+ACM TACO, vol.~22, no.~4, art.~146, 2025.
+\href{https://doi.org/10.1145/3777466}{doi:10.1145/3777466}.
+
+\bibitem{vortex}
+Vortex GPGPU, \emph{Release v3.0}, source commit \texttt{7fe1936}.
+\href{https://github.com/vortexgpgpu/vortex/releases/tag/v3.0}{Release notes and documentation}.
+
+\bibitem{glu}
+N.~Shazeer, \emph{GLU Variants Improve Transformer}, 2020.
+\href{https://arxiv.org/abs/2002.05202}{arXiv:2002.05202}.
+
+\bibitem{dice}
+J.~Wang, A.~D.~Lu, Z.~Zeng, and A.~Li,
+\emph{DICE: Enabling Efficient General-Purpose SIMT Execution with Statically
+Scheduled Coarse-Grained Reconfigurable Arrays}, 2026.
+\href{https://arxiv.org/abs/2605.05496}{arXiv:2605.05496}.
+\end{thebibliography}
+\endgroup
+
+\end{document}

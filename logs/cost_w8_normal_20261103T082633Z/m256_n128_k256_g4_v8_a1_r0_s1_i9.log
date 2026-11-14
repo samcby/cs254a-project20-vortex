@@ -1,0 +1,47 @@
+command=./ci/blackbox.sh --driver=simx --app=cost_pipeline '--args=-m256 -n128 -k256 -g4 -v8 -w1 -u4 -e0 -q1 -r0 -s1' --perf=7
+cwd=/root/cs254a/project20/vortex/build32-warp-capacity-8
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE
+Running: CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE" make -C "./ci/../tests/regression/cost_pipeline" runtime-simx > /dev/null
+Running: OPTS="-m256 -n128 -k256 -g4 -v8 -w1 -u4 -e0 -q1 -r0 -s1" CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE" make -C "./ci/../tests/regression/cost_pipeline" run-simx
+make: Entering directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/tests/regression/cost_pipeline'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/stub'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/simx DESTDIR=/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/simx'
+DESTDIR=/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime make -C /root/cs254a/project20/vortex/build32-warp-capacity-8/sim/simx /root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/libsimx.so
+make[2]: Entering directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/sim/simx'
+make[2]: Leaving directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/sim/simx'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime/simx'
+LD_LIBRARY_PATH=/root/cs254a/project20/vortex/build32-warp-capacity-8/sw/runtime: VORTEX_DRIVER=simx ./cost_pipeline -m256 -n128 -k256 -g4 -v8 -w1 -u4 -e0 -q1 -r0 -s1
+CONFIG mode=8 M=256 N=128 K=256 seed=1 hardware_warps=8 compute_warps=4 active_CTA_warps=6 activation_stride=0
+COVERAGE positive=16258 negative=16121 zero=389
+ACTIVATION warps=0 unroll=4 producer_relu=0 entry=gemm_serial1
+PERSISTENT output_tiles=16 ctas=4 c_depth=1 smem=14336
+COST_MAP A=65536 B=196608 Y=393216 A_bytes=131072 B_bytes=65536 Y_bytes=131072
+SNAPSHOT gemm cumulative_cycles=370139 cumulative_instructions=87056
+STAGE gemm cycles=370139 instructions=87056 reads=22606 writes=2100
+COST_COUNTER csr=2819 value=314771
+COST_COUNTER csr=2820 value=2763361
+COST_COUNTER csr=2821 value=2901149
+COST_COUNTER csr=2822 value=55312
+COST_COUNTER csr=2826 value=118400
+COST_COUNTER csr=2827 value=12400
+COST_COUNTER csr=2828 value=0
+COST_COUNTER csr=2829 value=0
+COST_COUNTER csr=2830 value=0
+COST_COUNTER csr=2831 value=0
+COST_COUNTER csr=2832 value=0
+COST_COUNTER csr=2835 value=38500
+COST_COUNTER csr=2836 value=2068
+COST_COUNTER csr=2837 value=7484
+COST_COUNTER csr=2838 value=6236
+COST_COUNTER csr=2839 value=32768
+COST_COUNTER csr=2844 value=172416
+COST_COUNTER csr=2846 value=67072
+CHAIN cycles=370139 instructions=87056 reads=22606 writes=2100 launches=1
+VERIFY errors=0 output_hash=17360375692337533733
+PASSED!
+make: Leaving directory '/root/cs254a/project20/vortex/build32-warp-capacity-8/tests/regression/cost_pipeline'

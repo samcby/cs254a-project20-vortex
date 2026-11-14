@@ -1,0 +1,38 @@
+command=./ci/blackbox.sh --driver=simx --app=demo
+cwd=/root/cs254a/project20/vortex/build32
+environment={"MAKEFLAGS": "-j4"}
+Running: make -C "./ci/../tests/regression/demo" runtime-simx > /dev/null
+Running: make -C "./ci/../tests/regression/demo" run-simx
+make: Entering directory '/root/cs254a/project20/vortex/build32/tests/regression/demo'
+CONFIGS=""     make -C /root/cs254a/project20/vortex/build32/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32/sw/runtime/stub'
+CONFIGS=""     make -C /root/cs254a/project20/vortex/build32/sw/runtime/simx DESTDIR=/root/cs254a/project20/vortex/build32/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32/sw/runtime/simx'
+DESTDIR=/root/cs254a/project20/vortex/build32/sw/runtime make -C /root/cs254a/project20/vortex/build32/sim/simx /root/cs254a/project20/vortex/build32/sw/runtime/libsimx.so
+make[2]: Entering directory '/root/cs254a/project20/vortex/build32/sim/simx'
+make[2]: Leaving directory '/root/cs254a/project20/vortex/build32/sim/simx'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32/sw/runtime/simx'
+LD_LIBRARY_PATH=/root/cs254a/project20/vortex/build32/sw/runtime: VORTEX_DRIVER=simx ./demo -n64
+open device connection
+data type: integer
+number of points: 1024
+buffer size: 4096 bytes
+allocate device memory
+dev_src0=0x10000
+dev_src1=0x11000
+dev_dst=0x12000
+allocate host buffers
+upload source buffer0
+upload source buffer1
+load kernel module
+launch kernel
+grid_dim=4x1, block_dim=4x1
+download destination buffer
+wait for completion
+verify result
+cleanup
+PERF: instrs=2444, cycles=6529, IPC=0.374
+PASSED!
+make: Leaving directory '/root/cs254a/project20/vortex/build32/tests/regression/demo'

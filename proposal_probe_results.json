@@ -1,0 +1,230 @@
+{
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "purpose": "proposal feasibility exploration",
+  "matrix_m": 128,
+  "matrix_n": 128,
+  "new_k_values": [
+    32,
+    128,
+    256
+  ],
+  "perf_class": 7,
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z",
+  "cases": [
+    {
+      "variant": "single",
+      "profile": 7,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "9160",
+        "39932",
+        "0.229"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=36712, bank_stalls=7880 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=4699 (r=3636, w=1063), lat=65.0 cyc, bank_st=27 (utility=99%)",
+        "PERF: instrs=9160, cycles=39932, IPC=0.229"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf7.log",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "reused_prior_run": true
+    },
+    {
+      "variant": "double",
+      "profile": 7,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "11640",
+        "41970",
+        "0.277"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=36140, bank_stalls=9429 (utility=79%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=5190 (r=3882, w=1308), lat=76.7 cyc, bank_st=30 (utility=99%)",
+        "PERF: instrs=11640, cycles=41970, IPC=0.277"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf7.log",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "reused_prior_run": true
+    },
+    {
+      "variant": "single",
+      "m": 128,
+      "n": 128,
+      "k": 32,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "6232",
+        "27147",
+        "0.230"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=18228, bank_stalls=4612 (utility=80%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=3973 (r=2633, w=1340), lat=90.1 cyc, bank_st=20 (utility=99%)",
+        "PERF: instrs=6232, cycles=27147, IPC=0.230"
+      ],
+      "verification_lines": [
+        "WGMMA tile: M=16, N=32, K=16",
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z/single_k32.log",
+      "reused_prior_run": false
+    },
+    {
+      "variant": "single",
+      "m": 128,
+      "n": 128,
+      "k": 128,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "15016",
+        "69488",
+        "0.216"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=72566, bank_stalls=19632 (utility=79%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=7697 (r=6415, w=1282), lat=54.4 cyc, bank_st=34 (utility=100%)",
+        "PERF: instrs=15016, cycles=69488, IPC=0.216"
+      ],
+      "verification_lines": [
+        "WGMMA tile: M=16, N=32, K=16",
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=3 ULP, bound=25 ULP (K=128)"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z/single_k128.log",
+      "reused_prior_run": false
+    },
+    {
+      "variant": "single",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "26728",
+        "119311",
+        "0.224"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=145350, bank_stalls=40117 (utility=78%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=12700 (r=11477, w=1223), lat=40.3 cyc, bank_st=33 (utility=100%)",
+        "PERF: instrs=26728, cycles=119311, IPC=0.224"
+      ],
+      "verification_lines": [
+        "WGMMA tile: M=16, N=32, K=16",
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z/single_k256.log",
+      "reused_prior_run": false
+    },
+    {
+      "variant": "double",
+      "m": 128,
+      "n": 128,
+      "k": 32,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "7256",
+        "25878",
+        "0.280"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=18054, bank_stalls=3949 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=3552 (r=2423, w=1129), lat=86.0 cyc, bank_st=27 (utility=99%)",
+        "PERF: instrs=7256, cycles=25878, IPC=0.280"
+      ],
+      "verification_lines": [
+        "WGMMA tile: M=16, N=32, K=16",
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z/double_k32.log",
+      "reused_prior_run": false
+    },
+    {
+      "variant": "double",
+      "m": 128,
+      "n": 128,
+      "k": 128,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "20408",
+        "68974",
+        "0.296"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=72798, bank_stalls=18130 (utility=80%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=7670 (r=6402, w=1268), lat=57.5 cyc, bank_st=30 (utility=100%)",
+        "PERF: instrs=20408, cycles=68974, IPC=0.296"
+      ],
+      "verification_lines": [
+        "WGMMA tile: M=16, N=32, K=16",
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=3 ULP, bound=25 ULP (K=128)"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z/double_k128.log",
+      "reused_prior_run": false
+    },
+    {
+      "variant": "double",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "37944",
+        "121628",
+        "0.312"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=144856, bank_stalls=36477 (utility=80%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=12754 (r=11504, w=1250), lat=43.0 cyc, bank_st=10 (utility=100%)",
+        "PERF: instrs=37944, cycles=121628, IPC=0.312"
+      ],
+      "verification_lines": [
+        "WGMMA tile: M=16, N=32, K=16",
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/proposal_probe_20261023T220813Z/double_k256.log",
+      "reused_prior_run": false
+    }
+  ],
+  "status": "complete"
+}

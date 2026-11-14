@@ -1,0 +1,261 @@
+{
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "successful_executions": 59,
+  "effective_config": {
+    "VX_CFG_NUM_CORES": "1",
+    "VX_CFG_L2_ENABLED": "0",
+    "VX_CFG_L3_ENABLED": "0",
+    "VX_CFG_NUM_WARPS": "8",
+    "VX_CFG_NUM_THREADS": "32",
+    "VX_CFG_NUM_BARRIERS": "8",
+    "VX_CFG_ISSUE_WIDTH": "4",
+    "VX_CFG_LMEM_LOG_SIZE": "16",
+    "VX_CFG_NUM_TCU_BLOCKS": "4"
+  },
+  "old_buffer_comparison": [
+    [
+      32,
+      27147,
+      25878,
+      "-4.67%",
+      "+16.43%"
+    ],
+    [
+      64,
+      39932,
+      41970,
+      "+5.10%",
+      "+27.07%"
+    ],
+    [
+      128,
+      69488,
+      68974,
+      "-0.74%",
+      "+35.91%"
+    ],
+    [
+      256,
+      119311,
+      121628,
+      "+1.94%",
+      "+41.96%"
+    ]
+  ],
+  "gemm_comparison": [
+    [
+      "64×32×16",
+      3209,
+      3191,
+      3378,
+      3378
+    ],
+    [
+      "64×32×32",
+      4763,
+      4235,
+      5015,
+      4505
+    ],
+    [
+      "64×32×48",
+      6058,
+      5184,
+      6553,
+      5560
+    ],
+    [
+      "64×32×64",
+      7403,
+      6166,
+      8127,
+      6535
+    ],
+    [
+      "64×32×256",
+      21242,
+      16827,
+      24804,
+      19442
+    ],
+    [
+      "128×128×64",
+      39932,
+      41970,
+      61771,
+      47940
+    ]
+  ],
+  "micro_comparison": [
+    [
+      0,
+      55911,
+      48049,
+      47112,
+      "-1.95%"
+    ],
+    [
+      32,
+      246759,
+      238897,
+      237962,
+      "-0.39%"
+    ]
+  ],
+  "five_warp_controls": [
+    [
+      "64×32×64",
+      6477,
+      6535,
+      "+0.90%"
+    ],
+    [
+      "64×32×256",
+      21641,
+      19442,
+      "-10.16%"
+    ],
+    [
+      "128×128×64",
+      52810,
+      47940,
+      "-9.22%"
+    ],
+    [
+      "128×128×256",
+      170268,
+      150632,
+      "-11.53%"
+    ]
+  ],
+  "indexing_comparison": [
+    [
+      "64×32×64",
+      6535,
+      6322,
+      "-3.26%"
+    ],
+    [
+      "64×32×256",
+      19442,
+      18659,
+      "-4.03%"
+    ],
+    [
+      "128×128×64",
+      47940,
+      47699,
+      "-0.50%"
+    ],
+    [
+      "128×128×256",
+      150632,
+      146351,
+      "-2.84%"
+    ]
+  ],
+  "trace_summary": [
+    {
+      "depth": 1,
+      "dxa_intervals": [
+        [
+          688,
+          1191
+        ],
+        [
+          1191,
+          1725
+        ],
+        [
+          2356,
+          2840
+        ],
+        [
+          2840,
+          3374
+        ],
+        [
+          3957,
+          4441
+        ],
+        [
+          4441,
+          4975
+        ],
+        [
+          5558,
+          6042
+        ],
+        [
+          6042,
+          6576
+        ]
+      ],
+      "wgmma_compute_events": 512,
+      "events_inside_dxa_interval": 0,
+      "distinct_overlap_cycles": 0,
+      "first_overlap_cycle": null,
+      "summary": [
+        "1579",
+        "8127",
+        "0.194"
+      ],
+      "source": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/gemm_depth1.trace.log"
+    },
+    {
+      "depth": 2,
+      "dxa_intervals": [
+        [
+          688,
+          1191
+        ],
+        [
+          1191,
+          1725
+        ],
+        [
+          1725,
+          2217
+        ],
+        [
+          2217,
+          2751
+        ],
+        [
+          2948,
+          3432
+        ],
+        [
+          3432,
+          3966
+        ],
+        [
+          3966,
+          4450
+        ],
+        [
+          4450,
+          4984
+        ]
+      ],
+      "wgmma_compute_events": 512,
+      "events_inside_dxa_interval": 356,
+      "distinct_overlap_cycles": 288,
+      "first_overlap_cycle": 2086,
+      "summary": [
+        "1584",
+        "6535",
+        "0.242"
+      ],
+      "source": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z/gemm_depth2.trace.log"
+    }
+  ],
+  "provenance": {
+    "micro": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_micro_20261028T075337Z",
+    "gemm": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T075359Z",
+    "diagnostic": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_diagnostic_20261028T075451Z",
+    "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_trace_20261028T075650Z",
+    "indexing": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_indexing_20261028T080145Z"
+  },
+  "diagnostic_note": "Control cases passed; first trace redirection failed on a space in path. Trace phase recovered both runs."
+}

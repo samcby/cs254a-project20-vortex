@@ -1,0 +1,18 @@
+command=make -j4 software
+cwd=/root/cs254a/project20/vortex/build32-cost-observer-8
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8
+make -C /root/cs254a/project20/vortex/third_party
+make[1]: Entering directory '/root/cs254a/project20/vortex/third_party'
+SPECIALIZE_TYPE=RISCV SOFTFLOAT_OPTS="-fPIC -DSOFTFLOAT_ROUND_ODD -DINLINE_LEVEL=5 -DSOFTFLOAT_FAST_DIV32TO16 -DSOFTFLOAT_FAST_DIV64TO32 -DTHREAD_LOCAL=_Thread_local" make -C softfloat/build/Linux-x86_64-GCC
+make[2]: Entering directory '/root/cs254a/project20/vortex/third_party/softfloat/build/Linux-x86_64-GCC'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/root/cs254a/project20/vortex/third_party/softfloat/build/Linux-x86_64-GCC'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/third_party'
+make -C sw/kernel
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-cost-observer-8/sw/kernel'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-cost-observer-8/sw/kernel'
+make -C sw/runtime/stub
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-cost-observer-8/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-cost-observer-8/sw/runtime/stub'

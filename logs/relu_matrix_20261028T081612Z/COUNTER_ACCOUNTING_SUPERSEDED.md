@@ -1,0 +1,1 @@
+This pilot used incorrect CHAIN cycle/instruction aggregation: core snapshots are cumulative across launches. Correctness checks remain valid; do not use its aggregate timing. See project/experiments/gemm_relu/RESULTS.md and finalized v2 records. Original logs are preserved.

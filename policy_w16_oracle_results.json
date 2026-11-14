@@ -1,0 +1,3977 @@
+{
+  "status": "complete",
+  "phase": "oracle",
+  "hardware_warps": 16,
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "source_hashes": {
+    "common.h": "f7e7d9df5a24e2accbee895ee0fff1ebc73d8ef9113266636c405a128e54c051",
+    "kernel.cpp": "6eab6064dc13e5d4d73b772174ed92c173fe3a9301f9d621522c2d28d839d7f8",
+    "main.cpp": "f4f24032be222a854e5d70551028b4b81ed198f02a38bd54d2d976f57745d88a",
+    "Makefile": "a96df047b1bec90d87876f396f7bb1a237ac28f16342284ea651a107f91cac60",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "policy_sha256": "e8958a4000df35b8ce4493d878f4f77975ed4e0295a83e0a9061383f04714d9b",
+  "manifest_sha256": "7d5321aecdfdce71bc6b3c15d20128be6f8a4aa42db7bdea3a7a60b67eecf478",
+  "effective_config": {
+    "VX_CFG_XLEN": "32",
+    "VX_CFG_FLEN": "32",
+    "VX_CFG_FPU_TYPE": "STD",
+    "VX_CFG_TCU_TYPE": "TFR",
+    "VX_CFG_NUM_CLUSTERS": "1",
+    "VX_CFG_NUM_CORES": "1",
+    "VX_CFG_SOCKET_SIZE": "1",
+    "VX_CFG_RESET_DELAY": "8",
+    "VX_CFG_ICACHE_ENABLED": "1",
+    "VX_CFG_DCACHE_ENABLED": "1",
+    "VX_CFG_LMEM_ENABLED": "1",
+    "VX_CFG_L2_ENABLED": "0",
+    "VX_CFG_L3_ENABLED": "0",
+    "VX_CFG_VM_ENABLED": "0",
+    "VX_CFG_EXT_D_ENABLED": "0",
+    "VX_CFG_EXT_M_ENABLED": "1",
+    "VX_CFG_EXT_F_ENABLED": "1",
+    "VX_CFG_EXT_C_ENABLED": "0",
+    "VX_CFG_EXT_A_ENABLED": "0",
+    "VX_CFG_EXT_ZACAS_ENABLED": "0",
+    "VX_CFG_EXT_ZICOND_ENABLED": "1",
+    "VX_CFG_EXT_TCU_ENABLED": "1",
+    "VX_CFG_EXT_DMA_ENABLED": "0",
+    "VX_CFG_EXT_DXA_ENABLED": "1",
+    "VX_CFG_EXT_TEX_ENABLED": "0",
+    "VX_CFG_EXT_RASTER_ENABLED": "0",
+    "VX_CFG_EXT_OM_ENABLED": "0",
+    "VX_CFG_EXT_RTU_ENABLED": "0",
+    "VX_CFG_VLEN": "128",
+    "VX_CFG_NUM_WARPS": "16",
+    "VX_CFG_NUM_THREADS": "32",
+    "VX_CFG_NUM_BARRIERS": "8",
+    "VX_CFG_MAX_BAR_EVENTS": "32",
+    "VX_CFG_IBUF_SIZE": "4",
+    "VX_CFG_DISPATCH_QUEUE_SIZE": "4",
+    "VX_CFG_ISSUE_WIDTH": "4",
+    "VX_CFG_SIMD_WIDTH": "32",
+    "VX_CFG_NUM_OPCS": "1",
+    "VX_CFG_NUM_GPR_BANKS": "4",
+    "VX_CFG_NUM_VGPR_BANKS": "2",
+    "VX_CFG_MEM_BLOCK_SIZE": "64",
+    "VX_CFG_MEM_ADDR_WIDTH": "32",
+    "VX_CFG_L1_LINE_SIZE": "64",
+    "VX_CFG_L2_LINE_SIZE": "64",
+    "VX_CFG_L2_SECTOR_SIZE": "64",
+    "VX_CFG_L3_LINE_SIZE": "64",
+    "VX_CFG_L3_SECTOR_SIZE": "64",
+    "VX_CFG_PLATFORM_MEMORY_NUM_BANKS": "2",
+    "VX_CFG_PLATFORM_MEMORY_ADDR_WIDTH": "32",
+    "VX_CFG_PLATFORM_MEMORY_DATA_SIZE": "64",
+    "VX_CFG_PLATFORM_MEMORY_INTERLEAVE": "1",
+    "VX_CFG_PLATFORM_MEMORY_PEAK_BW": "460000",
+    "VX_CFG_PLATFORM_CLOCK_RATE": "400",
+    "VX_CFG_NUM_ALU_LANES": "32",
+    "VX_CFG_NUM_ALU_BLOCKS": "1",
+    "VX_CFG_NUM_SFU_LANES": "32",
+    "VX_CFG_NUM_SFU_BLOCKS": "1",
+    "VX_CFG_NUM_LSU_LANES": "32",
+    "VX_CFG_NUM_LSU_BLOCKS": "1",
+    "VX_CFG_LSU_STACK_INTERLEAVE_ENABLED": "1",
+    "VX_CFG_LSU_LINE_SIZE": "64",
+    "VX_CFG_LSU_QUEUE_IN_SIZE": "4",
+    "VX_CFG_LSU_PENDING_SIZE": "16",
+    "VX_CFG_NUM_FPU_LANES": "32",
+    "VX_CFG_NUM_FPU_BLOCKS": "1",
+    "VX_CFG_FPU_QUEUE_SIZE": "2",
+    "VX_CFG_FPU_USE_DSP": "0",
+    "VX_CFG_FMA_LATENCY": "8",
+    "VX_CFG_FDIV_LATENCY": "17",
+    "VX_CFG_FSQRT_LATENCY": "17",
+    "VX_CFG_FNCP_LATENCY": "2",
+    "VX_CFG_FCVT_LATENCY": "5",
+    "VX_CFG_FMA_PE_RATIO": "1",
+    "VX_CFG_FDIV_PE_RATIO": "1",
+    "VX_CFG_FSQRT_PE_RATIO": "1",
+    "VX_CFG_FCVT_PE_RATIO": "1",
+    "VX_CFG_FNCP_PE_RATIO": "1",
+    "VX_CFG_AMO_RS_SIZE": "8",
+    "VX_CFG_NUM_VPU_LANES": "32",
+    "VX_CFG_NUM_VPU_BLOCKS": "1",
+    "VX_CFG_TLB_SIZE": "32",
+    "VX_CFG_DTLB_SIZE": "16",
+    "VX_CFG_ITLB_SIZE": "8",
+    "VX_CFG_L1_TLB_MSHR_SIZE": "4",
+    "VX_CFG_L2_TLB_SIZE": "512",
+    "VX_CFG_L2_TLB_NUM_WAYS": "4",
+    "VX_CFG_L2_TLB_MEGA_SIZE": "8",
+    "VX_CFG_L2_TLB_MSHR_SIZE": "8",
+    "VX_CFG_L2_TLB_LATENCY": "4",
+    "VX_CFG_PTW_NUM_WALKERS": "2",
+    "VX_CFG_PTW_WALK_CACHE_SIZE": "16",
+    "VX_CFG_VM_PINNED_REGION_SIZE": "0x10000000",
+    "VX_CFG_ICACHE_SIZE": "16384",
+    "VX_CFG_ICACHE_NUM_WAYS": "4",
+    "VX_CFG_ICACHE_REPL_POLICY": "1",
+    "VX_CFG_ICACHE_MSHR_SIZE": "16",
+    "VX_CFG_ICACHE_MRSQ_SIZE": "0",
+    "VX_CFG_ICACHE_MREQ_SIZE": "0",
+    "VX_CFG_ICACHE_CRSQ_SIZE": "0",
+    "VX_CFG_ICACHE_MEM_PORTS": "1",
+    "VX_CFG_ICACHE_LATENCY": "2",
+    "VX_CFG_DCACHE_SIZE": "16384",
+    "VX_CFG_DCACHE_NUM_WAYS": "4",
+    "VX_CFG_DCACHE_WORD_SIZE": "32",
+    "VX_CFG_DCACHE_WRITEBACK": "1",
+    "VX_CFG_DCACHE_DIRTYBYTES": "0",
+    "VX_CFG_DCACHE_REPL_POLICY": "1",
+    "VX_CFG_DCACHE_MSHR_SIZE": "16",
+    "VX_CFG_DCACHE_LINE_SIZE": "64",
+    "VX_CFG_DCACHE_SECTOR_SIZE": "64",
+    "VX_CFG_DCACHE_LATENCY": "2",
+    "VX_CFG_DCACHE_MRSQ_SIZE": "4",
+    "VX_CFG_DCACHE_MREQ_SIZE": "0",
+    "VX_CFG_DCACHE_CRSQ_SIZE": "0",
+    "VX_CFG_NUM_ICACHES": "1",
+    "VX_CFG_NUM_DCACHES": "1",
+    "VX_CFG_DCACHE_NUM_BANKS": "1",
+    "VX_CFG_L1_MEM_PORTS": "1",
+    "VX_CFG_L2_SIZE": "1048576",
+    "VX_CFG_L2_NUM_WAYS": "8",
+    "VX_CFG_L2_WRITEBACK": "0",
+    "VX_CFG_L2_DIRTYBYTES": "0",
+    "VX_CFG_L2_REPL_POLICY": "1",
+    "VX_CFG_L2_MSHR_SIZE": "16",
+    "VX_CFG_L2_LATENCY": "4",
+    "VX_CFG_L2_MRSQ_SIZE": "4",
+    "VX_CFG_L2_MREQ_SIZE": "0",
+    "VX_CFG_L2_CRSQ_SIZE": "0",
+    "VX_CFG_L2_NUM_BANKS": "1",
+    "VX_CFG_L2_MEM_PORTS": "0",
+    "VX_CFG_L3_SIZE": "2097152",
+    "VX_CFG_L3_NUM_WAYS": "8",
+    "VX_CFG_L3_WRITEBACK": "0",
+    "VX_CFG_L3_DIRTYBYTES": "0",
+    "VX_CFG_L3_REPL_POLICY": "1",
+    "VX_CFG_L3_MSHR_SIZE": "16",
+    "VX_CFG_L3_LATENCY": "4",
+    "VX_CFG_L3_MRSQ_SIZE": "4",
+    "VX_CFG_L3_MREQ_SIZE": "0",
+    "VX_CFG_L3_CRSQ_SIZE": "0",
+    "VX_CFG_L3_NUM_BANKS": "1",
+    "VX_CFG_L3_MEM_PORTS": "0",
+    "VX_CFG_LMEM_NUM_BANKS": "32",
+    "VX_CFG_LMEM_LOG_SIZE": "16",
+    "VX_CFG_NUM_TCU_LANES": "32",
+    "VX_CFG_NUM_TCU_BLOCKS": "4",
+    "VX_CFG_TCU_USE_DSP": "0",
+    "VX_CFG_TCU_LATENCY": "4",
+    "VX_CFG_TCU_TF32_ENABLED": "0",
+    "VX_CFG_TCU_FP16_ENABLED": "1",
+    "VX_CFG_TCU_FP8_ENABLED": "0",
+    "VX_CFG_TCU_FP4_ENABLED": "0",
+    "VX_CFG_TCU_INT8_ENABLED": "0",
+    "VX_CFG_TCU_INT4_ENABLED": "0",
+    "VX_CFG_TCU_MX_ENABLED": "0",
+    "VX_CFG_TCU_MXFP4_ENABLED": "0",
+    "VX_CFG_TCU_NVFP4_ENABLED": "0",
+    "VX_CFG_TCU_SPARSE_ENABLED": "0",
+    "VX_CFG_TCU_DSM_ENABLED": "0",
+    "VX_CFG_TCU_WGMMA_ENABLED": "1",
+    "VX_CFG_NUM_DXA_CORES": "1",
+    "VX_CFG_DXA_MEM_PORTS": "1",
+    "VX_CFG_DXA_QUEUE_SIZE": "16",
+    "VX_CFG_DXA_MAX_INFLIGHT": "8",
+    "VX_CFG_NUM_RTU_CORES": "1",
+    "VX_CFG_RTU_BVH_WIDTH": "4",
+    "VX_CFG_RTU_TLAS_ENABLED": "0",
+    "VX_CFG_RTU_STACK_DEPTH": "16",
+    "VX_CFG_RTU_RECIP_DSP_SEED": "0",
+    "VX_CFG_RTU_USE_DSP": "0",
+    "VX_CFG_RTU_FDIV_LATENCY": "17",
+    "VX_CFG_RTU_NUM_SLOTS": "1",
+    "VX_CFG_RTU_NUM_CTX": "32",
+    "VX_CFG_RTU_MERGE_DEPTH": "0",
+    "VX_CFG_NUM_RTU_BLOCKS": "2",
+    "VX_CFG_NUM_TEX_CORES": "1",
+    "VX_CFG_TEX_REQ_QUEUE_SIZE": "8",
+    "VX_CFG_TEX_MEM_QUEUE_SIZE": "8",
+    "VX_CFG_NUM_RASTER_CORES": "1",
+    "VX_CFG_RASTER_NUM_SLICES": "1",
+    "VX_CFG_RASTER_TILE_LOG_SIZE": "5",
+    "VX_CFG_RASTER_BIN_LOG_SIZE": "7",
+    "VX_CFG_RASTER_BLOCK_LOG_SIZE": "2",
+    "VX_CFG_RASTER_MEM_FIFO_DEPTH": "8",
+    "VX_CFG_RASTER_QUAD_FIFO_DEPTH": "32",
+    "VX_CFG_RASTER_MEM_QUEUE_SIZE": "4",
+    "VX_CFG_RASTER_EARLYZ_ENABLED": "0",
+    "VX_CFG_NUM_OM_CORES": "1",
+    "VX_CFG_OM_MEM_QUEUE_SIZE": "4",
+    "VX_CFG_TCACHE_SIZE": "8192",
+    "VX_CFG_TCACHE_NUM_BANKS": "1",
+    "VX_CFG_TCACHE_NUM_WAYS": "2",
+    "VX_CFG_TCACHE_CRSQ_SIZE": "0",
+    "VX_CFG_TCACHE_MSHR_SIZE": "16",
+    "VX_CFG_TCACHE_MRSQ_SIZE": "0",
+    "VX_CFG_TCACHE_MREQ_SIZE": "0",
+    "VX_CFG_NUM_TCACHES": "1",
+    "VX_CFG_RCACHE_SIZE": "4096",
+    "VX_CFG_RCACHE_NUM_BANKS": "1",
+    "VX_CFG_RCACHE_NUM_WAYS": "2",
+    "VX_CFG_RCACHE_CRSQ_SIZE": "0",
+    "VX_CFG_RCACHE_MSHR_SIZE": "16",
+    "VX_CFG_RCACHE_MRSQ_SIZE": "0",
+    "VX_CFG_RCACHE_MREQ_SIZE": "0",
+    "VX_CFG_NUM_RCACHES": "1",
+    "VX_CFG_RTCACHE_SIZE": "8192",
+    "VX_CFG_RTCACHE_NUM_BANKS": "1",
+    "VX_CFG_RTCACHE_NUM_WAYS": "2",
+    "VX_CFG_RTCACHE_CRSQ_SIZE": "2",
+    "VX_CFG_RTCACHE_MSHR_SIZE": "16",
+    "VX_CFG_RTCACHE_MREQ_SIZE": "4",
+    "VX_CFG_RTCACHE_MRSQ_SIZE": "0",
+    "VX_CFG_NUM_RTCACHES": "1",
+    "VX_CFG_OCACHE_SIZE": "16384",
+    "VX_CFG_OCACHE_NUM_BANKS": "1",
+    "VX_CFG_OCACHE_NUM_WAYS": "2",
+    "VX_CFG_OCACHE_CRSQ_SIZE": "0",
+    "VX_CFG_OCACHE_MSHR_SIZE": "16",
+    "VX_CFG_OCACHE_MRSQ_SIZE": "0",
+    "VX_CFG_OCACHE_MREQ_SIZE": "0",
+    "VX_CFG_NUM_OCACHES": "1",
+    "VX_CFG_MISA_STD": "9441568",
+    "VX_CFG_MISA_EXT": "1587",
+    "VX_DBG_STALL_TIMEOUT": "100000",
+    "VX_DBG_DEBUG_LEVEL": "3"
+  },
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=16 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8",
+  "build": "/root/cs254a/project20/vortex/build32-warp-capacity-16",
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build_app",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/activation_balance"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/build_app.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g1_v2_a0_u1_s1_r0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g1 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v2_a0_u1_s1_r0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g2_v2_a0_u1_s1_r1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g2 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v2_a0_u1_s1_r1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g4_v2_a0_u1_s1_r2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g4 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v2_a0_u1_s1_r2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g1_v3_a0_u1_s1_r3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g1 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v3_a0_u1_s1_r3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g2_v3_a0_u1_s1_r4",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g2 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v3_a0_u1_s1_r4.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g4_v3_a0_u1_s1_r5",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g4 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v3_a0_u1_s1_r5.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g1_v4_a1_u4_s1_r6",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g1 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v4_a1_u4_s1_r6.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g2_v4_a1_u4_s1_r7",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g2 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v4_a1_u4_s1_r7.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g4_v4_a1_u4_s1_r8",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g4 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v4_a1_u4_s1_r8.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g1_v4_a2_u4_s1_r9",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g1 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v4_a2_u4_s1_r9.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g2_v4_a2_u4_s1_r10",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g2 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v4_a2_u4_s1_r10.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n128_k64_g4_v4_a2_u4_s1_r11",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m64 -n128 -k64 -g4 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v4_a2_u4_s1_r11.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g1_v2_a0_u1_s1_r12",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g1 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v2_a0_u1_s1_r12.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g2_v2_a0_u1_s1_r13",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g2 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v2_a0_u1_s1_r13.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g4_v2_a0_u1_s1_r14",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g4 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v2_a0_u1_s1_r14.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g1 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g2_v3_a0_u1_s1_r16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g2 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v3_a0_u1_s1_r16.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g4_v3_a0_u1_s1_r17",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g4 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v3_a0_u1_s1_r17.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g1_v4_a1_u4_s1_r18",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g1 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v4_a1_u4_s1_r18.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g2_v4_a1_u4_s1_r19",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g2 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v4_a1_u4_s1_r19.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g4_v4_a1_u4_s1_r20",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g4 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v4_a1_u4_s1_r20.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g1_v4_a2_u4_s1_r21",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g1 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v4_a2_u4_s1_r21.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g2_v4_a2_u4_s1_r22",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g2 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v4_a2_u4_s1_r22.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n32_k64_g4_v4_a2_u4_s1_r23",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n32 -k64 -g4 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v4_a2_u4_s1_r23.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g1_v2_a0_u1_s1_r24",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g1 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v2_a0_u1_s1_r24.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g2_v2_a0_u1_s1_r25",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g2 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v2_a0_u1_s1_r25.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g4_v2_a0_u1_s1_r26",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g4 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v2_a0_u1_s1_r26.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g8_v2_a0_u1_s1_r27",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g8 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v2_a0_u1_s1_r27.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g1_v3_a0_u1_s1_r28",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g1 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v3_a0_u1_s1_r28.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g2_v3_a0_u1_s1_r29",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g2 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v3_a0_u1_s1_r29.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g4_v3_a0_u1_s1_r30",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g4 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v3_a0_u1_s1_r30.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g8_v3_a0_u1_s1_r31",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g8 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v3_a0_u1_s1_r31.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g1_v4_a1_u4_s1_r32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g1 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v4_a1_u4_s1_r32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g2_v4_a1_u4_s1_r33",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g2 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v4_a1_u4_s1_r33.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g4_v4_a1_u4_s1_r34",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g4 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v4_a1_u4_s1_r34.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g8_v4_a1_u4_s1_r35",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g8 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v4_a1_u4_s1_r35.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g1_v4_a2_u4_s1_r36",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g1 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v4_a2_u4_s1_r36.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g2_v4_a2_u4_s1_r37",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g2 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v4_a2_u4_s1_r37.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g4_v4_a2_u4_s1_r38",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g4 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v4_a2_u4_s1_r38.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m256_n64_k128_g8_v4_a2_u4_s1_r39",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m256 -n64 -k128 -g8 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v4_a2_u4_s1_r39.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g1_v2_a0_u1_s1_r40",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g1 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v2_a0_u1_s1_r40.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g2_v2_a0_u1_s1_r41",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g2 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v2_a0_u1_s1_r41.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g4_v2_a0_u1_s1_r42",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g4 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v2_a0_u1_s1_r42.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g8_v2_a0_u1_s1_r43",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g8 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v2_a0_u1_s1_r43.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g1_v3_a0_u1_s1_r44",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g1 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v3_a0_u1_s1_r44.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g2_v3_a0_u1_s1_r45",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g2 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v3_a0_u1_s1_r45.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g4_v3_a0_u1_s1_r46",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g4 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v3_a0_u1_s1_r46.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g8_v3_a0_u1_s1_r47",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g8 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v3_a0_u1_s1_r47.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g1_v4_a1_u4_s1_r48",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g1 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v4_a1_u4_s1_r48.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g2_v4_a1_u4_s1_r49",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g2 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v4_a1_u4_s1_r49.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g4_v4_a1_u4_s1_r50",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g4 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v4_a1_u4_s1_r50.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g8_v4_a1_u4_s1_r51",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g8 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v4_a1_u4_s1_r51.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g1_v4_a2_u4_s1_r52",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g1 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v4_a2_u4_s1_r52.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g2_v4_a2_u4_s1_r53",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g2 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v4_a2_u4_s1_r53.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g4_v4_a2_u4_s1_r54",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g4 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v4_a2_u4_s1_r54.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m192_n128_k64_g8_v4_a2_u4_s1_r55",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m192 -n128 -k64 -g8 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v4_a2_u4_s1_r55.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g1_v2_a0_u1_s1_r56",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g1 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v2_a0_u1_s1_r56.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g2_v2_a0_u1_s1_r57",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g2 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v2_a0_u1_s1_r57.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g4_v2_a0_u1_s1_r58",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g4 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v2_a0_u1_s1_r58.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g8_v2_a0_u1_s1_r59",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g8 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v2_a0_u1_s1_r59.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g1_v3_a0_u1_s1_r60",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g1 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v3_a0_u1_s1_r60.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g2_v3_a0_u1_s1_r61",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g2 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v3_a0_u1_s1_r61.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g4_v3_a0_u1_s1_r62",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g4 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v3_a0_u1_s1_r62.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g8_v3_a0_u1_s1_r63",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g8 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v3_a0_u1_s1_r63.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g1_v4_a1_u4_s1_r64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g1 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v4_a1_u4_s1_r64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g2_v4_a1_u4_s1_r65",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g2 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v4_a1_u4_s1_r65.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g4_v4_a1_u4_s1_r66",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g4 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v4_a1_u4_s1_r66.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g8_v4_a1_u4_s1_r67",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g8 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v4_a1_u4_s1_r67.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g1_v4_a2_u4_s1_r68",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g1 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v4_a2_u4_s1_r68.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g2_v4_a2_u4_s1_r69",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g2 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v4_a2_u4_s1_r69.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g4_v4_a2_u4_s1_r70",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g4 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v4_a2_u4_s1_r70.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m384_n128_k256_g8_v4_a2_u4_s1_r71",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m384 -n128 -k256 -g8 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v4_a2_u4_s1_r71.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g1_v2_a0_u1_s1_r72",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g1 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v2_a0_u1_s1_r72.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g2_v2_a0_u1_s1_r73",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g2 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v2_a0_u1_s1_r73.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g4_v2_a0_u1_s1_r74",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g4 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v2_a0_u1_s1_r74.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g8_v2_a0_u1_s1_r75",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g8 -v2 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v2_a0_u1_s1_r75.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g1_v3_a0_u1_s1_r76",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g1 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v3_a0_u1_s1_r76.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g2_v3_a0_u1_s1_r77",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g2 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v3_a0_u1_s1_r77.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g4_v3_a0_u1_s1_r78",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g4 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v3_a0_u1_s1_r78.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g8_v3_a0_u1_s1_r79",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g8 -v3 -w1 -u1 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v3_a0_u1_s1_r79.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g1_v4_a1_u4_s1_r80",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g1 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v4_a1_u4_s1_r80.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g2_v4_a1_u4_s1_r81",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g2 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v4_a1_u4_s1_r81.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g4_v4_a1_u4_s1_r82",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g4 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v4_a1_u4_s1_r82.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g8_v4_a1_u4_s1_r83",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g8 -v4 -w1 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v4_a1_u4_s1_r83.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g1_v4_a2_u4_s1_r84",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g1 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v4_a2_u4_s1_r84.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g2_v4_a2_u4_s1_r85",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g2 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v4_a2_u4_s1_r85.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g4_v4_a2_u4_s1_r86",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g4 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v4_a2_u4_s1_r86.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m320_n128_k192_g8_v4_a2_u4_s1_r87",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=activation_balance",
+        "--args=-m320 -n128 -k192 -g8 -v4 -w2 -u4 -e0 -q1 -s1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v4_a2_u4_s1_r87.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m64_n128_k64_g1_v2_a0_u1_s1_r0",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v2_a0_u1_s1_r0.log",
+      "passed": true,
+      "chain": {
+        "cycles": 24380,
+        "instructions": 6394,
+        "reads": 2082,
+        "writes": 760,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "7621155412553569061",
+      "smem": 6144
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m64_n128_k64_g2_v2_a0_u1_s1_r1",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v2_a0_u1_s1_r1.log",
+      "passed": true,
+      "chain": {
+        "cycles": 22600,
+        "instructions": 6580,
+        "reads": 2006,
+        "writes": 665,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "7621155412553569061",
+      "smem": 6144
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m64_n128_k64_g4_v2_a0_u1_s1_r2",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v2_a0_u1_s1_r2.log",
+      "passed": true,
+      "chain": {
+        "cycles": 25475,
+        "instructions": 6952,
+        "reads": 2078,
+        "writes": 716,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "7621155412553569061",
+      "smem": 6144
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m64_n128_k64_g1_v3_a0_u1_s1_r3",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v3_a0_u1_s1_r3.log",
+      "passed": true,
+      "chain": {
+        "cycles": 22234,
+        "instructions": 5883,
+        "reads": 1857,
+        "writes": 560,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "7621155412553569061",
+      "smem": 6144
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m64_n128_k64_g2_v3_a0_u1_s1_r4",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v3_a0_u1_s1_r4.log",
+      "passed": true,
+      "chain": {
+        "cycles": 21970,
+        "instructions": 6106,
+        "reads": 1960,
+        "writes": 663,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "7621155412553569061",
+      "smem": 6144
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m64_n128_k64_g4_v3_a0_u1_s1_r5",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v3_a0_u1_s1_r5.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23146,
+        "instructions": 6536,
+        "reads": 1978,
+        "writes": 680,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "7621155412553569061",
+      "smem": 6144
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m64_n128_k64_g1_v4_a1_u4_s1_r6",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v4_a1_u4_s1_r6.log",
+      "passed": true,
+      "chain": {
+        "cycles": 34029,
+        "instructions": 8532,
+        "reads": 1839,
+        "writes": 536,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "7621155412553569061",
+      "smem": 14336
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m64_n128_k64_g2_v4_a1_u4_s1_r7",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v4_a1_u4_s1_r7.log",
+      "passed": true,
+      "chain": {
+        "cycles": 25883,
+        "instructions": 8920,
+        "reads": 1863,
+        "writes": 560,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "7621155412553569061",
+      "smem": 14336
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m64_n128_k64_g4_v4_a1_u4_s1_r8",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v4_a1_u4_s1_r8.log",
+      "passed": true,
+      "chain": {
+        "cycles": 29198,
+        "instructions": 9664,
+        "reads": 1895,
+        "writes": 592,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "7621155412553569061",
+      "smem": 14336
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m64_n128_k64_g1_v4_a2_u4_s1_r9",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g1_v4_a2_u4_s1_r9.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23585,
+        "instructions": 8707,
+        "reads": 1844,
+        "writes": 540,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "7621155412553569061",
+      "smem": 14336
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m64_n128_k64_g2_v4_a2_u4_s1_r10",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v4_a2_u4_s1_r10.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23704,
+        "instructions": 9154,
+        "reads": 1873,
+        "writes": 568,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "7621155412553569061",
+      "smem": 14336
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m64_n128_k64_g4_v4_a2_u4_s1_r11",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g4_v4_a2_u4_s1_r11.log",
+      "passed": true,
+      "chain": {
+        "cycles": 25774,
+        "instructions": 10000,
+        "reads": 1905,
+        "writes": 600,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3999,
+        "negative": 3999,
+        "zero": 194
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "7621155412553569061",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m256_n32_k64_g1_v2_a0_u1_s1_r12",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v2_a0_u1_s1_r12.log",
+      "passed": true,
+      "chain": {
+        "cycles": 24140,
+        "instructions": 6394,
+        "reads": 1880,
+        "writes": 552,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "2436646247310258981",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m256_n32_k64_g2_v2_a0_u1_s1_r13",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v2_a0_u1_s1_r13.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23509,
+        "instructions": 6580,
+        "reads": 1953,
+        "writes": 592,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "2436646247310258981",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m256_n32_k64_g4_v2_a0_u1_s1_r14",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v2_a0_u1_s1_r14.log",
+      "passed": true,
+      "chain": {
+        "cycles": 25719,
+        "instructions": 6952,
+        "reads": 2056,
+        "writes": 672,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "2436646247310258981",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+      "passed": true,
+      "chain": {
+        "cycles": 22162,
+        "instructions": 5883,
+        "reads": 1829,
+        "writes": 532,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "2436646247310258981",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m256_n32_k64_g2_v3_a0_u1_s1_r16",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v3_a0_u1_s1_r16.log",
+      "passed": true,
+      "chain": {
+        "cycles": 22750,
+        "instructions": 6106,
+        "reads": 1849,
+        "writes": 552,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "2436646247310258981",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m256_n32_k64_g4_v3_a0_u1_s1_r17",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v3_a0_u1_s1_r17.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23804,
+        "instructions": 6536,
+        "reads": 1873,
+        "writes": 576,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "2436646247310258981",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m256_n32_k64_g1_v4_a1_u4_s1_r18",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v4_a1_u4_s1_r18.log",
+      "passed": true,
+      "chain": {
+        "cycles": 34075,
+        "instructions": 8532,
+        "reads": 1839,
+        "writes": 536,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "2436646247310258981",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m256_n32_k64_g2_v4_a1_u4_s1_r19",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v4_a1_u4_s1_r19.log",
+      "passed": true,
+      "chain": {
+        "cycles": 25883,
+        "instructions": 8920,
+        "reads": 1863,
+        "writes": 560,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "2436646247310258981",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m256_n32_k64_g4_v4_a1_u4_s1_r20",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v4_a1_u4_s1_r20.log",
+      "passed": true,
+      "chain": {
+        "cycles": 29256,
+        "instructions": 9664,
+        "reads": 1895,
+        "writes": 592,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "2436646247310258981",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m256_n32_k64_g1_v4_a2_u4_s1_r21",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v4_a2_u4_s1_r21.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23034,
+        "instructions": 8707,
+        "reads": 1844,
+        "writes": 540,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "2436646247310258981",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m256_n32_k64_g2_v4_a2_u4_s1_r22",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v4_a2_u4_s1_r22.log",
+      "passed": true,
+      "chain": {
+        "cycles": 23807,
+        "instructions": 9154,
+        "reads": 1872,
+        "writes": 568,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "2436646247310258981",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m256_n32_k64_g4_v4_a2_u4_s1_r23",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g4_v4_a2_u4_s1_r23.log",
+      "passed": true,
+      "chain": {
+        "cycles": 26111,
+        "instructions": 10000,
+        "reads": 1908,
+        "writes": 604,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 3906,
+        "negative": 3996,
+        "zero": 290
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "2436646247310258981",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m256_n64_k128_g1_v2_a0_u1_s1_r24",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v2_a0_u1_s1_r24.log",
+      "passed": true,
+      "chain": {
+        "cycles": 97172,
+        "instructions": 22394,
+        "reads": 6295,
+        "writes": 1064,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m256_n64_k128_g2_v2_a0_u1_s1_r25",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v2_a0_u1_s1_r25.log",
+      "passed": true,
+      "chain": {
+        "cycles": 71899,
+        "instructions": 22580,
+        "reads": 6402,
+        "writes": 1104,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m256_n64_k128_g4_v2_a0_u1_s1_r26",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v2_a0_u1_s1_r26.log",
+      "passed": true,
+      "chain": {
+        "cycles": 75427,
+        "instructions": 22952,
+        "reads": 6497,
+        "writes": 1184,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m256_n64_k128_g8_v2_a0_u1_s1_r27",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v2_a0_u1_s1_r27.log",
+      "passed": true,
+      "chain": {
+        "cycles": 77329,
+        "instructions": 23632,
+        "reads": 6648,
+        "writes": 1341,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m256_n64_k128_g1_v3_a0_u1_s1_r28",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v3_a0_u1_s1_r28.log",
+      "passed": true,
+      "chain": {
+        "cycles": 77566,
+        "instructions": 20375,
+        "reads": 6184,
+        "writes": 1044,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m256_n64_k128_g2_v3_a0_u1_s1_r29",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v3_a0_u1_s1_r29.log",
+      "passed": true,
+      "chain": {
+        "cycles": 72745,
+        "instructions": 20598,
+        "reads": 6203,
+        "writes": 1064,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m256_n64_k128_g4_v3_a0_u1_s1_r30",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v3_a0_u1_s1_r30.log",
+      "passed": true,
+      "chain": {
+        "cycles": 74238,
+        "instructions": 21028,
+        "reads": 6244,
+        "writes": 1104,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m256_n64_k128_g8_v3_a0_u1_s1_r31",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v3_a0_u1_s1_r31.log",
+      "passed": true,
+      "chain": {
+        "cycles": 72235,
+        "instructions": 21840,
+        "reads": 6310,
+        "writes": 1170,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "13043713101118219045",
+      "smem": 6144
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m256_n64_k128_g1_v4_a1_u4_s1_r32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v4_a1_u4_s1_r32.log",
+      "passed": true,
+      "chain": {
+        "cycles": 76792,
+        "instructions": 25508,
+        "reads": 6194,
+        "writes": 1048,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m256_n64_k128_g2_v4_a1_u4_s1_r33",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v4_a1_u4_s1_r33.log",
+      "passed": true,
+      "chain": {
+        "cycles": 73230,
+        "instructions": 25896,
+        "reads": 6217,
+        "writes": 1072,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m256_n64_k128_g4_v4_a1_u4_s1_r34",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v4_a1_u4_s1_r34.log",
+      "passed": true,
+      "chain": {
+        "cycles": 73357,
+        "instructions": 26640,
+        "reads": 6266,
+        "writes": 1120,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m256_n64_k128_g8_v4_a1_u4_s1_r35",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v4_a1_u4_s1_r35.log",
+      "passed": true,
+      "chain": {
+        "cycles": 74982,
+        "instructions": 28096,
+        "reads": 6345,
+        "writes": 1200,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m256_n64_k128_g1_v4_a2_u4_s1_r36",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g1_v4_a2_u4_s1_r36.log",
+      "passed": true,
+      "chain": {
+        "cycles": 74345,
+        "instructions": 25799,
+        "reads": 6199,
+        "writes": 1052,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m256_n64_k128_g2_v4_a2_u4_s1_r37",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v4_a2_u4_s1_r37.log",
+      "passed": true,
+      "chain": {
+        "cycles": 72710,
+        "instructions": 26246,
+        "reads": 6226,
+        "writes": 1080,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m256_n64_k128_g4_v4_a2_u4_s1_r38",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g4_v4_a2_u4_s1_r38.log",
+      "passed": true,
+      "chain": {
+        "cycles": 72736,
+        "instructions": 27092,
+        "reads": 6282,
+        "writes": 1136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m256_n64_k128_g8_v4_a2_u4_s1_r39",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v4_a2_u4_s1_r39.log",
+      "passed": true,
+      "chain": {
+        "cycles": 79791,
+        "instructions": 28768,
+        "reads": 6364,
+        "writes": 1218,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8148,
+        "negative": 7911,
+        "zero": 325
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "13043713101118219045",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m192_n128_k64_g1_v2_a0_u1_s1_r40",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v2_a0_u1_s1_r40.log",
+      "passed": true,
+      "chain": {
+        "cycles": 71094,
+        "instructions": 18810,
+        "reads": 6134,
+        "writes": 2202,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m192_n128_k64_g2_v2_a0_u1_s1_r41",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v2_a0_u1_s1_r41.log",
+      "passed": true,
+      "chain": {
+        "cycles": 65236,
+        "instructions": 18996,
+        "reads": 5891,
+        "writes": 1891,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m192_n128_k64_g4_v2_a0_u1_s1_r42",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v2_a0_u1_s1_r42.log",
+      "passed": true,
+      "chain": {
+        "cycles": 66270,
+        "instructions": 19368,
+        "reads": 5948,
+        "writes": 1835,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m192_n128_k64_g8_v2_a0_u1_s1_r43",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v2_a0_u1_s1_r43.log",
+      "passed": true,
+      "chain": {
+        "cycles": 67861,
+        "instructions": 20048,
+        "reads": 6077,
+        "writes": 2039,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m192_n128_k64_g1_v3_a0_u1_s1_r44",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v3_a0_u1_s1_r44.log",
+      "passed": true,
+      "chain": {
+        "cycles": 64100,
+        "instructions": 17203,
+        "reads": 5448,
+        "writes": 1589,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m192_n128_k64_g2_v3_a0_u1_s1_r45",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v3_a0_u1_s1_r45.log",
+      "passed": true,
+      "chain": {
+        "cycles": 63025,
+        "instructions": 17426,
+        "reads": 5693,
+        "writes": 1834,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m192_n128_k64_g4_v3_a0_u1_s1_r46",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v3_a0_u1_s1_r46.log",
+      "passed": true,
+      "chain": {
+        "cycles": 65599,
+        "instructions": 17856,
+        "reads": 5778,
+        "writes": 1918,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m192_n128_k64_g8_v3_a0_u1_s1_r47",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v3_a0_u1_s1_r47.log",
+      "passed": true,
+      "chain": {
+        "cycles": 65574,
+        "instructions": 18668,
+        "reads": 5878,
+        "writes": 2018,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "6704879752028193573",
+      "smem": 6144
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m192_n128_k64_g1_v4_a1_u4_s1_r48",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v4_a1_u4_s1_r48.log",
+      "passed": true,
+      "chain": {
+        "cycles": 91011,
+        "instructions": 24820,
+        "reads": 5427,
+        "writes": 1560,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m192_n128_k64_g2_v4_a1_u4_s1_r49",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v4_a1_u4_s1_r49.log",
+      "passed": true,
+      "chain": {
+        "cycles": 62330,
+        "instructions": 25208,
+        "reads": 5449,
+        "writes": 1584,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m192_n128_k64_g4_v4_a1_u4_s1_r50",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v4_a1_u4_s1_r50.log",
+      "passed": true,
+      "chain": {
+        "cycles": 67354,
+        "instructions": 25952,
+        "reads": 5481,
+        "writes": 1616,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m192_n128_k64_g8_v4_a1_u4_s1_r51",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v4_a1_u4_s1_r51.log",
+      "passed": true,
+      "chain": {
+        "cycles": 67367,
+        "instructions": 27408,
+        "reads": 5556,
+        "writes": 1691,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m192_n128_k64_g1_v4_a2_u4_s1_r52",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v4_a2_u4_s1_r52.log",
+      "passed": true,
+      "chain": {
+        "cycles": 61179,
+        "instructions": 25227,
+        "reads": 5430,
+        "writes": 1564,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m192_n128_k64_g2_v4_a2_u4_s1_r53",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v4_a2_u4_s1_r53.log",
+      "passed": true,
+      "chain": {
+        "cycles": 62097,
+        "instructions": 25674,
+        "reads": 5460,
+        "writes": 1592,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m192_n128_k64_g4_v4_a2_u4_s1_r54",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g4_v4_a2_u4_s1_r54.log",
+      "passed": true,
+      "chain": {
+        "cycles": 64743,
+        "instructions": 26520,
+        "reads": 5496,
+        "writes": 1628,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m192_n128_k64_g8_v4_a2_u4_s1_r55",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g8_v4_a2_u4_s1_r55.log",
+      "passed": true,
+      "chain": {
+        "cycles": 69371,
+        "instructions": 28196,
+        "reads": 5569,
+        "writes": 1700,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 12149,
+        "negative": 12090,
+        "zero": 337
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "6704879752028193573",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m384_n128_k256_g1_v2_a0_u1_s1_r56",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v2_a0_u1_s1_r56.log",
+      "passed": true,
+      "chain": {
+        "cycles": 571084,
+        "instructions": 125562,
+        "reads": 35157,
+        "writes": 4270,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m384_n128_k256_g2_v2_a0_u1_s1_r57",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v2_a0_u1_s1_r57.log",
+      "passed": true,
+      "chain": {
+        "cycles": 364514,
+        "instructions": 125748,
+        "reads": 34412,
+        "writes": 3374,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m384_n128_k256_g4_v2_a0_u1_s1_r58",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v2_a0_u1_s1_r58.log",
+      "passed": true,
+      "chain": {
+        "cycles": 360552,
+        "instructions": 126120,
+        "reads": 34661,
+        "writes": 3373,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m384_n128_k256_g8_v2_a0_u1_s1_r59",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v2_a0_u1_s1_r59.log",
+      "passed": true,
+      "chain": {
+        "cycles": 365838,
+        "instructions": 126800,
+        "reads": 34808,
+        "writes": 3578,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m384_n128_k256_g1_v3_a0_u1_s1_r60",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v3_a0_u1_s1_r60.log",
+      "passed": true,
+      "chain": {
+        "cycles": 413094,
+        "instructions": 113671,
+        "reads": 33840,
+        "writes": 3092,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m384_n128_k256_g2_v3_a0_u1_s1_r61",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v3_a0_u1_s1_r61.log",
+      "passed": true,
+      "chain": {
+        "cycles": 354152,
+        "instructions": 113894,
+        "reads": 34157,
+        "writes": 3412,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m384_n128_k256_g4_v3_a0_u1_s1_r62",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v3_a0_u1_s1_r62.log",
+      "passed": true,
+      "chain": {
+        "cycles": 364733,
+        "instructions": 114324,
+        "reads": 34205,
+        "writes": 3458,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m384_n128_k256_g8_v3_a0_u1_s1_r63",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v3_a0_u1_s1_r63.log",
+      "passed": true,
+      "chain": {
+        "cycles": 362003,
+        "instructions": 115136,
+        "reads": 34395,
+        "writes": 3650,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "12364994307704703781",
+      "smem": 6144
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m384_n128_k256_g1_v4_a1_u4_s1_r64",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v4_a1_u4_s1_r64.log",
+      "passed": true,
+      "chain": {
+        "cycles": 399928,
+        "instructions": 128740,
+        "reads": 33844,
+        "writes": 3096,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m384_n128_k256_g2_v4_a1_u4_s1_r65",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v4_a1_u4_s1_r65.log",
+      "passed": true,
+      "chain": {
+        "cycles": 350899,
+        "instructions": 129128,
+        "reads": 33868,
+        "writes": 3120,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m384_n128_k256_g4_v4_a1_u4_s1_r66",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v4_a1_u4_s1_r66.log",
+      "passed": true,
+      "chain": {
+        "cycles": 353676,
+        "instructions": 129872,
+        "reads": 33900,
+        "writes": 3152,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m384_n128_k256_g8_v4_a1_u4_s1_r67",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v4_a1_u4_s1_r67.log",
+      "passed": true,
+      "chain": {
+        "cycles": 360290,
+        "instructions": 131328,
+        "reads": 33972,
+        "writes": 3224,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m384_n128_k256_g1_v4_a2_u4_s1_r68",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g1_v4_a2_u4_s1_r68.log",
+      "passed": true,
+      "chain": {
+        "cycles": 399617,
+        "instructions": 129495,
+        "reads": 33849,
+        "writes": 3100,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m384_n128_k256_g2_v4_a2_u4_s1_r69",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v4_a2_u4_s1_r69.log",
+      "passed": true,
+      "chain": {
+        "cycles": 353771,
+        "instructions": 129942,
+        "reads": 33877,
+        "writes": 3128,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m384_n128_k256_g4_v4_a2_u4_s1_r70",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v4_a2_u4_s1_r70.log",
+      "passed": true,
+      "chain": {
+        "cycles": 357125,
+        "instructions": 130788,
+        "reads": 33917,
+        "writes": 3168,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m384_n128_k256_g8_v4_a2_u4_s1_r71",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g8_v4_a2_u4_s1_r71.log",
+      "passed": true,
+      "chain": {
+        "cycles": 366313,
+        "instructions": 132464,
+        "reads": 33982,
+        "writes": 3232,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 24473,
+        "negative": 24150,
+        "zero": 529
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "12364994307704703781",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m320_n128_k192_g1_v2_a0_u1_s1_r72",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v2_a0_u1_s1_r72.log",
+      "passed": true,
+      "chain": {
+        "cycles": 366214,
+        "instructions": 80186,
+        "reads": 22906,
+        "writes": 3564,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m320_n128_k192_g2_v2_a0_u1_s1_r73",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v2_a0_u1_s1_r73.log",
+      "passed": true,
+      "chain": {
+        "cycles": 234580,
+        "instructions": 80372,
+        "reads": 22269,
+        "writes": 2802,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m320_n128_k192_g4_v2_a0_u1_s1_r74",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v2_a0_u1_s1_r74.log",
+      "passed": true,
+      "chain": {
+        "cycles": 237429,
+        "instructions": 80744,
+        "reads": 22623,
+        "writes": 2958,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m320_n128_k192_g8_v2_a0_u1_s1_r75",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v2_a0_u1_s1_r75.log",
+      "passed": true,
+      "chain": {
+        "cycles": 238879,
+        "instructions": 81424,
+        "reads": 22626,
+        "writes": 3027,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 4,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "name": "m320_n128_k192_g1_v3_a0_u1_s1_r76",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v3_a0_u1_s1_r76.log",
+      "passed": true,
+      "chain": {
+        "cycles": 261159,
+        "instructions": 72683,
+        "reads": 21801,
+        "writes": 2580,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "name": "m320_n128_k192_g2_v3_a0_u1_s1_r77",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v3_a0_u1_s1_r77.log",
+      "passed": true,
+      "chain": {
+        "cycles": 231467,
+        "instructions": 72906,
+        "reads": 22044,
+        "writes": 2823,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "name": "m320_n128_k192_g4_v3_a0_u1_s1_r78",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v3_a0_u1_s1_r78.log",
+      "passed": true,
+      "chain": {
+        "cycles": 240659,
+        "instructions": 73336,
+        "reads": 22138,
+        "writes": 2917,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8,
+      "name": "m320_n128_k192_g8_v3_a0_u1_s1_r79",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v3_a0_u1_s1_r79.log",
+      "passed": true,
+      "chain": {
+        "cycles": 237826,
+        "instructions": 74148,
+        "reads": 22389,
+        "writes": 3168,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 5,
+      "output_hash": "14378131631160697637",
+      "smem": 6144
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m320_n128_k192_g1_v4_a1_u4_s1_r80",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v4_a1_u4_s1_r80.log",
+      "passed": true,
+      "chain": {
+        "cycles": 251026,
+        "instructions": 85268,
+        "reads": 21811,
+        "writes": 2584,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m320_n128_k192_g2_v4_a1_u4_s1_r81",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v4_a1_u4_s1_r81.log",
+      "passed": true,
+      "chain": {
+        "cycles": 229466,
+        "instructions": 85656,
+        "reads": 21835,
+        "writes": 2608,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m320_n128_k192_g4_v4_a1_u4_s1_r82",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v4_a1_u4_s1_r82.log",
+      "passed": true,
+      "chain": {
+        "cycles": 230388,
+        "instructions": 86400,
+        "reads": 21867,
+        "writes": 2640,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m320_n128_k192_g8_v4_a1_u4_s1_r83",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v4_a1_u4_s1_r83.log",
+      "passed": true,
+      "chain": {
+        "cycles": 231744,
+        "instructions": 87856,
+        "reads": 21933,
+        "writes": 2706,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 6,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "name": "m320_n128_k192_g1_v4_a2_u4_s1_r84",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g1_v4_a2_u4_s1_r84.log",
+      "passed": true,
+      "chain": {
+        "cycles": 249894,
+        "instructions": 85907,
+        "reads": 21816,
+        "writes": 2588,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2,
+      "name": "m320_n128_k192_g2_v4_a2_u4_s1_r85",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v4_a2_u4_s1_r85.log",
+      "passed": true,
+      "chain": {
+        "cycles": 231326,
+        "instructions": 86354,
+        "reads": 21844,
+        "writes": 2616,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4,
+      "name": "m320_n128_k192_g4_v4_a2_u4_s1_r86",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g4_v4_a2_u4_s1_r86.log",
+      "passed": true,
+      "chain": {
+        "cycles": 234708,
+        "instructions": 87200,
+        "reads": 21884,
+        "writes": 2656,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "seed": 1,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 8,
+      "name": "m320_n128_k192_g8_v4_a2_u4_s1_r87",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g8_v4_a2_u4_s1_r87.log",
+      "passed": true,
+      "chain": {
+        "cycles": 241173,
+        "instructions": 88876,
+        "reads": 21948,
+        "writes": 2720,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 20461,
+        "negative": 20034,
+        "zero": 465
+      },
+      "hardware_warps": 16,
+      "compute_warps": 4,
+      "cta_warps": 7,
+      "output_hash": "14378131631160697637",
+      "smem": 14336
+    }
+  ],
+  "binary_sha256": "1eec69a52b6e41c884665a38867f3bc2d7754f373ef9acfea7797c1aa392669d"
+}

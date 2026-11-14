@@ -1,0 +1,279 @@
+command=./ci/toolchain_install.sh --libc32
+cwd=/root/cs254a/project20/vortex/build32
+--2026-10-23 13:44:57--  https://github.com/vortexgpgpu/vortex-toolchain-prebuilt/raw/v3.0.1/libc32/libc32.tar.bz2
+Resolving github.com (github.com)... 172.182.252.133
+Connecting to github.com (github.com)|172.182.252.133|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/vortexgpgpu/vortex-toolchain-prebuilt/v3.0.1/libc32/libc32.tar.bz2 [following]
+--2026-10-23 13:44:57--  https://raw.githubusercontent.com/vortexgpgpu/vortex-toolchain-prebuilt/v3.0.1/libc32/libc32.tar.bz2
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 841452 (822K) [application/octet-stream]
+Saving to: ‘libc32.tar.bz2’
+
+     0K .......... .......... .......... .......... ..........  6% 2.76M 0s
+    50K .......... .......... .......... .......... .......... 12% 6.22M 0s
+   100K .......... .......... .......... .......... .......... 18% 8.70M 0s
+   150K .......... .......... .......... .......... .......... 24% 10.4M 0s
+   200K .......... .......... .......... .......... .......... 30% 5.74M 0s
+   250K .......... .......... .......... .......... .......... 36% 11.3M 0s
+   300K .......... .......... .......... .......... .......... 42% 10.8M 0s
+   350K .......... .......... .......... .......... .......... 48% 12.5M 0s
+   400K .......... .......... .......... .......... .......... 54% 9.31M 0s
+   450K .......... .......... .......... .......... .......... 60% 9.42M 0s
+   500K .......... .......... .......... .......... .......... 66% 9.17M 0s
+   550K .......... .......... .......... .......... .......... 73% 12.7M 0s
+   600K .......... .......... .......... .......... .......... 79% 9.20M 0s
+   650K .......... .......... .......... .......... .......... 85% 10.6M 0s
+   700K .......... .......... .......... .......... .......... 91% 13.0M 0s
+   750K .......... .......... .......... .......... .......... 97% 10.3M 0s
+   800K .......... .......... .                               100% 10.3M=0.1s
+
+2026-10-23 13:44:57 (8.26 MB/s) - ‘libc32.tar.bz2’ saved [841452/841452]
+
+libc32/
+libc32/lib/
+libc32/lib/Scrt1.o
+libc32/lib/crt1.o
+libc32/lib/crti.o
+libc32/lib/crtn.o
+libc32/lib/rcrt1.o
+libc32/lib/libc.a
+libc32/lib/libm.a
+libc32/lib/librt.a
+libc32/lib/libpthread.a
+libc32/lib/libcrypt.a
+libc32/lib/libutil.a
+libc32/lib/libxnet.a
+libc32/lib/libresolv.a
+libc32/lib/libdl.a
+libc32/include/
+libc32/include/uchar.h
+libc32/include/aio.h
+libc32/include/time.h
+libc32/include/alloca.h
+libc32/include/unistd.h
+libc32/include/ar.h
+libc32/include/arpa/
+libc32/include/arpa/ftp.h
+libc32/include/arpa/inet.h
+libc32/include/arpa/nameser.h
+libc32/include/arpa/nameser_compat.h
+libc32/include/arpa/telnet.h
+libc32/include/arpa/tftp.h
+libc32/include/ucontext.h
+libc32/include/assert.h
+libc32/include/bits/
+libc32/include/bits/alltypes.h
+libc32/include/bits/dirent.h
+libc32/include/bits/errno.h
+libc32/include/bits/fcntl.h
+libc32/include/bits/fenv.h
+libc32/include/bits/float.h
+libc32/include/bits/hwcap.h
+libc32/include/bits/io.h
+libc32/include/bits/ioctl.h
+libc32/include/bits/ioctl_fix.h
+libc32/include/bits/ipc.h
+libc32/include/bits/ipcstat.h
+libc32/include/bits/kd.h
+libc32/include/bits/limits.h
+libc32/include/bits/link.h
+libc32/include/bits/mman.h
+libc32/include/bits/msg.h
+libc32/include/bits/poll.h
+libc32/include/bits/posix.h
+libc32/include/bits/ptrace.h
+libc32/include/bits/reg.h
+libc32/include/bits/resource.h
+libc32/include/bits/sem.h
+libc32/include/bits/setjmp.h
+libc32/include/bits/shm.h
+libc32/include/bits/signal.h
+libc32/include/bits/socket.h
+libc32/include/bits/soundcard.h
+libc32/include/bits/stat.h
+libc32/include/bits/statfs.h
+libc32/include/bits/stdint.h
+libc32/include/bits/syscall.h
+libc32/include/bits/termios.h
+libc32/include/bits/user.h
+libc32/include/bits/vt.h
+libc32/include/stdalign.h
+libc32/include/byteswap.h
+libc32/include/ulimit.h
+libc32/include/complex.h
+libc32/include/utime.h
+libc32/include/cpio.h
+libc32/include/utmp.h
+libc32/include/crypt.h
+libc32/include/utmpx.h
+libc32/include/ctype.h
+libc32/include/values.h
+libc32/include/dirent.h
+libc32/include/wait.h
+libc32/include/dlfcn.h
+libc32/include/wchar.h
+libc32/include/elf.h
+libc32/include/wctype.h
+libc32/include/endian.h
+libc32/include/wordexp.h
+libc32/include/err.h
+libc32/include/errno.h
+libc32/include/fcntl.h
+libc32/include/stdbool.h
+libc32/include/features.h
+libc32/include/fenv.h
+libc32/include/float.h
+libc32/include/fmtmsg.h
+libc32/include/fnmatch.h
+libc32/include/ftw.h
+libc32/include/getopt.h
+libc32/include/glob.h
+libc32/include/grp.h
+libc32/include/iconv.h
+libc32/include/ifaddrs.h
+libc32/include/stdarg.h
+libc32/include/inttypes.h
+libc32/include/iso646.h
+libc32/include/stdc-predef.h
+libc32/include/langinfo.h
+libc32/include/lastlog.h
+libc32/include/libgen.h
+libc32/include/libintl.h
+libc32/include/limits.h
+libc32/include/link.h
+libc32/include/locale.h
+libc32/include/malloc.h
+libc32/include/math.h
+libc32/include/memory.h
+libc32/include/mntent.h
+libc32/include/stddef.h
+libc32/include/monetary.h
+libc32/include/mqueue.h
+libc32/include/net/
+libc32/include/net/ethernet.h
+libc32/include/net/if.h
+libc32/include/net/if_arp.h
+libc32/include/net/route.h
+libc32/include/netdb.h
+libc32/include/netinet/
+libc32/include/netinet/ether.h
+libc32/include/netinet/icmp6.h
+libc32/include/netinet/if_ether.h
+libc32/include/netinet/igmp.h
+libc32/include/netinet/in.h
+libc32/include/netinet/in_systm.h
+libc32/include/netinet/ip.h
+libc32/include/netinet/ip6.h
+libc32/include/netinet/ip_icmp.h
+libc32/include/netinet/tcp.h
+libc32/include/netinet/udp.h
+libc32/include/netpacket/
+libc32/include/netpacket/packet.h
+libc32/include/syslog.h
+libc32/include/nl_types.h
+libc32/include/paths.h
+libc32/include/poll.h
+libc32/include/pthread.h
+libc32/include/pty.h
+libc32/include/pwd.h
+libc32/include/regex.h
+libc32/include/resolv.h
+libc32/include/sched.h
+libc32/include/scsi/
+libc32/include/scsi/scsi.h
+libc32/include/scsi/scsi_ioctl.h
+libc32/include/scsi/sg.h
+libc32/include/search.h
+libc32/include/stdint.h
+libc32/include/semaphore.h
+libc32/include/setjmp.h
+libc32/include/shadow.h
+libc32/include/signal.h
+libc32/include/spawn.h
+libc32/include/stdio.h
+libc32/include/tar.h
+libc32/include/stdio_ext.h
+libc32/include/stdlib.h
+libc32/include/termios.h
+libc32/include/stdnoreturn.h
+libc32/include/string.h
+libc32/include/strings.h
+libc32/include/stropts.h
+libc32/include/sys/
+libc32/include/sys/acct.h
+libc32/include/sys/auxv.h
+libc32/include/sys/user.h
+libc32/include/sys/cachectl.h
+libc32/include/sys/dir.h
+libc32/include/sys/epoll.h
+libc32/include/sys/errno.h
+libc32/include/sys/eventfd.h
+libc32/include/sys/un.h
+libc32/include/sys/fanotify.h
+libc32/include/sys/fcntl.h
+libc32/include/sys/file.h
+libc32/include/sys/fsuid.h
+libc32/include/sys/inotify.h
+libc32/include/sys/io.h
+libc32/include/sys/ioctl.h
+libc32/include/sys/ipc.h
+libc32/include/sys/kd.h
+libc32/include/sys/klog.h
+libc32/include/sys/utsname.h
+libc32/include/sys/membarrier.h
+libc32/include/sys/mman.h
+libc32/include/sys/mount.h
+libc32/include/sys/msg.h
+libc32/include/sys/mtio.h
+libc32/include/sys/param.h
+libc32/include/sys/vfs.h
+libc32/include/sys/personality.h
+libc32/include/sys/poll.h
+libc32/include/sys/prctl.h
+libc32/include/sys/procfs.h
+libc32/include/sys/ptrace.h
+libc32/include/sys/quota.h
+libc32/include/sys/random.h
+libc32/include/sys/reboot.h
+libc32/include/sys/reg.h
+libc32/include/sys/vt.h
+libc32/include/sys/resource.h
+libc32/include/sys/select.h
+libc32/include/sys/sem.h
+libc32/include/sys/sendfile.h
+libc32/include/sys/shm.h
+libc32/include/sys/signal.h
+libc32/include/sys/signalfd.h
+libc32/include/sys/socket.h
+libc32/include/sys/soundcard.h
+libc32/include/sys/stat.h
+libc32/include/sys/statfs.h
+libc32/include/sys/statvfs.h
+libc32/include/sys/stropts.h
+libc32/include/sys/swap.h
+libc32/include/sys/syscall.h
+libc32/include/sys/sysinfo.h
+libc32/include/sys/syslog.h
+libc32/include/sys/sysmacros.h
+libc32/include/sys/termios.h
+libc32/include/sys/time.h
+libc32/include/sys/timeb.h
+libc32/include/sys/timerfd.h
+libc32/include/sys/times.h
+libc32/include/sys/timex.h
+libc32/include/sys/ttydefaults.h
+libc32/include/sys/types.h
+libc32/include/sys/ucontext.h
+libc32/include/sys/uio.h
+libc32/include/sys/wait.h
+libc32/include/sys/xattr.h
+libc32/include/syscall.h
+libc32/include/tgmath.h
+libc32/include/sysexits.h
+libc32/include/threads.h
+libc32/bin/
+libc32/bin/musl-clang
+libc32/bin/ld.musl-clang

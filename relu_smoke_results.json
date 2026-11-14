@@ -1,0 +1,245 @@
+{
+  "status": "complete",
+  "phase": "smoke",
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+  "effective_config": {
+    "VX_CFG_NUM_CORES": "1",
+    "VX_CFG_L2_ENABLED": "0",
+    "VX_CFG_L3_ENABLED": "0",
+    "VX_CFG_NUM_WARPS": "8",
+    "VX_CFG_NUM_THREADS": "32",
+    "VX_CFG_NUM_BARRIERS": "8",
+    "VX_CFG_ISSUE_WIDTH": "4",
+    "VX_CFG_LMEM_LOG_SIZE": "16",
+    "VX_CFG_NUM_TCU_BLOCKS": "4"
+  },
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z",
+  "metric": "sum of completed kernel device-cycle snapshots; launch/reset model",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/gemm_relu"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/build.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v3.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "m64_n32_k16_s1_v0",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3283,
+          "instructions": 661,
+          "reads": 228,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v0.log",
+      "chain": {
+        "cycles": 3283,
+        "instructions": 661,
+        "reads": 228,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "16389759462730138405"
+    },
+    {
+      "name": "m64_n32_k16_s1_v1",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3283,
+          "instructions": 661,
+          "reads": 228,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 6882,
+          "instructions": 2549,
+          "reads": 262,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v1.log",
+      "chain": {
+        "cycles": 10165,
+        "instructions": 3210,
+        "reads": 490,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    },
+    {
+      "name": "m64_n32_k16_s1_v2",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3451,
+          "instructions": 725,
+          "reads": 228,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v2.log",
+      "chain": {
+        "cycles": 3451,
+        "instructions": 725,
+        "reads": 228,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    },
+    {
+      "name": "m64_n32_k16_s1_v3",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3637,
+          "instructions": 756,
+          "reads": 233,
+          "writes": 138
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_smoke_20261028T081449Z/m64_n32_k16_s1_v3.log",
+      "chain": {
+        "cycles": 3637,
+        "instructions": 756,
+        "reads": 233,
+        "writes": 138,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    }
+  ],
+  "source_hashes": {
+    "base.cpp": "096054f59bf345f103506fbc2e772b63e175c1ad4baa030bec1a4061b1ce283b",
+    "common.h": "61c9a5c9a33a6755793b747bc60f1ba254ea1f93520ba93a65f48e5f8ab07b0a",
+    "main.cpp": "26f5aef1c52f87c9e19cf615a30e75d43d769a40d3d8e513c3cfe1cbd1986af9",
+    "Makefile": "d2eb4f5bee9af7841b15e582c4a49c150f60ba1c5315320041c876893b10b01c",
+    "pc.cpp": "68d1abfb8bfe1dc8b9021eda42bfc37045e0e121259d1a31394bf2781e1a8e7e",
+    "relu.cpp": "fe526dfc54b3e5ca8e42e6c981f5fe3bbc5fabf28f58cf114bb8338d88dae155"
+  }
+}

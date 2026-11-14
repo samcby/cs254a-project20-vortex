@@ -1,0 +1,729 @@
+{
+  "successful_simx_executions": 148,
+  "phases": {
+    "w8_smoke": 4,
+    "w8_matrix": 32,
+    "w8_validation": 12,
+    "w8_repeat": 16,
+    "w8_trace": 3,
+    "w8_best": 8,
+    "w16_matrix": 32,
+    "w16_validation": 12,
+    "w16_repeat": 16,
+    "w16_trace": 3,
+    "w16_best": 8,
+    "w16_besttrace": 2
+  },
+  "matrix": [
+    [
+      8,
+      64,
+      1,
+      16,
+      94515,
+      85753,
+      119429,
+      80797
+    ],
+    [
+      8,
+      64,
+      2,
+      8,
+      85374,
+      86919,
+      124785,
+      85227
+    ],
+    [
+      8,
+      64,
+      4,
+      4,
+      85148,
+      88134,
+      134627,
+      93373
+    ],
+    [
+      8,
+      64,
+      8,
+      2,
+      87660,
+      92142,
+      154670,
+      110447
+    ],
+    [
+      8,
+      256,
+      1,
+      16,
+      381134,
+      275915,
+      268148,
+      267631
+    ],
+    [
+      8,
+      256,
+      2,
+      8,
+      243546,
+      278276,
+      277019,
+      276635
+    ],
+    [
+      8,
+      256,
+      4,
+      4,
+      242342,
+      280850,
+      292294,
+      285096
+    ],
+    [
+      8,
+      256,
+      8,
+      2,
+      249166,
+      285668,
+      323810,
+      305849
+    ],
+    [
+      16,
+      64,
+      1,
+      16,
+      94183,
+      85747,
+      119460,
+      81384
+    ],
+    [
+      16,
+      64,
+      2,
+      8,
+      85592,
+      83192,
+      80423,
+      81546
+    ],
+    [
+      16,
+      64,
+      4,
+      4,
+      85132,
+      86076,
+      83944,
+      81637
+    ],
+    [
+      16,
+      64,
+      8,
+      2,
+      89120,
+      86653,
+      86223,
+      87550
+    ],
+    [
+      16,
+      256,
+      1,
+      16,
+      381125,
+      275500,
+      268581,
+      267977
+    ],
+    [
+      16,
+      256,
+      2,
+      8,
+      245920,
+      237088,
+      236663,
+      238445
+    ],
+    [
+      16,
+      256,
+      4,
+      4,
+      243789,
+      243503,
+      239828,
+      241747
+    ],
+    [
+      16,
+      256,
+      8,
+      2,
+      245471,
+      241169,
+      243353,
+      250095
+    ]
+  ],
+  "best": [
+    [
+      8,
+      64,
+      "85148 (g=4)",
+      "85753 (g=1)",
+      "119429 (g=1)",
+      "80797 (g=1)",
+      "-5.11%",
+      "-5.78%"
+    ],
+    [
+      8,
+      256,
+      "242342 (g=4)",
+      "275915 (g=1)",
+      "268148 (g=1)",
+      "267631 (g=1)",
+      "+10.44%",
+      "-3.00%"
+    ],
+    [
+      16,
+      64,
+      "85132 (g=4)",
+      "83192 (g=2)",
+      "80423 (g=2)",
+      "81384 (g=1)",
+      "-5.53%",
+      "-3.33%"
+    ],
+    [
+      16,
+      256,
+      "243789 (g=4)",
+      "237088 (g=2)",
+      "236663 (g=2)",
+      "238445 (g=2)",
+      "-2.92%",
+      "-0.18%"
+    ]
+  ],
+  "best_seed_validation": [
+    [
+      8,
+      64,
+      "普通融合",
+      4,
+      85148,
+      85148
+    ],
+    [
+      8,
+      64,
+      "两阶段",
+      1,
+      85753,
+      85753
+    ],
+    [
+      8,
+      64,
+      "三阶段 A1/U4",
+      1,
+      119429,
+      119429
+    ],
+    [
+      8,
+      64,
+      "三阶段 A2/U4",
+      1,
+      80797,
+      80797
+    ],
+    [
+      8,
+      256,
+      "普通融合",
+      4,
+      242342,
+      242342
+    ],
+    [
+      8,
+      256,
+      "两阶段",
+      1,
+      275915,
+      275915
+    ],
+    [
+      8,
+      256,
+      "三阶段 A1/U4",
+      1,
+      268148,
+      268148
+    ],
+    [
+      8,
+      256,
+      "三阶段 A2/U4",
+      1,
+      267631,
+      267631
+    ],
+    [
+      16,
+      64,
+      "普通融合",
+      4,
+      85132,
+      85132
+    ],
+    [
+      16,
+      64,
+      "两阶段",
+      2,
+      83192,
+      83192
+    ],
+    [
+      16,
+      64,
+      "三阶段 A1/U4",
+      2,
+      80423,
+      80423
+    ],
+    [
+      16,
+      64,
+      "三阶段 A2/U4",
+      1,
+      81384,
+      81384
+    ],
+    [
+      16,
+      256,
+      "普通融合",
+      4,
+      243789,
+      243789
+    ],
+    [
+      16,
+      256,
+      "两阶段",
+      2,
+      237088,
+      237088
+    ],
+    [
+      16,
+      256,
+      "三阶段 A1/U4",
+      2,
+      236663,
+      236663
+    ],
+    [
+      16,
+      256,
+      "三阶段 A2/U4",
+      2,
+      238445,
+      238445
+    ]
+  ],
+  "repeats": [
+    [
+      8,
+      4,
+      "普通融合",
+      3,
+      85148,
+      85148
+    ],
+    [
+      8,
+      4,
+      "两阶段",
+      3,
+      88134,
+      88134
+    ],
+    [
+      8,
+      4,
+      "三阶段 A1/U4",
+      3,
+      134627,
+      134627
+    ],
+    [
+      8,
+      4,
+      "三阶段 A2/U4",
+      3,
+      93373,
+      93373
+    ],
+    [
+      8,
+      8,
+      "普通融合",
+      4,
+      87660,
+      87660
+    ],
+    [
+      8,
+      8,
+      "两阶段",
+      4,
+      92142,
+      92142
+    ],
+    [
+      8,
+      8,
+      "三阶段 A1/U4",
+      3,
+      154670,
+      154670
+    ],
+    [
+      8,
+      8,
+      "三阶段 A2/U4",
+      4,
+      110447,
+      110447
+    ],
+    [
+      16,
+      4,
+      "普通融合",
+      3,
+      85132,
+      85132
+    ],
+    [
+      16,
+      4,
+      "两阶段",
+      3,
+      86076,
+      86076
+    ],
+    [
+      16,
+      4,
+      "三阶段 A1/U4",
+      3,
+      83944,
+      83944
+    ],
+    [
+      16,
+      4,
+      "三阶段 A2/U4",
+      3,
+      81637,
+      81637
+    ],
+    [
+      16,
+      8,
+      "普通融合",
+      4,
+      89120,
+      89120
+    ],
+    [
+      16,
+      8,
+      "两阶段",
+      4,
+      86653,
+      86653
+    ],
+    [
+      16,
+      8,
+      "三阶段 A1/U4",
+      3,
+      86223,
+      86223
+    ],
+    [
+      16,
+      8,
+      "三阶段 A2/U4",
+      4,
+      87550,
+      87550
+    ]
+  ],
+  "traces": [
+    {
+      "warps": 8,
+      "ctas": 8,
+      "mode": 2,
+      "activation_warps": 0,
+      "residency": {
+        "hardware_warps": 8,
+        "cta_warps": 4,
+        "ctas": 8,
+        "warp_dispatches": 32,
+        "warp_exits": 32,
+        "peak": {
+          "live_warps": 8,
+          "started_live_ctas": 3,
+          "fully_admitted_live_ctas": 2,
+          "all_warps_live_ctas": 2
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_trace_20261029T194401Z/m256_n128_k64_g8_v2_a0_u1_s1_r0.trace.log.gz"
+    },
+    {
+      "warps": 8,
+      "ctas": 8,
+      "mode": 3,
+      "activation_warps": 0,
+      "residency": {
+        "hardware_warps": 8,
+        "cta_warps": 5,
+        "ctas": 8,
+        "warp_dispatches": 40,
+        "warp_exits": 40,
+        "peak": {
+          "live_warps": 8,
+          "started_live_ctas": 3,
+          "fully_admitted_live_ctas": 2,
+          "all_warps_live_ctas": 1
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_trace_20261029T194401Z/m256_n128_k64_g8_v3_a0_u1_s1_r1.trace.log.gz"
+    },
+    {
+      "warps": 8,
+      "ctas": 8,
+      "mode": 4,
+      "activation_warps": 2,
+      "residency": {
+        "hardware_warps": 8,
+        "cta_warps": 7,
+        "ctas": 8,
+        "warp_dispatches": 56,
+        "warp_exits": 56,
+        "peak": {
+          "live_warps": 8,
+          "started_live_ctas": 2,
+          "fully_admitted_live_ctas": 1,
+          "all_warps_live_ctas": 1
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 457,
+        "same_tick_with_next_compute": 28
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_trace_20261029T194401Z/m256_n128_k64_g8_v4_a2_u4_s1_r2.trace.log.gz"
+    },
+    {
+      "warps": 16,
+      "ctas": 8,
+      "mode": 2,
+      "activation_warps": 0,
+      "residency": {
+        "hardware_warps": 16,
+        "cta_warps": 4,
+        "ctas": 8,
+        "warp_dispatches": 32,
+        "warp_exits": 32,
+        "peak": {
+          "live_warps": 16,
+          "started_live_ctas": 5,
+          "fully_admitted_live_ctas": 5,
+          "all_warps_live_ctas": 4
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_trace_20261029T194230Z/m256_n128_k64_g8_v2_a0_u1_s1_r0.trace.log.gz"
+    },
+    {
+      "warps": 16,
+      "ctas": 8,
+      "mode": 3,
+      "activation_warps": 0,
+      "residency": {
+        "hardware_warps": 16,
+        "cta_warps": 5,
+        "ctas": 8,
+        "warp_dispatches": 40,
+        "warp_exits": 40,
+        "peak": {
+          "live_warps": 16,
+          "started_live_ctas": 4,
+          "fully_admitted_live_ctas": 4,
+          "all_warps_live_ctas": 3
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_trace_20261029T194230Z/m256_n128_k64_g8_v3_a0_u1_s1_r1.trace.log.gz"
+    },
+    {
+      "warps": 16,
+      "ctas": 8,
+      "mode": 4,
+      "activation_warps": 2,
+      "residency": {
+        "hardware_warps": 16,
+        "cta_warps": 7,
+        "ctas": 8,
+        "warp_dispatches": 56,
+        "warp_exits": 56,
+        "peak": {
+          "live_warps": 16,
+          "started_live_ctas": 4,
+          "fully_admitted_live_ctas": 3,
+          "all_warps_live_ctas": 2
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 222,
+        "same_tick_with_next_compute": 7
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_trace_20261029T194230Z/m256_n128_k64_g8_v4_a2_u4_s1_r2.trace.log.gz"
+    },
+    {
+      "warps": 16,
+      "ctas": 2,
+      "mode": 4,
+      "activation_warps": 1,
+      "residency": {
+        "hardware_warps": 16,
+        "cta_warps": 6,
+        "ctas": 2,
+        "warp_dispatches": 12,
+        "warp_exits": 12,
+        "peak": {
+          "live_warps": 12,
+          "started_live_ctas": 2,
+          "fully_admitted_live_ctas": 2,
+          "all_warps_live_ctas": 2
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 592,
+        "same_tick_with_next_compute": 13
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_besttrace_20261029T194708Z/m256_n128_k64_g2_v4_a1_u4_s1_r0.trace.log.gz"
+    },
+    {
+      "warps": 16,
+      "ctas": 2,
+      "mode": 4,
+      "activation_warps": 2,
+      "residency": {
+        "hardware_warps": 16,
+        "cta_warps": 7,
+        "ctas": 2,
+        "warp_dispatches": 14,
+        "warp_exits": 14,
+        "peak": {
+          "live_warps": 14,
+          "started_live_ctas": 2,
+          "fully_admitted_live_ctas": 2,
+          "all_warps_live_ctas": 2
+        },
+        "note": "Peak membership is reconstructed in event order; dispatch timestamps lack an exact cycle."
+      },
+      "work": {
+        "dxa_transfers": 128,
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "activation_events_in_next_compute_window": 152,
+        "same_tick_with_next_compute": 9
+      },
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_besttrace_20261029T194708Z/m256_n128_k64_g2_v4_a2_u4_s1_r1.trace.log.gz"
+    }
+  ],
+  "source_hashes": {
+    "common.h": "f7e7d9df5a24e2accbee895ee0fff1ebc73d8ef9113266636c405a128e54c051",
+    "kernel.cpp": "6eab6064dc13e5d4d73b772174ed92c173fe3a9301f9d621522c2d28d839d7f8",
+    "main.cpp": "f4f24032be222a854e5d70551028b4b81ed198f02a38bd54d2d976f57745d88a",
+    "Makefile": "a96df047b1bec90d87876f396f7bb1a237ac28f16342284ea651a107f91cac60",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "binary_sha256": "1eec69a52b6e41c884665a38867f3bc2d7754f373ef9acfea7797c1aa392669d",
+  "provenance": {
+    "w8_smoke": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_smoke_20261029T193911Z",
+    "w8_matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_matrix_20261029T193925Z",
+    "w8_validation": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_validation_20261029T194334Z",
+    "w8_repeat": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_repeat_20261029T194346Z",
+    "w8_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_trace_20261029T194401Z",
+    "w8_best": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w8_best_20261029T194525Z",
+    "w16_matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_matrix_20261029T194045Z",
+    "w16_validation": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_validation_20261029T194204Z",
+    "w16_repeat": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_repeat_20261029T194215Z",
+    "w16_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_trace_20261029T194230Z",
+    "w16_best": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_best_20261029T194601Z",
+    "w16_besttrace": "/mnt/d/UCLA_Master/CS 254A/project/logs/multicta_w16_besttrace_20261029T194708Z"
+  }
+}

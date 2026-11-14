@@ -1,0 +1,2353 @@
+{
+  "runs": 90,
+  "formal_runs": 87,
+  "binary_sha256": "519288e8227040a2e63a94e3db7db51a9218bd2a50fd6a151d914211cf924ee6",
+  "observer_counter_equality": true,
+  "source_hashes": {
+    "common.h": "f7e7d9df5a24e2accbee895ee0fff1ebc73d8ef9113266636c405a128e54c051",
+    "kernel.cpp": "00b188168beb25b35b19c514b9a0fbe8cafe6adfbd7e57bddfb6f13c134c0fad",
+    "main.cpp": "151d1119ebd2d532b6a7216e778b31b24554e61ed593b0c84dbd40bc50e57ab5",
+    "Makefile": "79045055ac9a35785e7519a717bb649990aca5c650fb211f4760a345e048b181",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "phases": {
+    "w8_normal": 17,
+    "w8_validate": 8,
+    "w8_trace": 8,
+    "w16_normal": 17,
+    "w16_validate": 8,
+    "w16_trace": 8
+  },
+  "traces": [
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 4,
+      "mode": 2,
+      "aw": 0,
+      "reserve": 0,
+      "seed": 1,
+      "label": "普通融合",
+      "cycles": 242342,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g4_v2_a0_r0_s1_i0.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 21462,
+        "gate_block_events": 21462,
+        "gate_blocked_instructions": 162,
+        "bar_instructions": 2272,
+        "gate_max_instruction_delay": 1492,
+        "gate_blocks_by_role": {
+          "compute": 21462
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready_or_reuse/compute": 21462
+        },
+        "bar_instructions_by_group": {
+          "input_ready_or_reuse/compute": 2272
+        },
+        "suspended_warp_cycles": {
+          "input_ready_or_reuse/compute": 676526
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready_or_reuse/DXA": 231040,
+          "input_ready_or_reuse/participants_and_DXA": 259876,
+          "input_ready_or_reuse/participants": 185610
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready_or_reuse/compute": 445486
+        },
+        "last_participant_arrivals": {
+          "input_ready_or_reuse/compute/DXA_pending": 94,
+          "input_ready_or_reuse/compute/DXA_done": 410
+        },
+        "residency": {
+          "window_ticks": 242209,
+          "first_dispatch": 3,
+          "last_exit": 242212,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 4,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 7.924305042339467,
+            "started_ctas": 1.9978407078184544,
+            "full_live_ctas": 1.9641755673818893,
+            "full_compute_ctas": 1.9641755673818893
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 2560,
+          "other_stack_args/LD": 10752,
+          "SMEM_input/LD": 131072,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 2560,
+          "compute/other_stack_args/LD": 10752,
+          "compute/SMEM_input/LD": 131072,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 122396
+          },
+          {
+            "block": 1,
+            "start": 7,
+            "end": 122397
+          },
+          {
+            "block": 2,
+            "start": 119192,
+            "end": 238467
+          },
+          {
+            "block": 3,
+            "start": 122375,
+            "end": 242212
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 4,
+      "mode": 3,
+      "aw": 0,
+      "reserve": 0,
+      "seed": 1,
+      "label": "两阶段",
+      "cycles": 280850,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g4_v3_a0_r0_s1_i1.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 19122,
+        "gate_block_events": 19122,
+        "gate_blocked_instructions": 245,
+        "bar_instructions": 2816,
+        "gate_max_instruction_delay": 995,
+        "gate_blocks_by_role": {
+          "loader": 7305,
+          "compute": 11817
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 249,
+          "input_ready/compute": 6578,
+          "input_free/loader": 7056,
+          "input_free/compute": 5239
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 512,
+          "input_ready/compute": 1024,
+          "input_free/loader": 256,
+          "input_free/compute": 1024
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 1081801,
+          "input_free/loader": 196742
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 326049,
+          "input_ready/DXA": 47000,
+          "input_free/participants": 196742,
+          "input_ready/participants": 708752
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute+loader": 626693,
+          "input_ready/compute": 405804,
+          "input_free/compute": 196742,
+          "input_ready/loader": 2304
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 19,
+          "input_free/compute/DXA_done": 251,
+          "input_ready/compute/DXA_done": 234,
+          "input_free/loader/DXA_done": 5,
+          "input_ready/loader/DXA_pending": 3
+        },
+        "residency": {
+          "window_ticks": 280678,
+          "first_dispatch": 3,
+          "last_exit": 280681,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 3,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 7.245245441395478,
+            "started_ctas": 1.7521394623019972,
+            "full_live_ctas": 0.9893650375162998,
+            "full_compute_ctas": 1.0031637677338445
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 1280,
+          "other_stack_args/LD": 4480,
+          "SMEM_input/LD": 131072,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 1024,
+          "loader/other_stack_args/ST": 256,
+          "compute/other_stack_args/LD": 4096,
+          "loader/other_stack_args/LD": 384,
+          "compute/SMEM_input/LD": 131072,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 71538
+          },
+          {
+            "block": 1,
+            "start": 64,
+            "end": 141343
+          },
+          {
+            "block": 2,
+            "start": 71518,
+            "end": 211133
+          },
+          {
+            "block": 3,
+            "start": 141323,
+            "end": 280681
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 4,
+      "mode": 9,
+      "aw": 0,
+      "reserve": 1,
+      "seed": 1,
+      "label": "两阶段+C共享内存往返",
+      "cycles": 291333,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g4_v9_a0_r1_s1_i2.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 25446,
+        "gate_block_events": 25446,
+        "gate_blocked_instructions": 251,
+        "bar_instructions": 2880,
+        "gate_max_instruction_delay": 923,
+        "gate_blocks_by_role": {
+          "loader": 14448,
+          "compute": 10998
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 1807,
+          "input_ready/compute": 10312,
+          "input_free/loader": 12641,
+          "input_free/compute": 0,
+          "C_roundtrip/compute": 686
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 512,
+          "input_ready/compute": 1024,
+          "input_free/loader": 256,
+          "input_free/compute": 1024,
+          "C_roundtrip/compute": 64
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 1091904,
+          "input_free/loader": 197584,
+          "C_roundtrip/compute": 4658
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 322360,
+          "input_ready/DXA": 42400,
+          "input_free/participants": 197584,
+          "input_ready/participants": 727144,
+          "C_roundtrip/participants": 4658
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 394316,
+          "input_free/compute": 197584,
+          "C_roundtrip/compute": 4658,
+          "input_ready/loader": 14376,
+          "input_ready/compute+loader": 640812
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 17,
+          "input_free/compute/DXA_done": 256,
+          "input_ready/compute/DXA_done": 236,
+          "C_roundtrip/compute/DXA_done": 16,
+          "input_ready/loader/DXA_pending": 3
+        },
+        "residency": {
+          "window_ticks": 291196,
+          "first_dispatch": 3,
+          "last_exit": 291199,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 3,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 7.240865259138175,
+            "started_ctas": 1.7536058187612467,
+            "full_live_ctas": 0.9772146595420267,
+            "full_compute_ctas": 1.0128916605997336
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 1920,
+          "other_stack_args/LD": 5120,
+          "SMEM_input/LD": 131072,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 1536,
+          "loader/other_stack_args/ST": 384,
+          "compute/other_stack_args/LD": 4608,
+          "loader/other_stack_args/LD": 512,
+          "compute/SMEM_input/LD": 131072,
+          "compute/SMEM_C/ST": 32768,
+          "compute/SMEM_C/LD": 32768,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 74105
+          },
+          {
+            "block": 1,
+            "start": 64,
+            "end": 146288
+          },
+          {
+            "block": 2,
+            "start": 74082,
+            "end": 219048
+          },
+          {
+            "block": 3,
+            "start": 145848,
+            "end": 291199
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 4,
+      "mode": 7,
+      "aw": 0,
+      "reserve": 1,
+      "seed": 1,
+      "label": "两阶段+2闲置warp+join7",
+      "cycles": 268179,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g4_v7_a0_r1_s1_i3.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 18525,
+        "gate_block_events": 18525,
+        "gate_blocked_instructions": 162,
+        "bar_instructions": 2844,
+        "gate_max_instruction_delay": 1003,
+        "gate_blocks_by_role": {
+          "idle": 456,
+          "loader": 4492,
+          "compute": 13577
+        },
+        "gate_blocks_by_bar_role": {
+          "end_join/idle": 456,
+          "input_ready/loader": 395,
+          "input_ready/compute": 7441,
+          "input_free/loader": 4097,
+          "input_free/compute": 2562,
+          "end_join/loader": 0,
+          "end_join/compute": 3574
+        },
+        "bar_instructions_by_group": {
+          "end_join/idle": 8,
+          "input_ready/loader": 512,
+          "input_ready/compute": 1024,
+          "input_free/loader": 256,
+          "input_free/compute": 1024,
+          "end_join/loader": 4,
+          "end_join/compute": 16
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 578308,
+          "input_free/loader": 184785,
+          "end_join/compute": 152,
+          "end_join/loader": 6366,
+          "end_join/idle": 532484
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 120932,
+          "input_ready/DXA": 225028,
+          "input_free/participants": 184785,
+          "input_ready/participants": 232348,
+          "end_join/participants": 539002
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute+loader": 202018,
+          "input_ready/loader": 1620,
+          "input_free/compute": 184785,
+          "input_ready/compute": 149642,
+          "end_join/compute": 19250,
+          "end_join/compute+idle+loader": 4,
+          "end_join/compute+loader": 519748
+        },
+        "last_participant_arrivals": {
+          "input_ready/loader/DXA_pending": 4,
+          "input_free/compute/DXA_done": 252,
+          "input_ready/compute/DXA_pending": 116,
+          "input_ready/compute/DXA_done": 136,
+          "input_free/loader/DXA_done": 4,
+          "end_join/compute/DXA_done": 4
+        },
+        "residency": {
+          "window_ticks": 268037,
+          "first_dispatch": 3,
+          "last_exit": 268040,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 2,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 1
+          },
+          "average": {
+            "live_warps": 7.755138283147476,
+            "started_ctas": 1.7558993721016127,
+            "full_live_ctas": 0.9996045322101054,
+            "full_compute_ctas": 0.9998880751538034
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 2432,
+          "other_stack_args/LD": 4480,
+          "SMEM_input/LD": 131072,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 1536,
+          "loader/other_stack_args/ST": 384,
+          "idle/other_stack_args/ST": 512,
+          "compute/other_stack_args/LD": 4096,
+          "loader/other_stack_args/LD": 384,
+          "compute/SMEM_input/LD": 131072,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 71770
+          },
+          {
+            "block": 1,
+            "start": 66,
+            "end": 137206
+          },
+          {
+            "block": 2,
+            "start": 71772,
+            "end": 202679
+          },
+          {
+            "block": 3,
+            "start": 137208,
+            "end": 268040
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 4,
+      "mode": 4,
+      "aw": 2,
+      "reserve": 0,
+      "seed": 1,
+      "label": "三阶段 A2/U4",
+      "cycles": 285096,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g4_v4_a2_r0_s1_i4.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 8623,
+        "gate_block_events": 8623,
+        "gate_blocked_instructions": 285,
+        "bar_instructions": 3008,
+        "gate_max_instruction_delay": 199,
+        "gate_blocks_by_role": {
+          "loader": 6819,
+          "activation": 188,
+          "compute": 1616
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 639,
+          "C_ready/activation": 145,
+          "input_ready/compute": 229,
+          "input_free/loader": 6180,
+          "input_free/compute": 112,
+          "C_ready/compute": 1253,
+          "C_free/activation": 43,
+          "C_free/compute": 22
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 512,
+          "C_ready/activation": 32,
+          "input_ready/compute": 1024,
+          "input_free/loader": 256,
+          "input_free/compute": 1024,
+          "C_ready/compute": 64,
+          "C_free/activation": 32,
+          "C_free/compute": 64
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 669751,
+          "input_free/loader": 190360,
+          "C_ready/activation": 436115,
+          "C_free/compute": 58511
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 267205,
+          "input_ready/DXA": 111912,
+          "input_free/participants": 190360,
+          "input_ready/participants": 290634,
+          "C_ready/participants": 436115,
+          "C_free/participants": 58511
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 334339,
+          "input_free/compute": 190360,
+          "C_ready/activation+compute": 4959,
+          "C_ready/compute": 431156,
+          "C_free/compute": 8587,
+          "C_free/activation+compute": 748,
+          "C_free/activation": 49176,
+          "input_ready/compute+loader": 223276,
+          "input_ready/loader": 224
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 52,
+          "input_free/compute/DXA_done": 256,
+          "input_ready/compute/DXA_done": 201,
+          "C_ready/compute/DXA_done": 16,
+          "C_free/compute/DXA_done": 12,
+          "C_free/activation/DXA_done": 4,
+          "input_ready/loader/DXA_pending": 3
+        },
+        "residency": {
+          "window_ticks": 284955,
+          "first_dispatch": 3,
+          "last_exit": 284958,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 2,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 7.7313470547981265,
+            "started_ctas": 1.7459669070555,
+            "full_live_ctas": 0.9457598568194978,
+            "full_compute_ctas": 1.0005263989050903
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 1792,
+          "other_stack_args/LD": 8064,
+          "SMEM_input/LD": 131072,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 1024,
+          "loader/other_stack_args/ST": 256,
+          "activation/other_stack_args/ST": 512,
+          "compute/other_stack_args/LD": 4608,
+          "loader/other_stack_args/LD": 384,
+          "activation/other_stack_args/LD": 3072,
+          "compute/SMEM_input/LD": 131072,
+          "compute/SMEM_C/ST": 32768,
+          "activation/SMEM_C/LD": 32768,
+          "activation/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 694,
+        "same_tick_with_next_compute": 41,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 70130
+          },
+          {
+            "block": 1,
+            "start": 66,
+            "end": 142443
+          },
+          {
+            "block": 2,
+            "start": 70132,
+            "end": 212637
+          },
+          {
+            "block": 3,
+            "start": 142445,
+            "end": 284958
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 4,
+      "mode": 8,
+      "aw": 2,
+      "reserve": 0,
+      "seed": 1,
+      "label": "三阶段 A2，提前等待C槽",
+      "cycles": 313471,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g4_v8_a2_r0_s1_i5.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 9402,
+        "gate_block_events": 9402,
+        "gate_blocked_instructions": 285,
+        "bar_instructions": 3008,
+        "gate_max_instruction_delay": 186,
+        "gate_blocks_by_role": {
+          "loader": 8399,
+          "activation": 2,
+          "compute": 1001
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 1582,
+          "C_ready/activation": 2,
+          "input_ready/compute": 57,
+          "input_free/loader": 6817,
+          "input_free/compute": 252,
+          "C_ready/compute": 556,
+          "C_free/compute": 136,
+          "C_free/activation": 0
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 512,
+          "C_ready/activation": 32,
+          "input_ready/compute": 1024,
+          "input_free/loader": 256,
+          "input_free/compute": 1024,
+          "C_ready/compute": 64,
+          "C_free/compute": 64,
+          "C_free/activation": 32
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 686989,
+          "input_free/loader": 217835,
+          "C_ready/activation": 509537,
+          "C_free/compute": 206370
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 321482,
+          "input_ready/DXA": 53820,
+          "input_free/participants": 217835,
+          "input_ready/participants": 311687,
+          "C_ready/participants": 509537,
+          "C_free/participants": 206370
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 388436,
+          "input_free/compute": 217835,
+          "C_ready/activation+compute": 115,
+          "C_ready/compute": 509422,
+          "C_free/activation+compute": 8326,
+          "C_free/activation": 198044,
+          "input_ready/compute+loader": 244733
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 27,
+          "input_free/compute/DXA_done": 256,
+          "input_ready/compute/DXA_done": 229,
+          "C_ready/compute/DXA_done": 16,
+          "C_free/activation/DXA_done": 16
+        },
+        "residency": {
+          "window_ticks": 313330,
+          "first_dispatch": 3,
+          "last_exit": 313333,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 2,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 7.737069543293014,
+            "started_ctas": 1.7497366993265886,
+            "full_live_ctas": 0.953528229023713,
+            "full_compute_ctas": 1.0004755369737977
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 1792,
+          "other_stack_args/LD": 10112,
+          "SMEM_input/LD": 131072,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 1024,
+          "loader/other_stack_args/ST": 256,
+          "activation/other_stack_args/ST": 512,
+          "compute/other_stack_args/LD": 6656,
+          "loader/other_stack_args/LD": 384,
+          "activation/other_stack_args/LD": 3072,
+          "compute/SMEM_input/LD": 131072,
+          "compute/SMEM_C/ST": 32768,
+          "activation/SMEM_C/LD": 32768,
+          "activation/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 78713
+          },
+          {
+            "block": 1,
+            "start": 66,
+            "end": 156802
+          },
+          {
+            "block": 2,
+            "start": 78715,
+            "end": 234985
+          },
+          {
+            "block": 3,
+            "start": 156804,
+            "end": 313333
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 1,
+      "mode": 2,
+      "aw": 0,
+      "reserve": 0,
+      "seed": 1,
+      "label": "普通融合",
+      "cycles": 381134,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g1_v2_a0_r0_s1_i6.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 11997,
+        "gate_block_events": 11997,
+        "gate_blocked_instructions": 15,
+        "bar_instructions": 2296,
+        "gate_max_instruction_delay": 910,
+        "gate_blocks_by_role": {
+          "compute": 11997
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready_or_reuse/compute": 11997
+        },
+        "bar_instructions_by_group": {
+          "input_ready_or_reuse/compute": 2296
+        },
+        "suspended_warp_cycles": {
+          "input_ready_or_reuse/compute": 437793
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready_or_reuse/DXA": 672,
+          "input_ready_or_reuse/participants_and_DXA": 1403,
+          "input_ready_or_reuse/participants": 435718
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready_or_reuse/compute": 437121
+        },
+        "last_participant_arrivals": {
+          "input_ready_or_reuse/compute/DXA_pending": 1,
+          "input_ready_or_reuse/compute/DXA_done": 509
+        },
+        "residency": {
+          "window_ticks": 381003,
+          "first_dispatch": 3,
+          "last_exit": 381006,
+          "peak": {
+            "live_warps": 4,
+            "started_ctas": 1,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 1
+          },
+          "average": {
+            "live_warps": 3.99558271194715,
+            "started_ctas": 1.0,
+            "full_live_ctas": 0.9979868924916602,
+            "full_compute_ctas": 0.9979868924916602
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 640,
+          "other_stack_args/LD": 8832,
+          "SMEM_input/LD": 131072,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 640,
+          "compute/other_stack_args/LD": 8832,
+          "compute/SMEM_input/LD": 131072,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 381006
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 128,
+      "k": 256,
+      "ctas": 1,
+      "mode": 4,
+      "aw": 2,
+      "reserve": 0,
+      "seed": 1,
+      "label": "三阶段 A2/U4",
+      "cycles": 267631,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z/m256_n128_k256_g1_v4_a2_r0_s1_i7.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 8209,
+        "gate_block_events": 8209,
+        "gate_blocked_instructions": 288,
+        "bar_instructions": 3008,
+        "gate_max_instruction_delay": 106,
+        "gate_blocks_by_role": {
+          "loader": 5940,
+          "activation": 270,
+          "compute": 1999
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 197,
+          "C_ready/activation": 160,
+          "input_ready/compute": 204,
+          "input_free/loader": 5743,
+          "input_free/compute": 204,
+          "C_ready/compute": 1591,
+          "C_free/activation": 110,
+          "C_free/compute": 0
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 512,
+          "C_ready/activation": 32,
+          "input_ready/compute": 1024,
+          "input_free/loader": 256,
+          "input_free/compute": 1024,
+          "C_ready/compute": 64,
+          "C_free/activation": 32,
+          "C_free/compute": 64
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 448539,
+          "input_free/loader": 187154,
+          "C_ready/activation": 404178,
+          "C_free/compute": 33554
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 272152,
+          "input_ready/DXA": 115200,
+          "input_free/participants": 187154,
+          "input_ready/participants": 61187,
+          "C_ready/participants": 404178,
+          "C_free/participants": 33554
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 333339,
+          "input_free/compute": 187154,
+          "C_ready/activation+compute": 4878,
+          "C_ready/compute": 399300,
+          "C_free/compute": 21055,
+          "C_free/activation+compute": 179,
+          "C_free/activation": 12320
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 60,
+          "input_free/compute/DXA_done": 256,
+          "input_ready/compute/DXA_done": 196,
+          "C_ready/compute/DXA_done": 16,
+          "C_free/compute/DXA_done": 15,
+          "C_free/activation/DXA_done": 1
+        },
+        "residency": {
+          "window_ticks": 267490,
+          "first_dispatch": 3,
+          "last_exit": 267493,
+          "peak": {
+            "live_warps": 7,
+            "started_ctas": 1,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 1
+          },
+          "average": {
+            "live_warps": 6.984649893453961,
+            "started_ctas": 1.0,
+            "full_live_ctas": 0.9854387079890837,
+            "full_compute_ctas": 0.9999626154248757
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 448,
+          "other_stack_args/LD": 5088,
+          "SMEM_input/LD": 131072,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 256,
+          "loader/other_stack_args/ST": 64,
+          "activation/other_stack_args/ST": 128,
+          "compute/other_stack_args/LD": 2688,
+          "loader/other_stack_args/LD": 96,
+          "activation/other_stack_args/LD": 2304,
+          "compute/SMEM_input/LD": 131072,
+          "compute/SMEM_C/ST": 32768,
+          "activation/SMEM_C/LD": 32768,
+          "activation/Y/ST": 32768
+        },
+        "wgmma_events": 32768,
+        "relu_events": 1024,
+        "dxa_transfers": 512,
+        "activation_in_next_compute_window": 869,
+        "same_tick_with_next_compute": 42,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 267493
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 2,
+      "mode": 2,
+      "aw": 0,
+      "reserve": 0,
+      "seed": 1,
+      "label": "普通融合",
+      "cycles": 85592,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g2_v2_a0_r0_s1_i0.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 15475,
+        "gate_block_events": 15475,
+        "gate_blocked_instructions": 30,
+        "bar_instructions": 560,
+        "gate_max_instruction_delay": 1438,
+        "gate_blocks_by_role": {
+          "compute": 15475
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready_or_reuse/compute": 15475
+        },
+        "bar_instructions_by_group": {
+          "input_ready_or_reuse/compute": 560
+        },
+        "suspended_warp_cycles": {
+          "input_ready_or_reuse/compute": 302315
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready_or_reuse/DXA": 229920,
+          "input_ready_or_reuse/participants_and_DXA": 44085,
+          "input_ready_or_reuse/participants": 28310
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready_or_reuse/compute": 72395
+        },
+        "last_participant_arrivals": {
+          "input_ready_or_reuse/compute/DXA_pending": 58,
+          "input_ready_or_reuse/compute/DXA_done": 66
+        },
+        "residency": {
+          "window_ticks": 85469,
+          "first_dispatch": 3,
+          "last_exit": 85472,
+          "peak": {
+            "live_warps": 8,
+            "started_ctas": 2,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 7.897354596403375,
+            "started_ctas": 1.9869894347658215,
+            "full_live_ctas": 1.9624191227228587,
+            "full_compute_ctas": 1.9624191227228587
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 1280,
+          "other_stack_args/LD": 9472,
+          "SMEM_input/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 1280,
+          "compute/other_stack_args/LD": 9472,
+          "compute/SMEM_input/LD": 32768,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 84364
+          },
+          {
+            "block": 1,
+            "start": 7,
+            "end": 85472
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 2,
+      "mode": 3,
+      "aw": 0,
+      "reserve": 0,
+      "seed": 1,
+      "label": "两阶段",
+      "cycles": 83192,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g2_v3_a0_r0_s1_i1.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 18488,
+        "gate_block_events": 18488,
+        "gate_blocked_instructions": 44,
+        "bar_instructions": 704,
+        "gate_max_instruction_delay": 1901,
+        "gate_blocks_by_role": {
+          "loader": 5684,
+          "compute": 12804
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 492,
+          "input_ready/compute": 10405,
+          "input_free/loader": 5192,
+          "input_free/compute": 2399
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 128,
+          "input_ready/compute": 256,
+          "input_free/loader": 64,
+          "input_free/compute": 256
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 352470,
+          "input_free/loader": 133213
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 25430,
+          "input_ready/DXA": 321616,
+          "input_free/participants": 133213,
+          "input_ready/participants": 5424
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute+loader": 361,
+          "input_ready/compute": 30405,
+          "input_free/compute": 133213,
+          "input_ready/loader": 88
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 61,
+          "input_ready/loader/DXA_pending": 1,
+          "input_free/compute/DXA_done": 64,
+          "input_ready/compute/DXA_done": 2
+        },
+        "residency": {
+          "window_ticks": 83035,
+          "first_dispatch": 3,
+          "last_exit": 83038,
+          "peak": {
+            "live_warps": 10,
+            "started_ctas": 2,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 9.789137110856867,
+            "started_ctas": 1.9743120370927922,
+            "full_live_ctas": 1.9330282411031492,
+            "full_compute_ctas": 1.9528271210935149
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 640,
+          "other_stack_args/LD": 3264,
+          "SMEM_input/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 512,
+          "loader/other_stack_args/ST": 128,
+          "compute/other_stack_args/LD": 3072,
+          "loader/other_stack_args/LD": 192,
+          "compute/SMEM_input/LD": 32768,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 80966
+          },
+          {
+            "block": 1,
+            "start": 64,
+            "end": 83038
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 2,
+      "mode": 9,
+      "aw": 0,
+      "reserve": 1,
+      "seed": 1,
+      "label": "两阶段+C共享内存往返",
+      "cycles": 81976,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g2_v9_a0_r1_s1_i2.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 25985,
+        "gate_block_events": 25985,
+        "gate_blocked_instructions": 86,
+        "bar_instructions": 768,
+        "gate_max_instruction_delay": 1302,
+        "gate_blocks_by_role": {
+          "loader": 11541,
+          "compute": 14444
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 4528,
+          "input_ready/compute": 3437,
+          "input_free/loader": 7013,
+          "input_free/compute": 10585,
+          "C_roundtrip/compute": 422
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 128,
+          "input_ready/compute": 256,
+          "input_free/loader": 64,
+          "input_free/compute": 256,
+          "C_roundtrip/compute": 64
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 248138,
+          "input_free/loader": 119066,
+          "C_roundtrip/compute": 7441
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 25177,
+          "input_ready/DXA": 214568,
+          "input_free/participants": 119066,
+          "C_roundtrip/participants": 7441,
+          "input_ready/participants": 8393
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 33570,
+          "input_free/compute": 119066,
+          "C_roundtrip/compute": 7441
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 44,
+          "input_free/compute/DXA_done": 64,
+          "C_roundtrip/compute/DXA_done": 16,
+          "input_ready/compute/DXA_done": 20
+        },
+        "residency": {
+          "window_ticks": 81843,
+          "first_dispatch": 3,
+          "last_exit": 81846,
+          "peak": {
+            "live_warps": 10,
+            "started_ctas": 2,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 9.752721674425425,
+            "started_ctas": 1.9659225590459783,
+            "full_live_ctas": 1.9113302298302848,
+            "full_compute_ctas": 1.9556467871412337
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 960,
+          "other_stack_args/LD": 3584,
+          "SMEM_input/LD": 32768,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 768,
+          "loader/other_stack_args/ST": 192,
+          "compute/other_stack_args/LD": 3328,
+          "loader/other_stack_args/LD": 256,
+          "compute/SMEM_input/LD": 32768,
+          "compute/SMEM_C/ST": 32768,
+          "compute/SMEM_C/LD": 32768,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 79118
+          },
+          {
+            "block": 1,
+            "start": 64,
+            "end": 81846
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 2,
+      "mode": 7,
+      "aw": 0,
+      "reserve": 1,
+      "seed": 1,
+      "label": "两阶段+2闲置warp+join7",
+      "cycles": 84915,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g2_v7_a0_r1_s1_i3.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 19436,
+        "gate_block_events": 19436,
+        "gate_blocked_instructions": 48,
+        "bar_instructions": 718,
+        "gate_max_instruction_delay": 1389,
+        "gate_blocks_by_role": {
+          "idle": 642,
+          "loader": 61,
+          "compute": 18733
+        },
+        "gate_blocks_by_bar_role": {
+          "end_join/idle": 642,
+          "input_ready/loader": 7,
+          "input_ready/compute": 14849,
+          "input_free/loader": 54,
+          "input_free/compute": 1549,
+          "end_join/loader": 0,
+          "end_join/compute": 2335
+        },
+        "bar_instructions_by_group": {
+          "end_join/idle": 4,
+          "input_ready/loader": 128,
+          "input_ready/compute": 256,
+          "input_free/loader": 64,
+          "input_free/compute": 256,
+          "end_join/loader": 2,
+          "end_join/compute": 8
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 342125,
+          "input_free/loader": 140475,
+          "end_join/compute": 168,
+          "end_join/loader": 3506,
+          "end_join/idle": 327875
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 23101,
+          "input_ready/DXA": 317228,
+          "input_free/participants": 140475,
+          "input_ready/participants": 1796,
+          "end_join/participants": 331549
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute+loader": 427,
+          "input_ready/loader": 840,
+          "input_free/compute": 140475,
+          "input_ready/compute": 23630,
+          "end_join/compute": 10686,
+          "end_join/compute+idle+loader": 49,
+          "end_join/compute+loader": 320814
+        },
+        "last_participant_arrivals": {
+          "input_ready/loader/DXA_pending": 2,
+          "input_free/compute/DXA_done": 64,
+          "input_ready/compute/DXA_pending": 58,
+          "input_ready/compute/DXA_done": 4,
+          "end_join/compute/DXA_done": 2
+        },
+        "residency": {
+          "window_ticks": 84768,
+          "first_dispatch": 3,
+          "last_exit": 84771,
+          "peak": {
+            "live_warps": 14,
+            "started_ctas": 2,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 13.744762174405436,
+            "started_ctas": 1.9639368629671574,
+            "full_live_ctas": 1.9628515477538693,
+            "full_compute_ctas": 1.9635829558323896
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 1216,
+          "other_stack_args/LD": 3264,
+          "SMEM_input/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 768,
+          "loader/other_stack_args/ST": 192,
+          "idle/other_stack_args/ST": 256,
+          "compute/other_stack_args/LD": 3072,
+          "loader/other_stack_args/LD": 192,
+          "compute/SMEM_input/LD": 32768,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 81777
+          },
+          {
+            "block": 1,
+            "start": 66,
+            "end": 84771
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 2,
+      "mode": 4,
+      "aw": 1,
+      "reserve": 0,
+      "seed": 1,
+      "label": "三阶段 A1/U4",
+      "cycles": 80423,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g2_v4_a1_r0_s1_i4.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 3463,
+        "gate_block_events": 3463,
+        "gate_blocked_instructions": 118,
+        "bar_instructions": 864,
+        "gate_max_instruction_delay": 241,
+        "gate_blocks_by_role": {
+          "loader": 885,
+          "activation": 436,
+          "compute": 2142
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 456,
+          "C_ready/activation": 298,
+          "input_ready/compute": 451,
+          "input_free/loader": 429,
+          "input_free/compute": 125,
+          "C_ready/compute": 1498,
+          "C_free/activation": 138,
+          "C_free/compute": 68
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 128,
+          "C_ready/activation": 16,
+          "input_ready/compute": 256,
+          "input_free/loader": 64,
+          "input_free/compute": 256,
+          "C_ready/compute": 64,
+          "C_free/activation": 16,
+          "C_free/compute": 64
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 417383,
+          "input_free/loader": 122241,
+          "C_ready/activation": 35977,
+          "C_free/compute": 53512
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 18665,
+          "input_ready/DXA": 398584,
+          "input_free/participants": 122241,
+          "input_ready/participants": 134,
+          "C_ready/participants": 35977,
+          "C_free/participants": 53512
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 18297,
+          "input_free/compute": 122241,
+          "input_ready/compute+loader": 338,
+          "input_ready/loader": 164,
+          "C_ready/compute": 35977,
+          "C_free/compute": 3539,
+          "C_free/activation+compute": 421,
+          "C_free/activation": 49552
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 63,
+          "input_ready/loader/DXA_pending": 1,
+          "input_free/compute/DXA_done": 64,
+          "C_ready/compute/DXA_done": 16,
+          "C_free/compute/DXA_done": 14,
+          "C_free/activation/DXA_done": 2
+        },
+        "residency": {
+          "window_ticks": 80281,
+          "first_dispatch": 3,
+          "last_exit": 80284,
+          "peak": {
+            "live_warps": 12,
+            "started_ctas": 2,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 11.671242261556284,
+            "started_ctas": 1.974738730210137,
+            "full_live_ctas": 1.7997035413111446,
+            "full_compute_ctas": 1.97450206150895
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 768,
+          "other_stack_args/LD": 4800,
+          "SMEM_input/LD": 32768,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 512,
+          "loader/other_stack_args/ST": 128,
+          "activation/other_stack_args/ST": 128,
+          "compute/other_stack_args/LD": 3328,
+          "loader/other_stack_args/LD": 192,
+          "activation/other_stack_args/LD": 1280,
+          "compute/SMEM_input/LD": 32768,
+          "compute/SMEM_C/ST": 32768,
+          "activation/SMEM_C/LD": 32768,
+          "activation/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 592,
+        "same_tick_with_next_compute": 13,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 78318
+          },
+          {
+            "block": 1,
+            "start": 65,
+            "end": 80284
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 2,
+      "mode": 8,
+      "aw": 1,
+      "reserve": 0,
+      "seed": 1,
+      "label": "三阶段 A1，提前等待C槽",
+      "cycles": 95761,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g2_v8_a1_r0_s1_i5.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 3954,
+        "gate_block_events": 3954,
+        "gate_blocked_instructions": 126,
+        "bar_instructions": 864,
+        "gate_max_instruction_delay": 201,
+        "gate_blocks_by_role": {
+          "loader": 2972,
+          "activation": 6,
+          "compute": 976
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 2033,
+          "C_ready/activation": 3,
+          "input_ready/compute": 191,
+          "input_free/loader": 939,
+          "input_free/compute": 331,
+          "C_ready/compute": 264,
+          "C_free/compute": 190,
+          "C_free/activation": 3
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 128,
+          "C_ready/activation": 16,
+          "input_ready/compute": 256,
+          "input_free/loader": 64,
+          "input_free/compute": 256,
+          "C_ready/compute": 64,
+          "C_free/compute": 64,
+          "C_free/activation": 16
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 135009,
+          "input_free/loader": 146022,
+          "C_ready/activation": 67772,
+          "C_free/compute": 439199
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 10253,
+          "input_ready/DXA": 121472,
+          "input_free/participants": 146022,
+          "C_ready/participants": 67772,
+          "C_free/participants": 439199,
+          "input_ready/participants": 3284
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 13503,
+          "input_free/compute": 146022,
+          "input_ready/compute+loader": 34,
+          "C_ready/compute": 67772,
+          "C_free/activation+compute": 5235,
+          "C_free/activation": 433964
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 36,
+          "input_free/compute/DXA_done": 64,
+          "C_ready/compute/DXA_done": 16,
+          "C_free/activation/DXA_done": 16,
+          "input_ready/compute/DXA_done": 28
+        },
+        "residency": {
+          "window_ticks": 95620,
+          "first_dispatch": 3,
+          "last_exit": 95623,
+          "peak": {
+            "live_warps": 12,
+            "started_ctas": 2,
+            "full_live_ctas": 2,
+            "full_compute_ctas": 2
+          },
+          "average": {
+            "live_warps": 11.46597992051872,
+            "started_ctas": 1.9355155825141184,
+            "full_live_ctas": 1.7902112528759673,
+            "full_compute_ctas": 1.935316879313951
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 768,
+          "other_stack_args/LD": 6848,
+          "SMEM_input/LD": 32768,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 512,
+          "loader/other_stack_args/ST": 128,
+          "activation/other_stack_args/ST": 128,
+          "compute/other_stack_args/LD": 5376,
+          "loader/other_stack_args/LD": 192,
+          "activation/other_stack_args/LD": 1280,
+          "compute/SMEM_input/LD": 32768,
+          "compute/SMEM_C/ST": 32768,
+          "activation/SMEM_C/LD": 32768,
+          "activation/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 89519
+          },
+          {
+            "block": 1,
+            "start": 65,
+            "end": 95623
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 1,
+      "mode": 2,
+      "aw": 0,
+      "reserve": 0,
+      "seed": 1,
+      "label": "普通融合",
+      "cycles": 94183,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g1_v2_a0_r0_s1_i6.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 12275,
+        "gate_block_events": 12275,
+        "gate_blocked_instructions": 15,
+        "bar_instructions": 568,
+        "gate_max_instruction_delay": 910,
+        "gate_blocks_by_role": {
+          "compute": 12275
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready_or_reuse/compute": 12275
+        },
+        "bar_instructions_by_group": {
+          "input_ready_or_reuse/compute": 568
+        },
+        "suspended_warp_cycles": {
+          "input_ready_or_reuse/compute": 92825
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready_or_reuse/DXA": 30408,
+          "input_ready_or_reuse/participants_and_DXA": 34170,
+          "input_ready_or_reuse/participants": 28247
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready_or_reuse/compute": 62417
+        },
+        "last_participant_arrivals": {
+          "input_ready_or_reuse/compute/DXA_pending": 48,
+          "input_ready_or_reuse/compute/DXA_done": 78
+        },
+        "residency": {
+          "window_ticks": 94052,
+          "first_dispatch": 3,
+          "last_exit": 94055,
+          "peak": {
+            "live_warps": 4,
+            "started_ctas": 1,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 1
+          },
+          "average": {
+            "live_warps": 3.982126908518692,
+            "started_ctas": 1.0,
+            "full_live_ctas": 0.9918449368434483,
+            "full_compute_ctas": 0.9918449368434483
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 640,
+          "other_stack_args/LD": 8832,
+          "SMEM_input/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 640,
+          "compute/other_stack_args/LD": 8832,
+          "compute/SMEM_input/LD": 32768,
+          "compute/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 0,
+        "same_tick_with_next_compute": 0,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 94055
+          }
+        ]
+      }
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 128,
+      "k": 64,
+      "ctas": 1,
+      "mode": 4,
+      "aw": 1,
+      "reserve": 0,
+      "seed": 1,
+      "label": "三阶段 A1/U4",
+      "cycles": 119460,
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z/m256_n128_k64_g1_v4_a1_r0_s1_i7.trace.log.gz",
+      "detail": {
+        "gate_blocked_unique_ticks": 3042,
+        "gate_block_events": 3042,
+        "gate_blocked_instructions": 123,
+        "bar_instructions": 864,
+        "gate_max_instruction_delay": 235,
+        "gate_blocks_by_role": {
+          "loader": 815,
+          "activation": 470,
+          "compute": 1757
+        },
+        "gate_blocks_by_bar_role": {
+          "input_ready/loader": 372,
+          "C_ready/activation": 470,
+          "input_ready/compute": 43,
+          "input_free/loader": 443,
+          "input_free/compute": 249,
+          "C_ready/compute": 1410,
+          "C_free/compute": 55,
+          "C_free/activation": 0
+        },
+        "bar_instructions_by_group": {
+          "input_ready/loader": 128,
+          "C_ready/activation": 16,
+          "input_ready/compute": 256,
+          "input_free/loader": 64,
+          "input_free/compute": 256,
+          "C_ready/compute": 64,
+          "C_free/compute": 64,
+          "C_free/activation": 16
+        },
+        "suspended_warp_cycles": {
+          "input_ready/compute": 109918,
+          "input_free/loader": 89547,
+          "C_ready/activation": 8695,
+          "C_free/compute": 209201
+        },
+        "suspended_warp_cycles_by_dependency": {
+          "input_ready/participants_and_DXA": 12761,
+          "input_ready/DXA": 87732,
+          "input_free/participants": 89547,
+          "C_ready/participants": 8695,
+          "input_ready/participants": 9425,
+          "C_free/participants": 209201
+        },
+        "participant_wait_warp_cycles_by_missing_role": {
+          "input_ready/compute": 22186,
+          "input_free/compute": 89547,
+          "C_ready/compute": 8695,
+          "C_free/activation+compute": 4657,
+          "C_free/activation": 204544
+        },
+        "last_participant_arrivals": {
+          "input_ready/compute/DXA_pending": 34,
+          "input_free/compute/DXA_done": 64,
+          "C_ready/compute/DXA_done": 16,
+          "input_ready/compute/DXA_done": 30,
+          "C_free/activation/DXA_done": 16
+        },
+        "residency": {
+          "window_ticks": 119318,
+          "first_dispatch": 3,
+          "last_exit": 119321,
+          "peak": {
+            "live_warps": 6,
+            "started_ctas": 1,
+            "full_live_ctas": 1,
+            "full_compute_ctas": 1
+          },
+          "average": {
+            "live_warps": 5.919215876900384,
+            "started_ctas": 1.0,
+            "full_live_ctas": 0.9199534018337552,
+            "full_compute_ctas": 0.9999161903484806
+          }
+        },
+        "lane_memory_operations": {
+          "other_stack_args/ST": 384,
+          "other_stack_args/LD": 3936,
+          "SMEM_input/LD": 32768,
+          "SMEM_C/ST": 32768,
+          "SMEM_C/LD": 32768,
+          "Y/ST": 32768
+        },
+        "lane_memory_operations_by_role": {
+          "compute/other_stack_args/ST": 256,
+          "loader/other_stack_args/ST": 64,
+          "activation/other_stack_args/ST": 64,
+          "compute/other_stack_args/LD": 2688,
+          "loader/other_stack_args/LD": 96,
+          "activation/other_stack_args/LD": 1152,
+          "compute/SMEM_input/LD": 32768,
+          "compute/SMEM_C/ST": 32768,
+          "activation/SMEM_C/LD": 32768,
+          "activation/Y/ST": 32768
+        },
+        "wgmma_events": 8192,
+        "relu_events": 1024,
+        "dxa_transfers": 128,
+        "activation_in_next_compute_window": 429,
+        "same_tick_with_next_compute": 38,
+        "ctas": [
+          {
+            "block": 0,
+            "start": 3,
+            "end": 119321
+          }
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "w8_normal": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_normal_20261103T082633Z",
+    "w8_validate": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_validate_20261103T083556Z",
+    "w8_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w8_trace_20261103T083044Z",
+    "w16_normal": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_normal_20261103T082725Z",
+    "w16_validate": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_validate_20261103T083724Z",
+    "w16_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_w16_trace_20261103T082753Z"
+  },
+  "capacity": {
+    "runs": 21,
+    "binary_sha256": "e1eebd864c9aa0ac3ed85e9a3f334a5215ab3cccf555e3651455f7366966b869",
+    "traces": [
+      {
+        "hardware_warps": 8,
+        "m": 256,
+        "n": 128,
+        "k": 256,
+        "ctas": 4,
+        "mode": 10,
+        "aw": 0,
+        "reserve": 0,
+        "seed": 1,
+        "label": "普通融合+末尾join4",
+        "cycles": 248911,
+        "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w8_trace_20261103T084222Z/m256_n128_k256_g4_v10_a0_r0_s1_i0.trace.log.gz",
+        "detail": {
+          "gate_blocked_unique_ticks": 21306,
+          "gate_block_events": 21306,
+          "gate_blocked_instructions": 133,
+          "bar_instructions": 2288,
+          "gate_max_instruction_delay": 2121,
+          "gate_blocks_by_role": {
+            "compute": 21306
+          },
+          "gate_blocks_by_bar_role": {
+            "input_ready_or_reuse/compute": 17161,
+            "end_join/compute": 4145
+          },
+          "bar_instructions_by_group": {
+            "input_ready_or_reuse/compute": 2272,
+            "end_join/compute": 16
+          },
+          "suspended_warp_cycles": {
+            "input_ready_or_reuse/compute": 697318,
+            "end_join/compute": 3138
+          },
+          "suspended_warp_cycles_by_dependency": {
+            "input_ready_or_reuse/DXA": 344844,
+            "input_ready_or_reuse/participants_and_DXA": 153673,
+            "input_ready_or_reuse/participants": 198801,
+            "end_join/participants": 3138
+          },
+          "participant_wait_warp_cycles_by_missing_role": {
+            "input_ready_or_reuse/compute": 352474,
+            "end_join/compute": 3138
+          },
+          "last_participant_arrivals": {
+            "input_ready_or_reuse/compute/DXA_pending": 150,
+            "input_ready_or_reuse/compute/DXA_done": 354,
+            "end_join/compute/DXA_done": 4
+          },
+          "residency": {
+            "window_ticks": 248773,
+            "first_dispatch": 3,
+            "last_exit": 248776,
+            "peak": {
+              "live_warps": 8,
+              "started_ctas": 4,
+              "full_live_ctas": 2,
+              "full_compute_ctas": 2
+            },
+            "average": {
+              "live_warps": 7.981147471791553,
+              "started_ctas": 1.9968404931403327,
+              "full_live_ctas": 1.994127176180695,
+              "full_compute_ctas": 1.994127176180695
+            }
+          },
+          "lane_memory_operations": {
+            "other_stack_args/ST": 3584,
+            "other_stack_args/LD": 10752,
+            "SMEM_input/LD": 131072,
+            "Y/ST": 32768
+          },
+          "lane_memory_operations_by_role": {
+            "compute/other_stack_args/ST": 3584,
+            "compute/other_stack_args/LD": 10752,
+            "compute/SMEM_input/LD": 131072,
+            "compute/Y/ST": 32768
+          },
+          "wgmma_events": 32768,
+          "relu_events": 1024,
+          "dxa_transfers": 512,
+          "activation_in_next_compute_window": 0,
+          "same_tick_with_next_compute": 0,
+          "ctas": [
+            {
+              "block": 0,
+              "start": 3,
+              "end": 126592
+            },
+            {
+              "block": 1,
+              "start": 7,
+              "end": 126520
+            },
+            {
+              "block": 2,
+              "start": 126376,
+              "end": 248776
+            },
+            {
+              "block": 3,
+              "start": 126448,
+              "end": 247706
+            }
+          ]
+        }
+      },
+      {
+        "hardware_warps": 8,
+        "m": 256,
+        "n": 128,
+        "k": 256,
+        "ctas": 4,
+        "mode": 11,
+        "aw": 0,
+        "reserve": 0,
+        "seed": 1,
+        "label": "普通融合+1闲置warp+join5",
+        "cycles": 357772,
+        "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w8_trace_20261103T084222Z/m256_n128_k256_g4_v11_a0_r0_s1_i1.trace.log.gz",
+        "detail": {
+          "gate_blocked_unique_ticks": 14198,
+          "gate_block_events": 14198,
+          "gate_blocked_instructions": 22,
+          "bar_instructions": 2292,
+          "gate_max_instruction_delay": 1137,
+          "gate_blocks_by_role": {
+            "idle": 639,
+            "compute": 13559
+          },
+          "gate_blocks_by_bar_role": {
+            "end_join/idle": 639,
+            "input_ready_or_reuse/compute": 9922,
+            "end_join/compute": 3637
+          },
+          "bar_instructions_by_group": {
+            "end_join/idle": 4,
+            "input_ready_or_reuse/compute": 2272,
+            "end_join/compute": 16
+          },
+          "suspended_warp_cycles": {
+            "input_ready_or_reuse/compute": 1132364,
+            "end_join/compute": 151,
+            "end_join/idle": 355550
+          },
+          "suspended_warp_cycles_by_dependency": {
+            "input_ready_or_reuse/DXA": 15516,
+            "input_ready_or_reuse/participants_and_DXA": 26755,
+            "input_ready_or_reuse/participants": 1090093,
+            "end_join/participants": 355701
+          },
+          "participant_wait_warp_cycles_by_missing_role": {
+            "input_ready_or_reuse/compute": 1116848,
+            "end_join/compute": 355701
+          },
+          "last_participant_arrivals": {
+            "input_ready_or_reuse/compute/DXA_pending": 26,
+            "input_ready_or_reuse/compute/DXA_done": 478,
+            "end_join/compute/DXA_done": 4
+          },
+          "residency": {
+            "window_ticks": 357635,
+            "first_dispatch": 3,
+            "last_exit": 357638,
+            "peak": {
+              "live_warps": 8,
+              "started_ctas": 3,
+              "full_live_ctas": 1,
+              "full_compute_ctas": 1
+            },
+            "average": {
+              "live_warps": 7.285508968641213,
+              "started_ctas": 1.7626854194919401,
+              "full_live_ctas": 0.9998266388916074,
+              "full_compute_ctas": 0.9998573965076125
+            }
+          },
+          "lane_memory_operations": {
+            "other_stack_args/ST": 3968,
+            "other_stack_args/LD": 10880,
+            "SMEM_input/LD": 131072,
+            "Y/ST": 32768
+          },
+          "lane_memory_operations_by_role": {
+            "compute/other_stack_args/ST": 3584,
+            "idle/other_stack_args/ST": 384,
+            "compute/other_stack_args/LD": 10752,
+            "compute/SMEM_input/LD": 131072,
+            "compute/Y/ST": 32768,
+            "idle/other_stack_args/LD": 128
+          },
+          "wgmma_events": 32768,
+          "relu_events": 1024,
+          "dxa_transfers": 512,
+          "activation_in_next_compute_window": 0,
+          "same_tick_with_next_compute": 0,
+          "ctas": [
+            {
+              "block": 0,
+              "start": 3,
+              "end": 97598
+            },
+            {
+              "block": 1,
+              "start": 64,
+              "end": 185760
+            },
+            {
+              "block": 2,
+              "start": 97501,
+              "end": 272638
+            },
+            {
+              "block": 3,
+              "start": 185668,
+              "end": 357638
+            }
+          ]
+        }
+      },
+      {
+        "hardware_warps": 16,
+        "m": 256,
+        "n": 128,
+        "k": 64,
+        "ctas": 2,
+        "mode": 10,
+        "aw": 0,
+        "reserve": 0,
+        "seed": 1,
+        "label": "普通融合+末尾join4",
+        "cycles": 85869,
+        "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w16_trace_20261103T084351Z/m256_n128_k64_g2_v10_a0_r0_s1_i0.trace.log.gz",
+        "detail": {
+          "gate_blocked_unique_ticks": 18097,
+          "gate_block_events": 18097,
+          "gate_blocked_instructions": 33,
+          "bar_instructions": 568,
+          "gate_max_instruction_delay": 1425,
+          "gate_blocks_by_role": {
+            "compute": 18097
+          },
+          "gate_blocks_by_bar_role": {
+            "input_ready_or_reuse/compute": 15897,
+            "end_join/compute": 2200
+          },
+          "bar_instructions_by_group": {
+            "input_ready_or_reuse/compute": 560,
+            "end_join/compute": 8
+          },
+          "suspended_warp_cycles": {
+            "input_ready_or_reuse/compute": 292689,
+            "end_join/compute": 127
+          },
+          "suspended_warp_cycles_by_dependency": {
+            "input_ready_or_reuse/DXA": 213408,
+            "input_ready_or_reuse/participants_and_DXA": 47834,
+            "input_ready_or_reuse/participants": 31447,
+            "end_join/participants": 127
+          },
+          "participant_wait_warp_cycles_by_missing_role": {
+            "input_ready_or_reuse/compute": 79281,
+            "end_join/compute": 127
+          },
+          "last_participant_arrivals": {
+            "input_ready_or_reuse/compute/DXA_pending": 55,
+            "input_ready_or_reuse/compute/DXA_done": 69,
+            "end_join/compute/DXA_done": 2
+          },
+          "residency": {
+            "window_ticks": 85746,
+            "first_dispatch": 3,
+            "last_exit": 85749,
+            "peak": {
+              "live_warps": 8,
+              "started_ctas": 2,
+              "full_live_ctas": 2,
+              "full_compute_ctas": 2
+            },
+            "average": {
+              "live_warps": 7.918946656403797,
+              "started_ctas": 1.9816317962353929,
+              "full_live_ctas": 1.97813309075642,
+              "full_compute_ctas": 1.97813309075642
+            }
+          },
+          "lane_memory_operations": {
+            "other_stack_args/ST": 1792,
+            "other_stack_args/LD": 9472,
+            "SMEM_input/LD": 32768,
+            "Y/ST": 32768
+          },
+          "lane_memory_operations_by_role": {
+            "compute/other_stack_args/ST": 1792,
+            "compute/other_stack_args/LD": 9472,
+            "compute/SMEM_input/LD": 32768,
+            "compute/Y/ST": 32768
+          },
+          "wgmma_events": 8192,
+          "relu_events": 1024,
+          "dxa_transfers": 128,
+          "activation_in_next_compute_window": 0,
+          "same_tick_with_next_compute": 0,
+          "ctas": [
+            {
+              "block": 0,
+              "start": 3,
+              "end": 84178
+            },
+            {
+              "block": 1,
+              "start": 7,
+              "end": 85749
+            }
+          ]
+        }
+      },
+      {
+        "hardware_warps": 16,
+        "m": 256,
+        "n": 128,
+        "k": 64,
+        "ctas": 2,
+        "mode": 11,
+        "aw": 0,
+        "reserve": 0,
+        "seed": 1,
+        "label": "普通融合+1闲置warp+join5",
+        "cycles": 88337,
+        "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w16_trace_20261103T084351Z/m256_n128_k64_g2_v11_a0_r0_s1_i1.trace.log.gz",
+        "detail": {
+          "gate_blocked_unique_ticks": 18696,
+          "gate_block_events": 18696,
+          "gate_blocked_instructions": 29,
+          "bar_instructions": 570,
+          "gate_max_instruction_delay": 1587,
+          "gate_blocks_by_role": {
+            "idle": 597,
+            "compute": 18099
+          },
+          "gate_blocks_by_bar_role": {
+            "end_join/idle": 597,
+            "input_ready_or_reuse/compute": 16248,
+            "end_join/compute": 1851
+          },
+          "bar_instructions_by_group": {
+            "end_join/idle": 2,
+            "input_ready_or_reuse/compute": 560,
+            "end_join/compute": 8
+          },
+          "suspended_warp_cycles": {
+            "input_ready_or_reuse/compute": 350829,
+            "end_join/compute": 153,
+            "end_join/idle": 171475
+          },
+          "suspended_warp_cycles_by_dependency": {
+            "input_ready_or_reuse/DXA": 295848,
+            "input_ready_or_reuse/participants_and_DXA": 36322,
+            "input_ready_or_reuse/participants": 18659,
+            "end_join/participants": 171628
+          },
+          "participant_wait_warp_cycles_by_missing_role": {
+            "input_ready_or_reuse/compute": 54981,
+            "end_join/compute": 171628
+          },
+          "last_participant_arrivals": {
+            "input_ready_or_reuse/compute/DXA_pending": 49,
+            "input_ready_or_reuse/compute/DXA_done": 75,
+            "end_join/compute/DXA_done": 2
+          },
+          "residency": {
+            "window_ticks": 88216,
+            "first_dispatch": 3,
+            "last_exit": 88219,
+            "peak": {
+              "live_warps": 10,
+              "started_ctas": 2,
+              "full_live_ctas": 2,
+              "full_compute_ctas": 2
+            },
+            "average": {
+              "live_warps": 9.881937517003719,
+              "started_ctas": 1.9783712705178198,
+              "full_live_ctas": 1.9742903781626915,
+              "full_compute_ctas": 1.9743130497868868
+            }
+          },
+          "lane_memory_operations": {
+            "other_stack_args/ST": 1984,
+            "other_stack_args/LD": 9536,
+            "SMEM_input/LD": 32768,
+            "Y/ST": 32768
+          },
+          "lane_memory_operations_by_role": {
+            "compute/other_stack_args/ST": 1792,
+            "idle/other_stack_args/ST": 192,
+            "compute/other_stack_args/LD": 9472,
+            "compute/SMEM_input/LD": 32768,
+            "compute/Y/ST": 32768,
+            "idle/other_stack_args/LD": 64
+          },
+          "wgmma_events": 8192,
+          "relu_events": 1024,
+          "dxa_transfers": 128,
+          "activation_in_next_compute_window": 0,
+          "same_tick_with_next_compute": 0,
+          "ctas": [
+            {
+              "block": 0,
+              "start": 3,
+              "end": 86372
+            },
+            {
+              "block": 1,
+              "start": 64,
+              "end": 88219
+            }
+          ]
+        }
+      }
+    ],
+    "source_hashes": {
+      "common.h": "f7e7d9df5a24e2accbee895ee0fff1ebc73d8ef9113266636c405a128e54c051",
+      "kernel.cpp": "08eff78086ec6c9f3a41e6266e7182cdaaf72508f6dccb83cfb90e54bf664251",
+      "main.cpp": "35263e61a6d210208ba4de8ae4b595d89c962049b6e57143cf28e25ea49efc06",
+      "Makefile": "210ae47d413334d8c37271461cb7331255dd0d115a5de9d1e18beafa4919227f",
+      "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+    },
+    "provenance": {
+      "w8_normal": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w8_normal_20261103T084048Z",
+      "w8_validate": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w8_validate_20261103T084657Z",
+      "w8_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w8_trace_20261103T084222Z",
+      "w16_normal": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w16_normal_20261103T084134Z",
+      "w16_validate": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w16_validate_20261103T084708Z",
+      "w16_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/cost_capacity_w16_trace_20261103T084351Z"
+    }
+  }
+}

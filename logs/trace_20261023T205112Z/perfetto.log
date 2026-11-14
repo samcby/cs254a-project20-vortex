@@ -1,0 +1,6 @@
+command=python3 ci/perfetto.py /root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log -t simx -c -o '/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/dxa.perfetto.json.gz'
+cwd=/root/cs254a/project20/vortex/build32-dxa-trace
+reconcile: PERF instrs=1792 | slices begun=2024 committed=2024 incomplete=0
+warning: instruction-slice count (2024) diverges from PERF instrs=1792 by >5%; possible parser drift or truncated log.
+note: no time base given; the Perfetto time axis (us) holds raw cycle counts. Each event also carries an explicit 'cycle' arg. Pass --cycle-ns 3.333 (U55C 300 MHz) or --freq-mhz to map cycles to real time.
+/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/dxa.perfetto.json.gz

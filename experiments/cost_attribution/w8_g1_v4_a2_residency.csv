@@ -1,0 +1,15 @@
+﻿tick,event,wid,block,rank,live_warps,started_ctas,full_live_ctas,full_compute_ctas
+3,dispatch,0,0,0,1,1,0,0
+4,dispatch,1,0,1,2,1,0,0
+5,dispatch,2,0,2,3,1,0,0
+6,dispatch,3,0,3,4,1,0,1
+7,dispatch,4,0,4,5,1,0,1
+64,dispatch,5,0,5,6,1,0,1
+65,dispatch,6,0,6,7,1,1,1
+263660,exit,4,0,4,6,1,0,1
+267429,exit,5,0,5,5,1,0,1
+267431,exit,6,0,6,4,1,0,1
+267486,exit,0,0,0,3,1,0,0
+267488,exit,1,0,1,2,1,0,0
+267491,exit,2,0,2,1,1,0,0
+267493,exit,3,0,3,0,0,0,0

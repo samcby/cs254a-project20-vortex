@@ -1,0 +1,8 @@
+make: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/sgemm_tcu_wg_pc'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DWGMMA_RS" DEBUG=3    make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make: *** No rule to make target '254A/project/logs/pc_diagnostic_20261028T075451Z/gemm_depth1.trace.log'.  Stop.
+make: *** Waiting for unfinished jobs....
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+make: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/sgemm_tcu_wg_pc'

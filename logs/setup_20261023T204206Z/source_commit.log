@@ -1,0 +1,3 @@
+command=git rev-parse HEAD
+cwd=/root/cs254a/project20/vortex
+7fe19369587c087f902c3e2bc2add612aa910a95

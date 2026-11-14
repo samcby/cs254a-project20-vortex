@@ -1,0 +1,299 @@
+{
+  "policy_sha256": "e8958a4000df35b8ce4493d878f4f77975ed4e0295a83e0a9061383f04714d9b",
+  "shapes": [
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "tiles": 4
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "tiles": 4
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "tiles": 8
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "tiles": 12
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "tiles": 24
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "tiles": 20
+    }
+  ],
+  "predictions": [
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "hardware_warps": 8,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "anchor_tiles": 5,
+      "anchor_k": 64,
+      "distance": 0.3219280948873623
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "hardware_warps": 8,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "anchor_tiles": 5,
+      "anchor_k": 64,
+      "distance": 0.3219280948873623
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "hardware_warps": 8,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "anchor_tiles": 5,
+      "anchor_k": 64,
+      "distance": 1.6780719051126378
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "hardware_warps": 8,
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1,
+      "anchor_tiles": 16,
+      "anchor_k": 64,
+      "distance": 0.4150374992788438
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "hardware_warps": 8,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "anchor_tiles": 16,
+      "anchor_k": 256,
+      "distance": 0.5849625007211562
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "hardware_warps": 8,
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4,
+      "anchor_tiles": 16,
+      "anchor_k": 256,
+      "distance": 0.7369655941662061
+    },
+    {
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "hardware_warps": 16,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "anchor_tiles": 5,
+      "anchor_k": 64,
+      "distance": 0.3219280948873623
+    },
+    {
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "hardware_warps": 16,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "anchor_tiles": 5,
+      "anchor_k": 64,
+      "distance": 0.3219280948873623
+    },
+    {
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "hardware_warps": 16,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1,
+      "anchor_tiles": 5,
+      "anchor_k": 64,
+      "distance": 1.6780719051126378
+    },
+    {
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "hardware_warps": 16,
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2,
+      "anchor_tiles": 16,
+      "anchor_k": 64,
+      "distance": 0.4150374992788438
+    },
+    {
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "hardware_warps": 16,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "anchor_tiles": 16,
+      "anchor_k": 256,
+      "distance": 0.5849625007211562
+    },
+    {
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "hardware_warps": 16,
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2,
+      "anchor_tiles": 16,
+      "anchor_k": 256,
+      "distance": 0.7369655941662061
+    }
+  ],
+  "oracle_candidates": [
+    {
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1
+    },
+    {
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2
+    },
+    {
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4
+    },
+    {
+      "mode": 2,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8
+    },
+    {
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 1
+    },
+    {
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 2
+    },
+    {
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 4
+    },
+    {
+      "mode": 3,
+      "activation_warps": 0,
+      "unroll": 1,
+      "ctas": 8
+    },
+    {
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 1
+    },
+    {
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 2
+    },
+    {
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 4
+    },
+    {
+      "mode": 4,
+      "activation_warps": 1,
+      "unroll": 4,
+      "ctas": 8
+    },
+    {
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 1
+    },
+    {
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 2
+    },
+    {
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 4
+    },
+    {
+      "mode": 4,
+      "activation_warps": 2,
+      "unroll": 4,
+      "ctas": 8
+    }
+  ],
+  "candidate_filter": "ctas <= output tile count",
+  "evaluation": "Policy launches before oracle measurements. Oracle is a diagnostic grid, not an input to this policy version."
+}

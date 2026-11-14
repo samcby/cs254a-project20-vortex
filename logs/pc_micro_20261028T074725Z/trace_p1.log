@@ -1,0 +1,34 @@
+command=./ci/blackbox.sh --driver=simx --app=dxa_pc '--args=-p1 -d2 -n9 -w32 -t' --perf=7
+cwd=/root/cs254a/project20/vortex/build32-pipeline
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE
+Running: CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE" make -C "./ci/../tests/regression/dxa_pc" runtime-simx > /dev/null
+Running: OPTS="-p1 -d2 -n9 -w32 -t" CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE" make -C "./ci/../tests/regression/dxa_pc" run-simx
+make: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/dxa_pc'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime make -C /root/cs254a/project20/vortex/build32-pipeline/sim/simx /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/libsimx.so
+make[2]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[2]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+LD_LIBRARY_PATH=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime: VORTEX_DRIVER=simx ./dxa_pc -p1 -d2 -n9 -w32 -t
+TILE 0 issue=716 begin=1005 end=4588
+TILE 1 issue=1090 begin=5020 end=8554
+TILE 2 issue=4922 begin=8986 end=12520
+TILE 3 issue=8888 begin=12952 end=16486
+TILE 4 issue=12854 begin=16918 end=20452
+TILE 5 issue=16820 begin=20884 end=24418
+TILE 6 issue=20786 begin=24850 end=28384
+TILE 7 issue=24752 begin=28816 end=32350
+TILE 8 issue=28718 begin=32782 end=36316
+tiles=9 depth=2 work=32 pipeline=1 errors=0
+PERF: core0: lmem: reqs=612, bank_stalls=0 (utility=100%)
+PERF: core0: coalescer: misses=0
+PERF: memory: reqs=140 (r=94, w=46), lat=27.6 cyc, bank_st=4 (utility=97%)
+PERF: instrs=3412, cycles=36688, IPC=0.093
+PASSED!
+make: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/dxa_pc'

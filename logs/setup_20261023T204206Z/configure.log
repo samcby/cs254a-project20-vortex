@@ -1,0 +1,2 @@
+command=../configure --xlen=32 --tooldir=/root/cs254a/project20/tools-v3.0.1
+cwd=/root/cs254a/project20/vortex/build32

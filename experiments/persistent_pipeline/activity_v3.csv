@@ -1,0 +1,6 @@
+output,compute_start,compute_end,activation_start,activation_end,activation_events_during_next_compute_window,same_cycle_activation_and_next_compute
+0,2255,5451,5394,5724,0,0
+1,7326,9995,9938,10274,0,0
+2,11395,14585,14528,14861,0,0
+3,16423,19744,19687,20023,0,0
+4,21622,24937,24880,25213,0,0

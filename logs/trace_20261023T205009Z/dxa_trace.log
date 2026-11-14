@@ -1,0 +1,6 @@
+command=./ci/blackbox.sh --driver=simx --app=dxa_copy --args=-d1 --debug=3 --log=/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log
+cwd=/root/cs254a/project20/vortex/build32-dxa-trace
+environment={"CONFIGS": "-DVX_CFG_EXT_DXA_ENABLE", "MAKEFLAGS": "-j4"}
+CONFIGS=-DVX_CFG_EXT_DXA_ENABLE
+Running: DEBUG=3 CONFIGS="-DVX_CFG_EXT_DXA_ENABLE" make -C "./ci/../tests/regression/dxa_copy" runtime-simx > /dev/null
+Running: DEBUG=3 OPTS="-d1" CONFIGS="-DVX_CFG_EXT_DXA_ENABLE" make -C "./ci/../tests/regression/dxa_copy" run-simx > /root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log 2>&1

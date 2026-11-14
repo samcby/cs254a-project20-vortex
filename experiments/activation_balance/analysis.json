@@ -1,0 +1,530 @@
+{
+  "successful_simx_executions": 78,
+  "phases": {
+    "w16_smoke": 6,
+    "w16_matrix": 36,
+    "w16_controls": 14,
+    "w16_repeat": 12,
+    "w16_trace": 4,
+    "w8_capacity": 6
+  },
+  "matrix": [
+    [
+      1,
+      16,
+      3512,
+      3809,
+      12851,
+      9624,
+      8208,
+      6570
+    ],
+    [
+      1,
+      64,
+      6701,
+      6792,
+      15998,
+      12600,
+      11190,
+      9553
+    ],
+    [
+      2,
+      16,
+      6076,
+      5958,
+      23646,
+      16664,
+      13829,
+      10648
+    ],
+    [
+      2,
+      64,
+      12728,
+      11605,
+      26571,
+      19843,
+      17288,
+      14087
+    ],
+    [
+      5,
+      16,
+      12759,
+      12065,
+      54608,
+      37406,
+      30325,
+      22285
+    ],
+    [
+      5,
+      64,
+      28396,
+      26660,
+      57619,
+      41232,
+      35128,
+      27586
+    ]
+  ],
+  "focus": [
+    [
+      "普通融合",
+      4,
+      6144,
+      28396,
+      7946,
+      "+6.51%"
+    ],
+    [
+      "两阶段",
+      5,
+      6144,
+      26660,
+      7298,
+      "+0.00%"
+    ],
+    [
+      "A1/U1",
+      6,
+      14336,
+      57619,
+      11768,
+      "+116.13%"
+    ],
+    [
+      "A1/U4",
+      6,
+      14336,
+      41232,
+      10568,
+      "+54.66%"
+    ],
+    [
+      "A2/U1",
+      7,
+      14336,
+      35128,
+      11972,
+      "+31.76%"
+    ],
+    [
+      "A2/U4",
+      7,
+      14336,
+      27586,
+      10772,
+      "+3.47%"
+    ]
+  ],
+  "producer_relu_control": [
+    [
+      "A1/U1",
+      57619,
+      58945,
+      "+2.30%"
+    ],
+    [
+      "A1/U4",
+      41232,
+      40647,
+      "-1.42%"
+    ],
+    [
+      "A2/U1",
+      35128,
+      36697,
+      "+4.47%"
+    ],
+    [
+      "A2/U4",
+      27586,
+      28626,
+      "+3.77%"
+    ]
+  ],
+  "depth": [
+    [
+      16,
+      "A1/U4",
+      37406,
+      37082,
+      "-0.87%"
+    ],
+    [
+      64,
+      "A1/U4",
+      41232,
+      40476,
+      "-1.83%"
+    ],
+    [
+      16,
+      "A2/U4",
+      22285,
+      21574,
+      "-3.19%"
+    ],
+    [
+      64,
+      "A2/U4",
+      27586,
+      27516,
+      "-0.25%"
+    ]
+  ],
+  "capacity": [
+    [
+      "普通融合",
+      28396,
+      28456
+    ],
+    [
+      "两阶段",
+      26660,
+      26782
+    ],
+    [
+      "A1/U1",
+      57619,
+      57605
+    ],
+    [
+      "A1/U4",
+      41232,
+      41199
+    ],
+    [
+      "A2/U1",
+      35128,
+      35262
+    ],
+    [
+      "A2/U4",
+      27586,
+      27599
+    ]
+  ],
+  "repeated_observations": [
+    [
+      "普通融合",
+      3,
+      28396,
+      28396,
+      28396
+    ],
+    [
+      "两阶段",
+      3,
+      26660,
+      26660,
+      26660
+    ],
+    [
+      "A1/U1",
+      4,
+      57619,
+      57619.0,
+      57619
+    ],
+    [
+      "A1/U4",
+      4,
+      41232,
+      41232.0,
+      41232
+    ],
+    [
+      "A2/U1",
+      4,
+      35128,
+      35128.0,
+      35128
+    ],
+    [
+      "A2/U4",
+      4,
+      27586,
+      27586.0,
+      27586
+    ]
+  ],
+  "activities": [
+    {
+      "label": "A1/U1",
+      "activation_warps": 1,
+      "unroll": 1,
+      "dxa_transfers": 40,
+      "wgmma_events": 2560,
+      "activation_events": 320,
+      "activation_span_median": 9581,
+      "activation_events_in_next_compute_window": 74,
+      "same_cycle_with_next_compute": 9,
+      "rows": [
+        {
+          "output": 0,
+          "compute_start": 2316,
+          "compute_end": 5639,
+          "activation_start": 6376,
+          "activation_end": 15975,
+          "activation_span": 9599,
+          "activation_events_in_next_compute_window": 20,
+          "same_cycle_with_next_compute": 1
+        },
+        {
+          "output": 1,
+          "compute_start": 6536,
+          "compute_end": 9785,
+          "activation_start": 16758,
+          "activation_end": 26339,
+          "activation_span": 9581,
+          "activation_events_in_next_compute_window": 18,
+          "same_cycle_with_next_compute": 2
+        },
+        {
+          "output": 2,
+          "compute_start": 17007,
+          "compute_end": 19847,
+          "activation_start": 27122,
+          "activation_end": 36703,
+          "activation_span": 9581,
+          "activation_events_in_next_compute_window": 18,
+          "same_cycle_with_next_compute": 3
+        },
+        {
+          "output": 3,
+          "compute_start": 27371,
+          "compute_end": 30225,
+          "activation_start": 37486,
+          "activation_end": 47070,
+          "activation_span": 9584,
+          "activation_events_in_next_compute_window": 18,
+          "same_cycle_with_next_compute": 3
+        },
+        {
+          "output": 4,
+          "compute_start": 37735,
+          "compute_end": 40590,
+          "activation_start": 47870,
+          "activation_end": 57194,
+          "activation_span": 9324,
+          "activation_events_in_next_compute_window": 0,
+          "same_cycle_with_next_compute": 0
+        }
+      ],
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_trace_20261029T192446Z/t5_k64_v4_a1_u1_p0_q1_s1_r0.trace.log.gz"
+    },
+    {
+      "label": "A1/U4",
+      "activation_warps": 1,
+      "unroll": 4,
+      "dxa_transfers": 40,
+      "wgmma_events": 2560,
+      "activation_events": 320,
+      "activation_span_median": 6356,
+      "activation_events_in_next_compute_window": 110,
+      "same_cycle_with_next_compute": 12,
+      "rows": [
+        {
+          "output": 0,
+          "compute_start": 2254,
+          "compute_end": 5473,
+          "activation_start": 6147,
+          "activation_end": 12617,
+          "activation_span": 6470,
+          "activation_events_in_next_compute_window": 30,
+          "same_cycle_with_next_compute": 6
+        },
+        {
+          "output": 1,
+          "compute_start": 6397,
+          "compute_end": 9651,
+          "activation_start": 13372,
+          "activation_end": 19728,
+          "activation_span": 6356,
+          "activation_events_in_next_compute_window": 26,
+          "same_cycle_with_next_compute": 2
+        },
+        {
+          "output": 2,
+          "compute_start": 13646,
+          "compute_end": 16504,
+          "activation_start": 20483,
+          "activation_end": 26876,
+          "activation_span": 6393,
+          "activation_events_in_next_compute_window": 27,
+          "same_cycle_with_next_compute": 1
+        },
+        {
+          "output": 3,
+          "compute_start": 20757,
+          "compute_end": 23716,
+          "activation_start": 27631,
+          "activation_end": 33951,
+          "activation_span": 6320,
+          "activation_events_in_next_compute_window": 27,
+          "same_cycle_with_next_compute": 3
+        },
+        {
+          "output": 4,
+          "compute_start": 27905,
+          "compute_end": 30802,
+          "activation_start": 34724,
+          "activation_end": 40811,
+          "activation_span": 6087,
+          "activation_events_in_next_compute_window": 0,
+          "same_cycle_with_next_compute": 0
+        }
+      ],
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_trace_20261029T192446Z/t5_k64_v4_a1_u4_p0_q1_s1_r1.trace.log.gz"
+    },
+    {
+      "label": "A2/U1",
+      "activation_warps": 2,
+      "unroll": 1,
+      "dxa_transfers": 40,
+      "wgmma_events": 2560,
+      "activation_events": 320,
+      "activation_span_median": 5162,
+      "activation_events_in_next_compute_window": 143,
+      "same_cycle_with_next_compute": 9,
+      "rows": [
+        {
+          "output": 0,
+          "compute_start": 2404,
+          "compute_end": 5600,
+          "activation_start": 6310,
+          "activation_end": 11550,
+          "activation_span": 5240,
+          "activation_events_in_next_compute_window": 37,
+          "same_cycle_with_next_compute": 4
+        },
+        {
+          "output": 1,
+          "compute_start": 6525,
+          "compute_end": 9780,
+          "activation_start": 12316,
+          "activation_end": 17486,
+          "activation_span": 5170,
+          "activation_events_in_next_compute_window": 34,
+          "same_cycle_with_next_compute": 0
+        },
+        {
+          "output": 2,
+          "compute_start": 12564,
+          "compute_end": 15468,
+          "activation_start": 18253,
+          "activation_end": 23400,
+          "activation_span": 5147,
+          "activation_events_in_next_compute_window": 36,
+          "same_cycle_with_next_compute": 3
+        },
+        {
+          "output": 3,
+          "compute_start": 18501,
+          "compute_end": 21489,
+          "activation_start": 24167,
+          "activation_end": 29329,
+          "activation_span": 5162,
+          "activation_events_in_next_compute_window": 36,
+          "same_cycle_with_next_compute": 2
+        },
+        {
+          "output": 4,
+          "compute_start": 24415,
+          "compute_end": 27418,
+          "activation_start": 30113,
+          "activation_end": 34703,
+          "activation_span": 4590,
+          "activation_events_in_next_compute_window": 0,
+          "same_cycle_with_next_compute": 0
+        }
+      ],
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_trace_20261029T192446Z/t5_k64_v4_a2_u1_p0_q1_s1_r2.trace.log.gz"
+    },
+    {
+      "label": "A2/U4",
+      "activation_warps": 2,
+      "unroll": 4,
+      "dxa_transfers": 40,
+      "wgmma_events": 2560,
+      "activation_events": 320,
+      "activation_span_median": 3489,
+      "activation_events_in_next_compute_window": 231,
+      "same_cycle_with_next_compute": 12,
+      "rows": [
+        {
+          "output": 0,
+          "compute_start": 2344,
+          "compute_end": 5542,
+          "activation_start": 6198,
+          "activation_end": 9852,
+          "activation_span": 3654,
+          "activation_events_in_next_compute_window": 59,
+          "same_cycle_with_next_compute": 2
+        },
+        {
+          "output": 1,
+          "compute_start": 6448,
+          "compute_end": 9817,
+          "activation_start": 10592,
+          "activation_end": 13973,
+          "activation_span": 3381,
+          "activation_events_in_next_compute_window": 56,
+          "same_cycle_with_next_compute": 2
+        },
+        {
+          "output": 2,
+          "compute_start": 10868,
+          "compute_end": 14394,
+          "activation_start": 15146,
+          "activation_end": 18636,
+          "activation_span": 3490,
+          "activation_events_in_next_compute_window": 58,
+          "same_cycle_with_next_compute": 5
+        },
+        {
+          "output": 3,
+          "compute_start": 15415,
+          "compute_end": 18865,
+          "activation_start": 19618,
+          "activation_end": 23107,
+          "activation_span": 3489,
+          "activation_events_in_next_compute_window": 58,
+          "same_cycle_with_next_compute": 3
+        },
+        {
+          "output": 4,
+          "compute_start": 19883,
+          "compute_end": 23424,
+          "activation_start": 24180,
+          "activation_end": 27165,
+          "activation_span": 2985,
+          "activation_events_in_next_compute_window": 0,
+          "same_cycle_with_next_compute": 0
+        }
+      ],
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_trace_20261029T192446Z/t5_k64_v4_a2_u4_p0_q1_s1_r3.trace.log.gz"
+    }
+  ],
+  "source_hashes": {
+    "common.h": "f7e7d9df5a24e2accbee895ee0fff1ebc73d8ef9113266636c405a128e54c051",
+    "kernel.cpp": "6eab6064dc13e5d4d73b772174ed92c173fe3a9301f9d621522c2d28d839d7f8",
+    "main.cpp": "f4f24032be222a854e5d70551028b4b81ed198f02a38bd54d2d976f57745d88a",
+    "Makefile": "a96df047b1bec90d87876f396f7bb1a237ac28f16342284ea651a107f91cac60",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "binary_sha256": "1eec69a52b6e41c884665a38867f3bc2d7754f373ef9acfea7797c1aa392669d",
+  "provenance": {
+    "w16_smoke": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_smoke_20261029T192159Z",
+    "w16_matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_matrix_20261029T192225Z",
+    "w16_controls": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_controls_20261029T192339Z",
+    "w16_repeat": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_repeat_20261029T192425Z",
+    "w16_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w16_trace_20261029T192446Z",
+    "w8_capacity": "/mnt/d/UCLA_Master/CS 254A/project/logs/activation_w8_capacity_20261029T192657Z"
+  },
+  "scope": "One persistent CTA, no upstream RTL/SimX changes; SimX only; no RTL/PPA claim"
+}

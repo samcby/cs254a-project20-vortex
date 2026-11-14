@@ -1,0 +1,684 @@
+{
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "source_tag": "v3.0",
+  "toolchain_rev": "v3.0.1",
+  "work_root": "/root/cs254a/project20",
+  "source": "/root/cs254a/project20/vortex",
+  "build": "/root/cs254a/project20/vortex/build32",
+  "tools": "/root/cs254a/project20/tools-v3.0.1",
+  "installed_components": [
+    "llvm",
+    "riscv32",
+    "libcrt32",
+    "libc32",
+    "verilator"
+  ],
+  "steps": [
+    {
+      "name": "apt_update",
+      "command": [
+        "apt-get",
+        "update"
+      ],
+      "cwd": "/root/cs254a/project20",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/apt_update.log",
+      "started_utc": "2026-10-23T20:42:06.107484+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "apt_install",
+      "command": [
+        "apt-get",
+        "install",
+        "-y",
+        "build-essential",
+        "cmake",
+        "ccache",
+        "zlib1g-dev",
+        "libtinfo-dev",
+        "libncurses-dev",
+        "uuid-dev",
+        "libboost-serialization-dev",
+        "libpng-dev",
+        "libhwloc-dev",
+        "pkg-config",
+        "bzip2",
+        "unzip"
+      ],
+      "cwd": "/root/cs254a/project20",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/apt_install.log",
+      "started_utc": "2026-10-23T20:42:10.854197+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "clone",
+      "command": [
+        "git",
+        "clone",
+        "--depth=1",
+        "--branch",
+        "v3.0",
+        "https://github.com/vortexgpgpu/vortex.git",
+        "/root/cs254a/project20/vortex"
+      ],
+      "cwd": "/root/cs254a/project20",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/clone.log",
+      "started_utc": "2026-10-23T20:42:19.958618+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "source_commit",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/root/cs254a/project20/vortex",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/source_commit.log",
+      "started_utc": "2026-10-23T20:42:25.451969+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "submodules",
+      "command": [
+        "git",
+        "submodule",
+        "update",
+        "--init",
+        "--recursive",
+        "--depth=1"
+      ],
+      "cwd": "/root/cs254a/project20/vortex",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/submodules.log",
+      "started_utc": "2026-10-23T20:42:25.473405+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "submodule_versions",
+      "command": [
+        "git",
+        "submodule",
+        "status",
+        "--recursive"
+      ],
+      "cwd": "/root/cs254a/project20/vortex",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/submodule_versions.log",
+      "started_utc": "2026-10-23T20:42:38.643564+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/configure.log",
+      "started_utc": "2026-10-23T20:42:38.727144+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "install_llvm",
+      "command": [
+        "./ci/toolchain_install.sh",
+        "--llvm"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/install_llvm.log",
+      "started_utc": "2026-10-23T20:42:39.963449+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "install_riscv32",
+      "command": [
+        "./ci/toolchain_install.sh",
+        "--riscv32"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/install_riscv32.log",
+      "started_utc": "2026-10-23T20:43:00.745368+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "install_libcrt32",
+      "command": [
+        "./ci/toolchain_install.sh",
+        "--libcrt32"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/install_libcrt32.log",
+      "started_utc": "2026-10-23T20:44:56.620261+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "install_libc32",
+      "command": [
+        "./ci/toolchain_install.sh",
+        "--libc32"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/install_libc32.log",
+      "started_utc": "2026-10-23T20:44:57.217452+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "install_verilator",
+      "command": [
+        "./ci/toolchain_install.sh",
+        "--verilator"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/install_verilator.log",
+      "started_utc": "2026-10-23T20:44:57.911314+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "third_party",
+      "command": [
+        "make",
+        "-j4",
+        "third_party"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/third_party.log",
+      "started_utc": "2026-10-23T20:45:18.391208+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "kernel_runtime",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/setup_20261023T204206Z/kernel_runtime.log",
+      "started_utc": "2026-10-23T20:46:59.514965+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/smoke_20261023T204711Z/configure.log",
+      "started_utc": "2026-10-23T20:47:11.238627+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "demo",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=demo"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/smoke_20261023T204711Z/demo.log",
+      "started_utc": "2026-10-23T20:47:11.829698+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "sgemm",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm",
+        "--args=-n10"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/smoke_20261023T204711Z/sgemm.log",
+      "started_utc": "2026-10-23T20:47:56.504887+00:00",
+      "exit_code": 2
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/smoke_20261023T204908Z/configure.log",
+      "started_utc": "2026-10-23T20:49:08.119307+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "demo",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=demo"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/smoke_20261023T204908Z/demo.log",
+      "started_utc": "2026-10-23T20:49:08.562317+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "sgemm",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm",
+        "--args=-n32"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/smoke_20261023T204908Z/sgemm.log",
+      "started_utc": "2026-10-23T20:49:08.894753+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/configure.log",
+      "started_utc": "2026-10-23T20:49:16.955058+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "kernel_runtime",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/kernel_runtime.log",
+      "started_utc": "2026-10-23T20:49:18.346139+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "build_single",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/sgemm_tcu_wg_dxa"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/build_single.log",
+      "started_utc": "2026-10-23T20:49:24.040515+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "single_perf7",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m 128 -n 128 -k 64",
+        "--perf=7"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf7.log",
+      "started_utc": "2026-10-23T20:49:25.277732+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "single_perf16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m 128 -n 128 -k 64",
+        "--perf=16"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf16.log",
+      "started_utc": "2026-10-23T20:49:42.302185+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "single_perf11",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m 128 -n 128 -k 64",
+        "--perf=11"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf11.log",
+      "started_utc": "2026-10-23T20:49:42.798802+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "build_double",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/sgemm_tcu_wg_dxa"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/build_double.log",
+      "started_utc": "2026-10-23T20:49:43.290579+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "double_perf7",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m 128 -n 128 -k 64",
+        "--perf=7"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf7.log",
+      "started_utc": "2026-10-23T20:49:44.379666+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "double_perf16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m 128 -n 128 -k 64",
+        "--perf=16"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf16.log",
+      "started_utc": "2026-10-23T20:50:00.752567+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "double_perf11",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m 128 -n 128 -k 64",
+        "--perf=11"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-wgmma",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf11.log",
+      "started_utc": "2026-10-23T20:50:01.240692+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205009Z/configure.log",
+      "started_utc": "2026-10-23T20:50:09.869285+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "kernel_runtime",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205009Z/kernel_runtime.log",
+      "started_utc": "2026-10-23T20:50:11.166732+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "dxa_trace",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_copy",
+        "--args=-d1",
+        "--debug=3",
+        "--log=/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205009Z/dxa_trace.log",
+      "started_utc": "2026-10-23T20:50:17.466258+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/configure.log",
+      "started_utc": "2026-10-23T20:51:12.036370+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "kernel_runtime",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/kernel_runtime.log",
+      "started_utc": "2026-10-23T20:51:12.474389+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "dxa_trace",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_copy",
+        "--args=-d1",
+        "--debug=3",
+        "--log=/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/dxa_trace.log",
+      "started_utc": "2026-10-23T20:51:12.610646+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "perfetto",
+      "command": [
+        "python3",
+        "ci/perfetto.py",
+        "/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log",
+        "-t",
+        "simx",
+        "-c",
+        "-o",
+        "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/dxa.perfetto.json.gz"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205112Z/perfetto.log",
+      "started_utc": "2026-10-23T20:51:13.084304+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z/configure.log",
+      "started_utc": "2026-10-23T20:51:31.706045+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "kernel_runtime",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z/kernel_runtime.log",
+      "started_utc": "2026-10-23T20:51:32.147573+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "dxa_trace",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=dxa_copy",
+        "--args=-d1",
+        "--debug=3",
+        "--log=/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z/dxa_trace.log",
+      "started_utc": "2026-10-23T20:51:32.282960+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "perfetto",
+      "command": [
+        "python3",
+        "ci/perfetto.py",
+        "/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log",
+        "-t",
+        "simx",
+        "-c",
+        "-o",
+        "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z/dxa.perfetto.json.gz"
+      ],
+      "cwd": "/root/cs254a/project20/vortex/build32-dxa-trace",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z/perfetto.log",
+      "started_utc": "2026-10-23T20:51:32.764480+00:00",
+      "exit_code": 0
+    }
+  ],
+  "status": "complete",
+  "phase": "trace",
+  "latest_logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z",
+  "setup_complete": true,
+  "smoke_complete": true,
+  "measurement_build": "/root/cs254a/project20/vortex/build32-wgmma",
+  "measurements": [
+    {
+      "variant": "single",
+      "profile": 7,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "9160",
+        "39932",
+        "0.229"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=36712, bank_stalls=7880 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=4699 (r=3636, w=1063), lat=65.0 cyc, bank_st=27 (utility=99%)",
+        "PERF: instrs=9160, cycles=39932, IPC=0.229"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf7.log"
+    },
+    {
+      "variant": "single",
+      "profile": 16,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "9160",
+        "39932",
+        "0.229"
+      ],
+      "perf_lines": [
+        "PERF: core0: dxa: transfers=64, gmem_reads=2560, gmem_dedup=0 (rate=0%), lmem_writes=18432, avg_gmem_lat=546.9, noslot_stalls=21590",
+        "PERF: dxa: transfers=64, gmem_reads=2560, gmem_dedup=0 (rate=0%), lmem_writes=18432, avg_gmem_lat=546.9, noslot_stalls=21590",
+        "PERF: instrs=9160, cycles=39932, IPC=0.229"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf16.log"
+    },
+    {
+      "variant": "single",
+      "profile": 11,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "9160",
+        "39932",
+        "0.229"
+      ],
+      "perf_lines": [
+        "PERF: core0: tcu: tbuf_stalls=3234, tbuf_cache_hits=2691, lmem_reads=948",
+        "PERF: tcu: total_tbuf_stalls=3234, total_tbuf_cache_hits=2691, total_lmem_reads=948",
+        "PERF: instrs=9160, cycles=39932, IPC=0.229"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/single_perf11.log"
+    },
+    {
+      "variant": "double",
+      "profile": 7,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "11640",
+        "41970",
+        "0.277"
+      ],
+      "perf_lines": [
+        "PERF: core0: lmem: reqs=36140, bank_stalls=9429 (utility=79%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=5190 (r=3882, w=1308), lat=76.7 cyc, bank_st=30 (utility=99%)",
+        "PERF: instrs=11640, cycles=41970, IPC=0.277"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf7.log"
+    },
+    {
+      "variant": "double",
+      "profile": 16,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "11640",
+        "41970",
+        "0.277"
+      ],
+      "perf_lines": [
+        "PERF: core0: dxa: transfers=64, gmem_reads=2560, gmem_dedup=0 (rate=0%), lmem_writes=18432, avg_gmem_lat=578.9, noslot_stalls=24056",
+        "PERF: dxa: transfers=64, gmem_reads=2560, gmem_dedup=0 (rate=0%), lmem_writes=18432, avg_gmem_lat=578.9, noslot_stalls=24056",
+        "PERF: instrs=11640, cycles=41970, IPC=0.277"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf16.log"
+    },
+    {
+      "variant": "double",
+      "profile": 11,
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "args": "-m 128 -n 128 -k 64",
+      "passed": true,
+      "summary": [
+        "11640",
+        "41970",
+        "0.277"
+      ],
+      "perf_lines": [
+        "PERF: core0: tcu: tbuf_stalls=2738, tbuf_cache_hits=2467, lmem_reads=662",
+        "PERF: tcu: total_tbuf_stalls=2738, total_tbuf_cache_hits=2467, total_lmem_reads=662",
+        "PERF: instrs=11640, cycles=41970, IPC=0.277"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/measure_20261023T204916Z/double_perf11.log"
+    }
+  ],
+  "measure_complete": true,
+  "trace": {
+    "raw_log": "/root/cs254a/project20/vortex/build32-dxa-trace/dxa_run.log",
+    "perfetto": "/mnt/d/UCLA_Master/CS 254A/project/logs/trace_20261023T205131Z/dxa.perfetto.json.gz",
+    "build": "/root/cs254a/project20/vortex/build32-dxa-trace",
+    "app": "dxa_copy",
+    "passed": true,
+    "event_count": 31504
+  },
+  "trace_complete": true
+}

@@ -1,0 +1,2211 @@
+{
+  "successful_simx_executions": 214,
+  "phases": {
+    "w8_policy": 6,
+    "w8_oracle": 88,
+    "w8_validate": 10,
+    "w16_policy": 6,
+    "w16_oracle": 88,
+    "w16_validate": 16
+  },
+  "policy_sha256": "e8958a4000df35b8ce4493d878f4f77975ed4e0295a83e0a9061383f04714d9b",
+  "manifest_sha256": "7d5321aecdfdce71bc6b3c15d20128be6f8a4aa42db7bdea3a7a60b67eecf478",
+  "metrics": {
+    "8": {
+      "cases": 6,
+      "within_1pct": 5,
+      "within_5pct": 5,
+      "exact_grid_best": 5,
+      "faster_than_best_fused": 3,
+      "geometric_ratio_to_best": 1.0111299102389377,
+      "median_ratio_to_best": 1.0,
+      "worst_ratio_to_best": 1.068665390494815,
+      "geometric_ratio_to_best_fused": 0.9943148886987715
+    },
+    "16": {
+      "cases": 6,
+      "within_1pct": 3,
+      "within_5pct": 5,
+      "exact_grid_best": 1,
+      "faster_than_best_fused": 5,
+      "geometric_ratio_to_best": 1.0209430682983298,
+      "median_ratio_to_best": 1.010643429910467,
+      "worst_ratio_to_best": 1.0788188987329448,
+      "geometric_ratio_to_best_fused": 0.987363418435679
+    },
+    "all": {
+      "cases": 12,
+      "within_1pct": 8,
+      "within_5pct": 10,
+      "exact_grid_best": 6,
+      "faster_than_best_fused": 8,
+      "geometric_ratio_to_best": 1.0160246419292969,
+      "median_ratio_to_best": 1.0043601230683414,
+      "worst_ratio_to_best": 1.0788188987329448,
+      "geometric_ratio_to_best_fused": 0.9908330573346403
+    }
+  },
+  "evaluation": [
+    {
+      "hardware_warps": 8,
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "tiles": 4,
+      "choice": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "anchor_tiles": 5,
+        "anchor_k": 64,
+        "distance": 0.3219280948873623,
+        "name": "m64_n128_k64_g1_v3_a0_u1_s1_r0",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z/m64_n128_k64_g1_v3_a0_u1_s1_r0.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22248,
+          "instructions": 5883,
+          "reads": 1857,
+          "writes": 560,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "best": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m64_n128_k64_g1_v3_a0_u1_s1_r3",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m64_n128_k64_g1_v3_a0_u1_s1_r3.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22248,
+          "instructions": 5883,
+          "reads": 1857,
+          "writes": 560,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m64_n128_k64_g2_v2_a0_u1_s1_r1",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m64_n128_k64_g2_v2_a0_u1_s1_r1.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22664,
+          "instructions": 6580,
+          "reads": 1998,
+          "writes": 658,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "two": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m64_n128_k64_g1_v3_a0_u1_s1_r3",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m64_n128_k64_g1_v3_a0_u1_s1_r3.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22248,
+          "instructions": 5883,
+          "reads": 1857,
+          "writes": 560,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m64_n128_k64_g1_v3_a0_u1_s1_r3",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m64_n128_k64_g1_v3_a0_u1_s1_r3.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22248,
+          "instructions": 5883,
+          "reads": 1857,
+          "writes": 560,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0,
+      "policy_ratio_to_fused": 0.9816448993999294,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "tiles": 4,
+      "choice": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "anchor_tiles": 5,
+        "anchor_k": 64,
+        "distance": 0.3219280948873623,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r1",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z/m256_n32_k64_g1_v3_a0_u1_s1_r1.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22056,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "best": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22056,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m256_n32_k64_g2_v2_a0_u1_s1_r13",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n32_k64_g2_v2_a0_u1_s1_r13.log",
+        "passed": true,
+        "chain": {
+          "cycles": 23020,
+          "instructions": 6580,
+          "reads": 1952,
+          "writes": 592,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "two": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22056,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22056,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0,
+      "policy_ratio_to_fused": 0.958123370981755,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 8,
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "tiles": 8,
+      "choice": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "anchor_tiles": 5,
+        "anchor_k": 64,
+        "distance": 1.6780719051126378,
+        "name": "m256_n64_k128_g1_v3_a0_u1_s1_r2",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z/m256_n64_k128_g1_v3_a0_u1_s1_r2.log",
+        "passed": true,
+        "chain": {
+          "cycles": 77599,
+          "instructions": 20375,
+          "reads": 6184,
+          "writes": 1044,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "best": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m256_n64_k128_g4_v2_a0_u1_s1_r26",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n64_k128_g4_v2_a0_u1_s1_r26.log",
+        "passed": true,
+        "chain": {
+          "cycles": 72613,
+          "instructions": 22920,
+          "reads": 6436,
+          "writes": 1184,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m256_n64_k128_g4_v2_a0_u1_s1_r26",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n64_k128_g4_v2_a0_u1_s1_r26.log",
+        "passed": true,
+        "chain": {
+          "cycles": 72613,
+          "instructions": 22920,
+          "reads": 6436,
+          "writes": 1184,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "two": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m256_n64_k128_g2_v3_a0_u1_s1_r29",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n64_k128_g2_v3_a0_u1_s1_r29.log",
+        "passed": true,
+        "chain": {
+          "cycles": 77145,
+          "instructions": 20590,
+          "reads": 6200,
+          "writes": 1060,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m256_n64_k128_g2_v3_a0_u1_s1_r29",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m256_n64_k128_g2_v3_a0_u1_s1_r29.log",
+        "passed": true,
+        "chain": {
+          "cycles": 77145,
+          "instructions": 20590,
+          "reads": 6200,
+          "writes": 1060,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.068665390494815,
+      "policy_ratio_to_fused": 1.068665390494815,
+      "cta_selection_ratio": 1.0058850217123598,
+      "family_selection_ratio": 1.0624130665307865
+    },
+    {
+      "hardware_warps": 8,
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "tiles": 12,
+      "choice": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 2,
+        "unroll": 4,
+        "ctas": 1,
+        "anchor_tiles": 16,
+        "anchor_k": 64,
+        "distance": 0.4150374992788438,
+        "name": "m192_n128_k64_g1_v4_a2_u4_s1_r3",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z/m192_n128_k64_g1_v4_a2_u4_s1_r3.log",
+        "passed": true,
+        "chain": {
+          "cycles": 61301,
+          "instructions": 25227,
+          "reads": 5430,
+          "writes": 1564,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 7,
+        "output_hash": "6704879752028193573",
+        "smem": 14336
+      },
+      "best": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 2,
+        "unroll": 4,
+        "ctas": 1,
+        "name": "m192_n128_k64_g1_v4_a2_u4_s1_r52",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m192_n128_k64_g1_v4_a2_u4_s1_r52.log",
+        "passed": true,
+        "chain": {
+          "cycles": 61301,
+          "instructions": 25227,
+          "reads": 5430,
+          "writes": 1564,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 7,
+        "output_hash": "6704879752028193573",
+        "smem": 14336
+      },
+      "fused": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m192_n128_k64_g2_v2_a0_u1_s1_r41",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m192_n128_k64_g2_v2_a0_u1_s1_r41.log",
+        "passed": true,
+        "chain": {
+          "cycles": 63759,
+          "instructions": 18996,
+          "reads": 5827,
+          "writes": 1827,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "6704879752028193573",
+        "smem": 6144
+      },
+      "two": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m192_n128_k64_g1_v3_a0_u1_s1_r44",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m192_n128_k64_g1_v3_a0_u1_s1_r44.log",
+        "passed": true,
+        "chain": {
+          "cycles": 64244,
+          "instructions": 17203,
+          "reads": 5451,
+          "writes": 1592,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "6704879752028193573",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 2,
+        "unroll": 4,
+        "ctas": 1,
+        "name": "m192_n128_k64_g1_v4_a2_u4_s1_r52",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m192_n128_k64_g1_v4_a2_u4_s1_r52.log",
+        "passed": true,
+        "chain": {
+          "cycles": 61301,
+          "instructions": 25227,
+          "reads": 5430,
+          "writes": 1564,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 7,
+        "output_hash": "6704879752028193573",
+        "smem": 14336
+      },
+      "policy_ratio_to_best": 1.0,
+      "policy_ratio_to_fused": 0.9614485798083408,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 8,
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "tiles": 24,
+      "choice": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "anchor_tiles": 16,
+        "anchor_k": 256,
+        "distance": 0.5849625007211562,
+        "name": "m384_n128_k256_g4_v2_a0_u1_s1_r4",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z/m384_n128_k256_g4_v2_a0_u1_s1_r4.log",
+        "passed": true,
+        "chain": {
+          "cycles": 360549,
+          "instructions": 126088,
+          "reads": 34630,
+          "writes": 3626,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "best": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m384_n128_k256_g4_v2_a0_u1_s1_r58",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m384_n128_k256_g4_v2_a0_u1_s1_r58.log",
+        "passed": true,
+        "chain": {
+          "cycles": 360549,
+          "instructions": 126088,
+          "reads": 34630,
+          "writes": 3626,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m384_n128_k256_g4_v2_a0_u1_s1_r58",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m384_n128_k256_g4_v2_a0_u1_s1_r58.log",
+        "passed": true,
+        "chain": {
+          "cycles": 360549,
+          "instructions": 126088,
+          "reads": 34630,
+          "writes": 3626,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "two": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m384_n128_k256_g1_v3_a0_u1_s1_r60",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m384_n128_k256_g1_v3_a0_u1_s1_r60.log",
+        "passed": true,
+        "chain": {
+          "cycles": 413112,
+          "instructions": 113671,
+          "reads": 33840,
+          "writes": 3092,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m384_n128_k256_g4_v2_a0_u1_s1_r58",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m384_n128_k256_g4_v2_a0_u1_s1_r58.log",
+        "passed": true,
+        "chain": {
+          "cycles": 360549,
+          "instructions": 126088,
+          "reads": 34630,
+          "writes": 3626,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0,
+      "policy_ratio_to_fused": 1.0,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 8,
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "tiles": 20,
+      "choice": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "anchor_tiles": 16,
+        "anchor_k": 256,
+        "distance": 0.7369655941662061,
+        "name": "m320_n128_k192_g4_v2_a0_u1_s1_r5",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z/m320_n128_k192_g4_v2_a0_u1_s1_r5.log",
+        "passed": true,
+        "chain": {
+          "cycles": 234559,
+          "instructions": 80712,
+          "reads": 22217,
+          "writes": 2785,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "best": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m320_n128_k192_g4_v2_a0_u1_s1_r74",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m320_n128_k192_g4_v2_a0_u1_s1_r74.log",
+        "passed": true,
+        "chain": {
+          "cycles": 234559,
+          "instructions": 80712,
+          "reads": 22217,
+          "writes": 2785,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m320_n128_k192_g4_v2_a0_u1_s1_r74",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m320_n128_k192_g4_v2_a0_u1_s1_r74.log",
+        "passed": true,
+        "chain": {
+          "cycles": 234559,
+          "instructions": 80712,
+          "reads": 22217,
+          "writes": 2785,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "two": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m320_n128_k192_g1_v3_a0_u1_s1_r76",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m320_n128_k192_g1_v3_a0_u1_s1_r76.log",
+        "passed": true,
+        "chain": {
+          "cycles": 261224,
+          "instructions": 72683,
+          "reads": 21801,
+          "writes": 2580,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m320_n128_k192_g4_v2_a0_u1_s1_r74",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z/m320_n128_k192_g4_v2_a0_u1_s1_r74.log",
+        "passed": true,
+        "chain": {
+          "cycles": 234559,
+          "instructions": 80712,
+          "reads": 22217,
+          "writes": 2785,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 8,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0,
+      "policy_ratio_to_fused": 1.0,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 16,
+      "m": 64,
+      "n": 128,
+      "k": 64,
+      "tiles": 4,
+      "choice": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "anchor_tiles": 5,
+        "anchor_k": 64,
+        "distance": 0.3219280948873623,
+        "name": "m64_n128_k64_g1_v3_a0_u1_s1_r0",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z/m64_n128_k64_g1_v3_a0_u1_s1_r0.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22234,
+          "instructions": 5883,
+          "reads": 1857,
+          "writes": 560,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "best": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m64_n128_k64_g2_v3_a0_u1_s1_r4",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v3_a0_u1_s1_r4.log",
+        "passed": true,
+        "chain": {
+          "cycles": 21970,
+          "instructions": 6106,
+          "reads": 1960,
+          "writes": 663,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m64_n128_k64_g2_v2_a0_u1_s1_r1",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v2_a0_u1_s1_r1.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22600,
+          "instructions": 6580,
+          "reads": 2006,
+          "writes": 665,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "two": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m64_n128_k64_g2_v3_a0_u1_s1_r4",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v3_a0_u1_s1_r4.log",
+        "passed": true,
+        "chain": {
+          "cycles": 21970,
+          "instructions": 6106,
+          "reads": 1960,
+          "writes": 663,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 64,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m64_n128_k64_g2_v3_a0_u1_s1_r4",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m64_n128_k64_g2_v3_a0_u1_s1_r4.log",
+        "passed": true,
+        "chain": {
+          "cycles": 21970,
+          "instructions": 6106,
+          "reads": 1960,
+          "writes": 663,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3999,
+          "negative": 3999,
+          "zero": 194
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "7621155412553569061",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.012016385980883,
+      "policy_ratio_to_fused": 0.9838053097345133,
+      "cta_selection_ratio": 1.012016385980883,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 32,
+      "k": 64,
+      "tiles": 4,
+      "choice": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "anchor_tiles": 5,
+        "anchor_k": 64,
+        "distance": 0.3219280948873623,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r1",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z/m256_n32_k64_g1_v3_a0_u1_s1_r1.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22162,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "best": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22162,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m256_n32_k64_g2_v2_a0_u1_s1_r13",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g2_v2_a0_u1_s1_r13.log",
+        "passed": true,
+        "chain": {
+          "cycles": 23509,
+          "instructions": 6580,
+          "reads": 1953,
+          "writes": 592,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "two": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22162,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 256,
+        "n": 32,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "name": "m256_n32_k64_g1_v3_a0_u1_s1_r15",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n32_k64_g1_v3_a0_u1_s1_r15.log",
+        "passed": true,
+        "chain": {
+          "cycles": 22162,
+          "instructions": 5883,
+          "reads": 1829,
+          "writes": 532,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 3906,
+          "negative": 3996,
+          "zero": 290
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "2436646247310258981",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0,
+      "policy_ratio_to_fused": 0.94270279467438,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0
+    },
+    {
+      "hardware_warps": 16,
+      "m": 256,
+      "n": 64,
+      "k": 128,
+      "tiles": 8,
+      "choice": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 1,
+        "anchor_tiles": 5,
+        "anchor_k": 64,
+        "distance": 1.6780719051126378,
+        "name": "m256_n64_k128_g1_v3_a0_u1_s1_r2",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z/m256_n64_k128_g1_v3_a0_u1_s1_r2.log",
+        "passed": true,
+        "chain": {
+          "cycles": 77566,
+          "instructions": 20375,
+          "reads": 6184,
+          "writes": 1044,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "best": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m256_n64_k128_g2_v2_a0_u1_s1_r25",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v2_a0_u1_s1_r25.log",
+        "passed": true,
+        "chain": {
+          "cycles": 71899,
+          "instructions": 22580,
+          "reads": 6402,
+          "writes": 1104,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "fused": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m256_n64_k128_g2_v2_a0_u1_s1_r25",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g2_v2_a0_u1_s1_r25.log",
+        "passed": true,
+        "chain": {
+          "cycles": 71899,
+          "instructions": 22580,
+          "reads": 6402,
+          "writes": 1104,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "two": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 8,
+        "name": "m256_n64_k128_g8_v3_a0_u1_s1_r31",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v3_a0_u1_s1_r31.log",
+        "passed": true,
+        "chain": {
+          "cycles": 72235,
+          "instructions": 21840,
+          "reads": 6310,
+          "writes": 1170,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 256,
+        "n": 64,
+        "k": 128,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 8,
+        "name": "m256_n64_k128_g8_v3_a0_u1_s1_r31",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m256_n64_k128_g8_v3_a0_u1_s1_r31.log",
+        "passed": true,
+        "chain": {
+          "cycles": 72235,
+          "instructions": 21840,
+          "reads": 6310,
+          "writes": 1170,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 8148,
+          "negative": 7911,
+          "zero": 325
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "13043713101118219045",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0788188987329448,
+      "policy_ratio_to_fused": 1.0788188987329448,
+      "cta_selection_ratio": 1.0738007890911607,
+      "family_selection_ratio": 1.0046732221588617
+    },
+    {
+      "hardware_warps": 16,
+      "m": 192,
+      "n": 128,
+      "k": 64,
+      "tiles": 12,
+      "choice": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 1,
+        "unroll": 4,
+        "ctas": 2,
+        "anchor_tiles": 16,
+        "anchor_k": 64,
+        "distance": 0.4150374992788438,
+        "name": "m192_n128_k64_g2_v4_a1_u4_s1_r3",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z/m192_n128_k64_g2_v4_a1_u4_s1_r3.log",
+        "passed": true,
+        "chain": {
+          "cycles": 62330,
+          "instructions": 25208,
+          "reads": 5449,
+          "writes": 1584,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 6,
+        "output_hash": "6704879752028193573",
+        "smem": 14336
+      },
+      "best": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 2,
+        "unroll": 4,
+        "ctas": 1,
+        "name": "m192_n128_k64_g1_v4_a2_u4_s1_r52",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g1_v4_a2_u4_s1_r52.log",
+        "passed": true,
+        "chain": {
+          "cycles": 61179,
+          "instructions": 25227,
+          "reads": 5430,
+          "writes": 1564,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 7,
+        "output_hash": "6704879752028193573",
+        "smem": 14336
+      },
+      "fused": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m192_n128_k64_g2_v2_a0_u1_s1_r41",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v2_a0_u1_s1_r41.log",
+        "passed": true,
+        "chain": {
+          "cycles": 65236,
+          "instructions": 18996,
+          "reads": 5891,
+          "writes": 1891,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "6704879752028193573",
+        "smem": 6144
+      },
+      "two": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m192_n128_k64_g2_v3_a0_u1_s1_r45",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v3_a0_u1_s1_r45.log",
+        "passed": true,
+        "chain": {
+          "cycles": 63025,
+          "instructions": 17426,
+          "reads": 5693,
+          "writes": 1834,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "6704879752028193573",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 192,
+        "n": 128,
+        "k": 64,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 1,
+        "unroll": 4,
+        "ctas": 2,
+        "name": "m192_n128_k64_g2_v4_a1_u4_s1_r49",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m192_n128_k64_g2_v4_a1_u4_s1_r49.log",
+        "passed": true,
+        "chain": {
+          "cycles": 62330,
+          "instructions": 25208,
+          "reads": 5449,
+          "writes": 1584,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 12149,
+          "negative": 12090,
+          "zero": 337
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 6,
+        "output_hash": "6704879752028193573",
+        "smem": 14336
+      },
+      "policy_ratio_to_best": 1.018813645205054,
+      "policy_ratio_to_fused": 0.9554540437795083,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.018813645205054
+    },
+    {
+      "hardware_warps": 16,
+      "m": 384,
+      "n": 128,
+      "k": 256,
+      "tiles": 24,
+      "choice": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "anchor_tiles": 16,
+        "anchor_k": 256,
+        "distance": 0.5849625007211562,
+        "name": "m384_n128_k256_g2_v3_a0_u1_s1_r4",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z/m384_n128_k256_g2_v3_a0_u1_s1_r4.log",
+        "passed": true,
+        "chain": {
+          "cycles": 354152,
+          "instructions": 113894,
+          "reads": 34157,
+          "writes": 3412,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "best": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 1,
+        "unroll": 4,
+        "ctas": 2,
+        "name": "m384_n128_k256_g2_v4_a1_u4_s1_r65",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v4_a1_u4_s1_r65.log",
+        "passed": true,
+        "chain": {
+          "cycles": 350899,
+          "instructions": 129128,
+          "reads": 33868,
+          "writes": 3120,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 6,
+        "output_hash": "12364994307704703781",
+        "smem": 14336
+      },
+      "fused": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 4,
+        "name": "m384_n128_k256_g4_v2_a0_u1_s1_r58",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g4_v2_a0_u1_s1_r58.log",
+        "passed": true,
+        "chain": {
+          "cycles": 360552,
+          "instructions": 126120,
+          "reads": 34661,
+          "writes": 3373,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "two": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m384_n128_k256_g2_v3_a0_u1_s1_r61",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v3_a0_u1_s1_r61.log",
+        "passed": true,
+        "chain": {
+          "cycles": 354152,
+          "instructions": 113894,
+          "reads": 34157,
+          "writes": 3412,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 384,
+        "n": 128,
+        "k": 256,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m384_n128_k256_g2_v3_a0_u1_s1_r61",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m384_n128_k256_g2_v3_a0_u1_s1_r61.log",
+        "passed": true,
+        "chain": {
+          "cycles": 354152,
+          "instructions": 113894,
+          "reads": 34157,
+          "writes": 3412,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 24473,
+          "negative": 24150,
+          "zero": 529
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "12364994307704703781",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0092704738400509,
+      "policy_ratio_to_fused": 0.9822494397479421,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0092704738400509
+    },
+    {
+      "hardware_warps": 16,
+      "m": 320,
+      "n": 128,
+      "k": 192,
+      "tiles": 20,
+      "choice": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "anchor_tiles": 16,
+        "anchor_k": 256,
+        "distance": 0.7369655941662061,
+        "name": "m320_n128_k192_g2_v3_a0_u1_s1_r5",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z/m320_n128_k192_g2_v3_a0_u1_s1_r5.log",
+        "passed": true,
+        "chain": {
+          "cycles": 231467,
+          "instructions": 72906,
+          "reads": 22044,
+          "writes": 2823,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "best": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 4,
+        "activation_warps": 1,
+        "unroll": 4,
+        "ctas": 2,
+        "name": "m320_n128_k192_g2_v4_a1_u4_s1_r81",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v4_a1_u4_s1_r81.log",
+        "passed": true,
+        "chain": {
+          "cycles": 229466,
+          "instructions": 85656,
+          "reads": 21835,
+          "writes": 2608,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 6,
+        "output_hash": "14378131631160697637",
+        "smem": 14336
+      },
+      "fused": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 2,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m320_n128_k192_g2_v2_a0_u1_s1_r73",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v2_a0_u1_s1_r73.log",
+        "passed": true,
+        "chain": {
+          "cycles": 234580,
+          "instructions": 80372,
+          "reads": 22269,
+          "writes": 2802,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 4,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "two": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m320_n128_k192_g2_v3_a0_u1_s1_r77",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v3_a0_u1_s1_r77.log",
+        "passed": true,
+        "chain": {
+          "cycles": 231467,
+          "instructions": 72906,
+          "reads": 22044,
+          "writes": 2823,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "family_best": {
+        "m": 320,
+        "n": 128,
+        "k": 192,
+        "seed": 1,
+        "mode": 3,
+        "activation_warps": 0,
+        "unroll": 1,
+        "ctas": 2,
+        "name": "m320_n128_k192_g2_v3_a0_u1_s1_r77",
+        "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z/m320_n128_k192_g2_v3_a0_u1_s1_r77.log",
+        "passed": true,
+        "chain": {
+          "cycles": 231467,
+          "instructions": 72906,
+          "reads": 22044,
+          "writes": 2823,
+          "launches": 1
+        },
+        "coverage": {
+          "positive": 20461,
+          "negative": 20034,
+          "zero": 465
+        },
+        "hardware_warps": 16,
+        "compute_warps": 4,
+        "cta_warps": 5,
+        "output_hash": "14378131631160697637",
+        "smem": 6144
+      },
+      "policy_ratio_to_best": 1.0087202461366827,
+      "policy_ratio_to_fused": 0.9867294739534487,
+      "cta_selection_ratio": 1.0,
+      "family_selection_ratio": 1.0087202461366827
+    }
+  ],
+  "validation": [
+    [
+      8,
+      "64×128×64",
+      "两阶段, g=1",
+      22248,
+      22248
+    ],
+    [
+      8,
+      "64×128×64",
+      "融合, g=2",
+      22664,
+      22664
+    ],
+    [
+      8,
+      "256×32×64",
+      "两阶段, g=1",
+      22056,
+      22056
+    ],
+    [
+      8,
+      "256×32×64",
+      "融合, g=2",
+      23020,
+      23020
+    ],
+    [
+      8,
+      "256×64×128",
+      "两阶段, g=1",
+      77599,
+      77599
+    ],
+    [
+      8,
+      "256×64×128",
+      "融合, g=4",
+      72613,
+      72613
+    ],
+    [
+      8,
+      "192×128×64",
+      "三阶段 A2/U4, g=1",
+      61301,
+      61301
+    ],
+    [
+      8,
+      "192×128×64",
+      "融合, g=2",
+      63759,
+      63759
+    ],
+    [
+      8,
+      "384×128×256",
+      "融合, g=4",
+      360549,
+      360549
+    ],
+    [
+      8,
+      "320×128×192",
+      "融合, g=4",
+      234559,
+      234559
+    ],
+    [
+      16,
+      "64×128×64",
+      "两阶段, g=1",
+      22234,
+      22234
+    ],
+    [
+      16,
+      "64×128×64",
+      "两阶段, g=2",
+      21970,
+      21970
+    ],
+    [
+      16,
+      "64×128×64",
+      "融合, g=2",
+      22600,
+      22600
+    ],
+    [
+      16,
+      "256×32×64",
+      "两阶段, g=1",
+      22162,
+      22162
+    ],
+    [
+      16,
+      "256×32×64",
+      "融合, g=2",
+      23509,
+      23509
+    ],
+    [
+      16,
+      "256×64×128",
+      "两阶段, g=1",
+      77566,
+      77566
+    ],
+    [
+      16,
+      "256×64×128",
+      "融合, g=2",
+      71899,
+      71899
+    ],
+    [
+      16,
+      "192×128×64",
+      "三阶段 A1/U4, g=2",
+      62330,
+      62330
+    ],
+    [
+      16,
+      "192×128×64",
+      "三阶段 A2/U4, g=1",
+      61179,
+      61179
+    ],
+    [
+      16,
+      "192×128×64",
+      "融合, g=2",
+      65236,
+      65236
+    ],
+    [
+      16,
+      "384×128×256",
+      "两阶段, g=2",
+      354152,
+      354152
+    ],
+    [
+      16,
+      "384×128×256",
+      "三阶段 A1/U4, g=2",
+      350899,
+      350899
+    ],
+    [
+      16,
+      "384×128×256",
+      "融合, g=4",
+      360552,
+      360552
+    ],
+    [
+      16,
+      "320×128×192",
+      "两阶段, g=2",
+      231467,
+      231467
+    ],
+    [
+      16,
+      "320×128×192",
+      "三阶段 A1/U4, g=2",
+      229466,
+      229466
+    ],
+    [
+      16,
+      "320×128×192",
+      "融合, g=2",
+      234580,
+      234580
+    ]
+  ],
+  "provenance": {
+    "w8_policy": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_policy_20261029T195427Z",
+    "w8_oracle": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_oracle_20261029T195546Z",
+    "w8_validate": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w8_validate_20261029T200015Z",
+    "w16_policy": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_policy_20261029T195516Z",
+    "w16_oracle": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_oracle_20261029T195742Z",
+    "w16_validate": "/mnt/d/UCLA_Master/CS 254A/project/logs/policy_w16_validate_20261029T200041Z"
+  },
+  "note": "Frozen v1 policy is not changed using holdout grid results; grid best is restricted to declared candidates."
+}

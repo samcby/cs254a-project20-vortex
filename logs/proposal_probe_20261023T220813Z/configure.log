@@ -1,0 +1,3 @@
+command=../configure
+cwd=/root/cs254a/project20/vortex/build32-wgmma
+CONFIGS=

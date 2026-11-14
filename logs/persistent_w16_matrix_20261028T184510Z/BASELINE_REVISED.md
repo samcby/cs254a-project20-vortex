@@ -1,0 +1,1 @@
+Historical pilot: the ordinary fused baseline did not prefetch A/B across output tiles. Do not mix these measurements with the final comparisons. Use project/persistent_w*_results.json with ordinary_prefetch=cross-output-tile and experiments/persistent_pipeline/RESULTS.md.

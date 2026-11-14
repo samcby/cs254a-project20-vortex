@@ -1,0 +1,1526 @@
+{
+  "status": "complete",
+  "phase": "matrix",
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+  "effective_config": {
+    "VX_CFG_NUM_CORES": "1",
+    "VX_CFG_L2_ENABLED": "0",
+    "VX_CFG_L3_ENABLED": "0",
+    "VX_CFG_NUM_WARPS": "8",
+    "VX_CFG_NUM_THREADS": "32",
+    "VX_CFG_NUM_BARRIERS": "8",
+    "VX_CFG_ISSUE_WIDTH": "4",
+    "VX_CFG_LMEM_LOG_SIZE": "16",
+    "VX_CFG_NUM_TCU_BLOCKS": "4"
+  },
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z",
+  "metric": "sum of completed kernel device-cycle snapshots; launch/reset model",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/gemm_relu"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/build.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k64_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k64 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k64_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k64 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k64_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k64 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k64_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k64 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k256_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k256 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k256_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k256 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k256_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k256 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k256_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k256 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k256_s1_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k256 -s1 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k256_s1_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k256 -s1 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k256_s1_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k256 -s1 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k256_s1_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k256 -s1 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s2026_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s2026 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s2026_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s2026 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s2026_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s2026 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s2026_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s2026 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v3.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s2026_v0",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s2026 -v0",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v0.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s2026_v1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s2026 -v1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s2026_v2",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s2026 -v2",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v2.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s2026_v3",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s2026 -v3",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v3.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "m64_n32_k16_s1_v0",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3283,
+          "instructions": 661,
+          "reads": 228,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v0.log",
+      "chain": {
+        "cycles": 3283,
+        "instructions": 661,
+        "reads": 228,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "16389759462730138405"
+    },
+    {
+      "name": "m64_n32_k16_s1_v1",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3283,
+          "instructions": 661,
+          "reads": 228,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 6882,
+          "instructions": 2549,
+          "reads": 262,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v1.log",
+      "chain": {
+        "cycles": 10165,
+        "instructions": 3210,
+        "reads": 490,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    },
+    {
+      "name": "m64_n32_k16_s1_v2",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3451,
+          "instructions": 725,
+          "reads": 228,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v2.log",
+      "chain": {
+        "cycles": 3451,
+        "instructions": 725,
+        "reads": 228,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    },
+    {
+      "name": "m64_n32_k16_s1_v3",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3637,
+          "instructions": 756,
+          "reads": 233,
+          "writes": 138
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k16_s1_v3.log",
+      "chain": {
+        "cycles": 3637,
+        "instructions": 756,
+        "reads": 233,
+        "writes": 138,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    },
+    {
+      "name": "m64_n32_k48_s1_v0",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5276,
+          "instructions": 1201,
+          "reads": 388,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v0.log",
+      "chain": {
+        "cycles": 5276,
+        "instructions": 1201,
+        "reads": 388,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 949,
+        "negative": 1004,
+        "zero": 95
+      },
+      "output_hash": "3800961526948586277"
+    },
+    {
+      "name": "m64_n32_k48_s1_v1",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5276,
+          "instructions": 1201,
+          "reads": 388,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 8875,
+          "instructions": 3089,
+          "reads": 262,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v1.log",
+      "chain": {
+        "cycles": 14151,
+        "instructions": 4290,
+        "reads": 650,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 949,
+        "negative": 1004,
+        "zero": 95
+      },
+      "output_hash": "10076775197941728037"
+    },
+    {
+      "name": "m64_n32_k48_s1_v2",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5444,
+          "instructions": 1265,
+          "reads": 388,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v2.log",
+      "chain": {
+        "cycles": 5444,
+        "instructions": 1265,
+        "reads": 388,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 949,
+        "negative": 1004,
+        "zero": 95
+      },
+      "output_hash": "10076775197941728037"
+    },
+    {
+      "name": "m64_n32_k48_s1_v3",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5622,
+          "instructions": 1333,
+          "reads": 393,
+          "writes": 138
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s1_v3.log",
+      "chain": {
+        "cycles": 5622,
+        "instructions": 1333,
+        "reads": 393,
+        "writes": 138,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 949,
+        "negative": 1004,
+        "zero": 95
+      },
+      "output_hash": "10076775197941728037"
+    },
+    {
+      "name": "m64_n32_k64_s1_v0",
+      "m": 64,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 6274,
+          "instructions": 1475,
+          "reads": 468,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v0.log",
+      "chain": {
+        "cycles": 6274,
+        "instructions": 1475,
+        "reads": 468,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 984,
+        "negative": 969,
+        "zero": 95
+      },
+      "output_hash": "10120737295648178981"
+    },
+    {
+      "name": "m64_n32_k64_s1_v1",
+      "m": 64,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 6258,
+          "instructions": 1475,
+          "reads": 468,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 9857,
+          "instructions": 3363,
+          "reads": 262,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v1.log",
+      "chain": {
+        "cycles": 16115,
+        "instructions": 4838,
+        "reads": 730,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 984,
+        "negative": 969,
+        "zero": 95
+      },
+      "output_hash": "8359489457678504741"
+    },
+    {
+      "name": "m64_n32_k64_s1_v2",
+      "m": 64,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 6442,
+          "instructions": 1539,
+          "reads": 468,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v2.log",
+      "chain": {
+        "cycles": 6442,
+        "instructions": 1539,
+        "reads": 468,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 984,
+        "negative": 969,
+        "zero": 95
+      },
+      "output_hash": "8359489457678504741"
+    },
+    {
+      "name": "m64_n32_k64_s1_v3",
+      "m": 64,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 6628,
+          "instructions": 1619,
+          "reads": 473,
+          "writes": 138
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k64_s1_v3.log",
+      "chain": {
+        "cycles": 6628,
+        "instructions": 1619,
+        "reads": 473,
+        "writes": 138,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 984,
+        "negative": 969,
+        "zero": 95
+      },
+      "output_hash": "8359489457678504741"
+    },
+    {
+      "name": "m64_n32_k256_s1_v0",
+      "m": 64,
+      "n": 32,
+      "k": 256,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 20657,
+          "instructions": 4763,
+          "reads": 1428,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v0.log",
+      "chain": {
+        "cycles": 20657,
+        "instructions": 4763,
+        "reads": 1428,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 973,
+        "negative": 979,
+        "zero": 96
+      },
+      "output_hash": "10834335846899602213"
+    },
+    {
+      "name": "m64_n32_k256_s1_v1",
+      "m": 64,
+      "n": 32,
+      "k": 256,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 20641,
+          "instructions": 4763,
+          "reads": 1428,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 24267,
+          "instructions": 6651,
+          "reads": 262,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v1.log",
+      "chain": {
+        "cycles": 44908,
+        "instructions": 11414,
+        "reads": 1690,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 973,
+        "negative": 979,
+        "zero": 96
+      },
+      "output_hash": "16028409120829303589"
+    },
+    {
+      "name": "m64_n32_k256_s1_v2",
+      "m": 64,
+      "n": 32,
+      "k": 256,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 20825,
+          "instructions": 4827,
+          "reads": 1428,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v2.log",
+      "chain": {
+        "cycles": 20825,
+        "instructions": 4827,
+        "reads": 1428,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 973,
+        "negative": 979,
+        "zero": 96
+      },
+      "output_hash": "16028409120829303589"
+    },
+    {
+      "name": "m64_n32_k256_s1_v3",
+      "m": 64,
+      "n": 32,
+      "k": 256,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 18999,
+          "instructions": 5051,
+          "reads": 1433,
+          "writes": 138
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k256_s1_v3.log",
+      "chain": {
+        "cycles": 18999,
+        "instructions": 5051,
+        "reads": 1433,
+        "writes": 138,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 973,
+        "negative": 979,
+        "zero": 96
+      },
+      "output_hash": "16028409120829303589"
+    },
+    {
+      "name": "m128_n128_k64_s1_v0",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 43107,
+          "instructions": 11704,
+          "reads": 3895,
+          "writes": 1320
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v0.log",
+      "chain": {
+        "cycles": 43107,
+        "instructions": 11704,
+        "reads": 3895,
+        "writes": 1320,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 7953,
+        "negative": 8165,
+        "zero": 266
+      },
+      "output_hash": "341613750433313573"
+    },
+    {
+      "name": "m128_n128_k64_s1_v1",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 42494,
+          "instructions": 11704,
+          "reads": 3894,
+          "writes": 1319
+        },
+        {
+          "name": "relu",
+          "cycles": 69335,
+          "instructions": 26584,
+          "reads": 2061,
+          "writes": 1024
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v1.log",
+      "chain": {
+        "cycles": 111829,
+        "instructions": 38288,
+        "reads": 5955,
+        "writes": 2343,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 7953,
+        "negative": 8165,
+        "zero": 266
+      },
+      "output_hash": "10871798779804427045"
+    },
+    {
+      "name": "m128_n128_k64_s1_v2",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 43658,
+          "instructions": 12216,
+          "reads": 3909,
+          "writes": 1334
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v2.log",
+      "chain": {
+        "cycles": 43658,
+        "instructions": 12216,
+        "reads": 3909,
+        "writes": 1334,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 7953,
+        "negative": 8165,
+        "zero": 266
+      },
+      "output_hash": "10871798779804427045"
+    },
+    {
+      "name": "m128_n128_k64_s1_v3",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 52052,
+          "instructions": 12824,
+          "reads": 3639,
+          "writes": 1062
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s1_v3.log",
+      "chain": {
+        "cycles": 52052,
+        "instructions": 12824,
+        "reads": 3639,
+        "writes": 1062,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 7953,
+        "negative": 8165,
+        "zero": 266
+      },
+      "output_hash": "10871798779804427045"
+    },
+    {
+      "name": "m128_n128_k256_s1_v0",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 120465,
+          "instructions": 38008,
+          "reads": 11548,
+          "writes": 1293
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v0.log",
+      "chain": {
+        "cycles": 120465,
+        "instructions": 38008,
+        "reads": 11548,
+        "writes": 1293,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8029,
+        "negative": 8095,
+        "zero": 260
+      },
+      "output_hash": "16247880417902203685"
+    },
+    {
+      "name": "m128_n128_k256_s1_v1",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 121422,
+          "instructions": 38008,
+          "reads": 11555,
+          "writes": 1301
+        },
+        {
+          "name": "relu",
+          "cycles": 148472,
+          "instructions": 52888,
+          "reads": 2061,
+          "writes": 1024
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v1.log",
+      "chain": {
+        "cycles": 269894,
+        "instructions": 90896,
+        "reads": 13616,
+        "writes": 2325,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 8029,
+        "negative": 8095,
+        "zero": 260
+      },
+      "output_hash": "16273368159333890853"
+    },
+    {
+      "name": "m128_n128_k256_s1_v2",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 121769,
+          "instructions": 38520,
+          "reads": 11529,
+          "writes": 1273
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v2.log",
+      "chain": {
+        "cycles": 121769,
+        "instructions": 38520,
+        "reads": 11529,
+        "writes": 1273,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8029,
+        "negative": 8095,
+        "zero": 260
+      },
+      "output_hash": "16273368159333890853"
+    },
+    {
+      "name": "m128_n128_k256_s1_v3",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 150189,
+          "instructions": 40280,
+          "reads": 11319,
+          "writes": 1062
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k256_s1_v3.log",
+      "chain": {
+        "cycles": 150189,
+        "instructions": 40280,
+        "reads": 11319,
+        "writes": 1062,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8029,
+        "negative": 8095,
+        "zero": 260
+      },
+      "output_hash": "16273368159333890853"
+    },
+    {
+      "name": "m64_n32_k48_s2026_v0",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 2026,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5276,
+          "instructions": 1201,
+          "reads": 388,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v0.log",
+      "chain": {
+        "cycles": 5276,
+        "instructions": 1201,
+        "reads": 388,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 1016,
+        "negative": 936,
+        "zero": 96
+      },
+      "output_hash": "9452026035051176741"
+    },
+    {
+      "name": "m64_n32_k48_s2026_v1",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 2026,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5276,
+          "instructions": 1201,
+          "reads": 388,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 8875,
+          "instructions": 3089,
+          "reads": 262,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v1.log",
+      "chain": {
+        "cycles": 14151,
+        "instructions": 4290,
+        "reads": 650,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 1016,
+        "negative": 936,
+        "zero": 96
+      },
+      "output_hash": "11640810359448466213"
+    },
+    {
+      "name": "m64_n32_k48_s2026_v2",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 2026,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5444,
+          "instructions": 1265,
+          "reads": 388,
+          "writes": 136
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v2.log",
+      "chain": {
+        "cycles": 5444,
+        "instructions": 1265,
+        "reads": 388,
+        "writes": 136,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 1016,
+        "negative": 936,
+        "zero": 96
+      },
+      "output_hash": "11640810359448466213"
+    },
+    {
+      "name": "m64_n32_k48_s2026_v3",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 2026,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5622,
+          "instructions": 1333,
+          "reads": 393,
+          "writes": 138
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m64_n32_k48_s2026_v3.log",
+      "chain": {
+        "cycles": 5622,
+        "instructions": 1333,
+        "reads": 393,
+        "writes": 138,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 1016,
+        "negative": 936,
+        "zero": 96
+      },
+      "output_hash": "11640810359448466213"
+    },
+    {
+      "name": "m128_n128_k64_s2026_v0",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 2026,
+      "mode": 0,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 43107,
+          "instructions": 11704,
+          "reads": 3895,
+          "writes": 1320
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v0.log",
+      "chain": {
+        "cycles": 43107,
+        "instructions": 11704,
+        "reads": 3895,
+        "writes": 1320,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8096,
+        "negative": 8023,
+        "zero": 265
+      },
+      "output_hash": "9725045588333609765"
+    },
+    {
+      "name": "m128_n128_k64_s2026_v1",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 2026,
+      "mode": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 42494,
+          "instructions": 11704,
+          "reads": 3894,
+          "writes": 1319
+        },
+        {
+          "name": "relu",
+          "cycles": 69335,
+          "instructions": 26584,
+          "reads": 2061,
+          "writes": 1024
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v1.log",
+      "chain": {
+        "cycles": 111829,
+        "instructions": 38288,
+        "reads": 5955,
+        "writes": 2343,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 8096,
+        "negative": 8023,
+        "zero": 265
+      },
+      "output_hash": "2250245036737684261"
+    },
+    {
+      "name": "m128_n128_k64_s2026_v2",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 2026,
+      "mode": 2,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 43658,
+          "instructions": 12216,
+          "reads": 3909,
+          "writes": 1334
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v2.log",
+      "chain": {
+        "cycles": 43658,
+        "instructions": 12216,
+        "reads": 3909,
+        "writes": 1334,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8096,
+        "negative": 8023,
+        "zero": 265
+      },
+      "output_hash": "2250245036737684261"
+    },
+    {
+      "name": "m128_n128_k64_s2026_v3",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 2026,
+      "mode": 3,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 52052,
+          "instructions": 12824,
+          "reads": 3639,
+          "writes": 1062
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081612Z/m128_n128_k64_s2026_v3.log",
+      "chain": {
+        "cycles": 52052,
+        "instructions": 12824,
+        "reads": 3639,
+        "writes": 1062,
+        "launches": 1
+      },
+      "coverage": {
+        "positive": 8096,
+        "negative": 8023,
+        "zero": 265
+      },
+      "output_hash": "2250245036737684261"
+    }
+  ],
+  "source_hashes": {
+    "base.cpp": "096054f59bf345f103506fbc2e772b63e175c1ad4baa030bec1a4061b1ce283b",
+    "common.h": "61c9a5c9a33a6755793b747bc60f1ba254ea1f93520ba93a65f48e5f8ab07b0a",
+    "main.cpp": "26f5aef1c52f87c9e19cf615a30e75d43d769a40d3d8e513c3cfe1cbd1986af9",
+    "Makefile": "d2eb4f5bee9af7841b15e582c4a49c150f60ba1c5315320041c876893b10b01c",
+    "pc.cpp": "68d1abfb8bfe1dc8b9021eda42bfc37045e0e121259d1a31394bf2781e1a8e7e",
+    "relu.cpp": "fe526dfc54b3e5ca8e42e6c981f5fe3bbc5fabf28f58cf114bb8338d88dae155"
+  }
+}

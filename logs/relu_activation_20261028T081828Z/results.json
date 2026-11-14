@@ -1,0 +1,575 @@
+{
+  "status": "complete",
+  "phase": "activation",
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+  "effective_config": {
+    "VX_CFG_NUM_CORES": "1",
+    "VX_CFG_L2_ENABLED": "0",
+    "VX_CFG_L3_ENABLED": "0",
+    "VX_CFG_NUM_WARPS": "8",
+    "VX_CFG_NUM_THREADS": "32",
+    "VX_CFG_NUM_BARRIERS": "8",
+    "VX_CFG_ISSUE_WIDTH": "4",
+    "VX_CFG_LMEM_LOG_SIZE": "16",
+    "VX_CFG_NUM_TCU_BLOCKS": "4"
+  },
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z",
+  "metric": "sum of per-kernel cycle deltas; cumulative core counters and per-launch uncore counters",
+  "counter_semantics": "core-delta_uncore-per-launch_v2",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/gemm_relu"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/build.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k16_s1_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k16 -s1 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k16_s1_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s1_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s1 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k48_s1_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k64_s1_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k64 -s1 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k64_s1_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k256_s1_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k256 -s1 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k256_s1_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s1_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s1 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m128_n128_k64_s1_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k256_s1_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k256 -s1 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m128_n128_k256_s1_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m64_n32_k48_s2026_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m64 -n32 -k48 -s2026 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k48_s2026_v1_a1.log",
+      "exit_code": 0
+    },
+    {
+      "name": "m128_n128_k64_s2026_v1_a1",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=gemm_relu",
+        "--args=-m128 -n128 -k64 -s2026 -v1 -a1",
+        "--perf=7"
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m128_n128_k64_s2026_v1_a1.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "m64_n32_k16_s1_v1_a1",
+      "m": 64,
+      "n": 32,
+      "k": 16,
+      "seed": 1,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 3283,
+          "instructions": 661,
+          "reads": 228,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 2507,
+          "instructions": 848,
+          "reads": 261,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k16_s1_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 3283,
+          "cumulative_instructions": 661
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 5790,
+          "cumulative_instructions": 1509
+        }
+      ],
+      "chain": {
+        "cycles": 5790,
+        "instructions": 1509,
+        "reads": 489,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 961,
+        "negative": 990,
+        "zero": 97
+      },
+      "output_hash": "6522507862531244837"
+    },
+    {
+      "name": "m64_n32_k48_s1_v1_a1",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 1,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5276,
+          "instructions": 1201,
+          "reads": 388,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 2507,
+          "instructions": 848,
+          "reads": 261,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k48_s1_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 5276,
+          "cumulative_instructions": 1201
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 7783,
+          "cumulative_instructions": 2049
+        }
+      ],
+      "chain": {
+        "cycles": 7783,
+        "instructions": 2049,
+        "reads": 649,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 949,
+        "negative": 1004,
+        "zero": 95
+      },
+      "output_hash": "10076775197941728037"
+    },
+    {
+      "name": "m64_n32_k64_s1_v1_a1",
+      "m": 64,
+      "n": 32,
+      "k": 64,
+      "seed": 1,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 6258,
+          "instructions": 1475,
+          "reads": 468,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 2507,
+          "instructions": 848,
+          "reads": 261,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k64_s1_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 6258,
+          "cumulative_instructions": 1475
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 8765,
+          "cumulative_instructions": 2323
+        }
+      ],
+      "chain": {
+        "cycles": 8765,
+        "instructions": 2323,
+        "reads": 729,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 984,
+        "negative": 969,
+        "zero": 95
+      },
+      "output_hash": "8359489457678504741"
+    },
+    {
+      "name": "m64_n32_k256_s1_v1_a1",
+      "m": 64,
+      "n": 32,
+      "k": 256,
+      "seed": 1,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 20641,
+          "instructions": 4763,
+          "reads": 1428,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 2546,
+          "instructions": 848,
+          "reads": 261,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k256_s1_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 20641,
+          "cumulative_instructions": 4763
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 23187,
+          "cumulative_instructions": 5611
+        }
+      ],
+      "chain": {
+        "cycles": 23187,
+        "instructions": 5611,
+        "reads": 1689,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 973,
+        "negative": 979,
+        "zero": 96
+      },
+      "output_hash": "16028409120829303589"
+    },
+    {
+      "name": "m128_n128_k64_s1_v1_a1",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 1,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 42494,
+          "instructions": 11704,
+          "reads": 3894,
+          "writes": 1319
+        },
+        {
+          "name": "relu",
+          "cycles": 14881,
+          "instructions": 4880,
+          "reads": 2053,
+          "writes": 1024
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m128_n128_k64_s1_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 42494,
+          "cumulative_instructions": 11704
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 57375,
+          "cumulative_instructions": 16584
+        }
+      ],
+      "chain": {
+        "cycles": 57375,
+        "instructions": 16584,
+        "reads": 5947,
+        "writes": 2343,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 7953,
+        "negative": 8165,
+        "zero": 266
+      },
+      "output_hash": "10871798779804427045"
+    },
+    {
+      "name": "m128_n128_k256_s1_v1_a1",
+      "m": 128,
+      "n": 128,
+      "k": 256,
+      "seed": 1,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 121422,
+          "instructions": 38008,
+          "reads": 11555,
+          "writes": 1301
+        },
+        {
+          "name": "relu",
+          "cycles": 14769,
+          "instructions": 4880,
+          "reads": 2053,
+          "writes": 1024
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m128_n128_k256_s1_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 121422,
+          "cumulative_instructions": 38008
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 136191,
+          "cumulative_instructions": 42888
+        }
+      ],
+      "chain": {
+        "cycles": 136191,
+        "instructions": 42888,
+        "reads": 13608,
+        "writes": 2325,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 8029,
+        "negative": 8095,
+        "zero": 260
+      },
+      "output_hash": "16273368159333890853"
+    },
+    {
+      "name": "m64_n32_k48_s2026_v1_a1",
+      "m": 64,
+      "n": 32,
+      "k": 48,
+      "seed": 2026,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 5276,
+          "instructions": 1201,
+          "reads": 388,
+          "writes": 136
+        },
+        {
+          "name": "relu",
+          "cycles": 2507,
+          "instructions": 848,
+          "reads": 261,
+          "writes": 128
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m64_n32_k48_s2026_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 5276,
+          "cumulative_instructions": 1201
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 7783,
+          "cumulative_instructions": 2049
+        }
+      ],
+      "chain": {
+        "cycles": 7783,
+        "instructions": 2049,
+        "reads": 649,
+        "writes": 264,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 1016,
+        "negative": 936,
+        "zero": 96
+      },
+      "output_hash": "11640810359448466213"
+    },
+    {
+      "name": "m128_n128_k64_s2026_v1_a1",
+      "m": 128,
+      "n": 128,
+      "k": 64,
+      "seed": 2026,
+      "mode": 1,
+      "activation_stride": 1,
+      "passed": true,
+      "stages": [
+        {
+          "name": "gemm",
+          "cycles": 42494,
+          "instructions": 11704,
+          "reads": 3894,
+          "writes": 1319
+        },
+        {
+          "name": "relu",
+          "cycles": 14881,
+          "instructions": 4880,
+          "reads": 2053,
+          "writes": 1024
+        }
+      ],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z/m128_n128_k64_s2026_v1_a1.log",
+      "snapshots": [
+        {
+          "name": "gemm",
+          "cumulative_cycles": 42494,
+          "cumulative_instructions": 11704
+        },
+        {
+          "name": "relu",
+          "cumulative_cycles": 57375,
+          "cumulative_instructions": 16584
+        }
+      ],
+      "chain": {
+        "cycles": 57375,
+        "instructions": 16584,
+        "reads": 5947,
+        "writes": 2343,
+        "launches": 2
+      },
+      "coverage": {
+        "positive": 8096,
+        "negative": 8023,
+        "zero": 265
+      },
+      "output_hash": "2250245036737684261"
+    }
+  ],
+  "source_hashes": {
+    "base.cpp": "096054f59bf345f103506fbc2e772b63e175c1ad4baa030bec1a4061b1ce283b",
+    "common.h": "61c9a5c9a33a6755793b747bc60f1ba254ea1f93520ba93a65f48e5f8ab07b0a",
+    "main.cpp": "1ef0ebd0e8775bdd195f5f2f633807c7b32c42d63f9dd811f507666fe9e37edc",
+    "Makefile": "d2eb4f5bee9af7841b15e582c4a49c150f60ba1c5315320041c876893b10b01c",
+    "pc.cpp": "68d1abfb8bfe1dc8b9021eda42bfc37045e0e121259d1a31394bf2781e1a8e7e",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  }
+}

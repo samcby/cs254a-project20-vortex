@@ -1,0 +1,28 @@
+command=./ci/blackbox.sh --driver=simx --app=gemm_relu '--args=-m128 -n128 -k256 -s1 -v1 -a1' --perf=7
+cwd=/root/cs254a/project20/vortex/build32-pipeline
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE
+CONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE
+Running: CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE" make -C "./ci/../tests/regression/gemm_relu" runtime-simx > /dev/null
+Running: OPTS="-m128 -n128 -k256 -s1 -v1 -a1" CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE" make -C "./ci/../tests/regression/gemm_relu" run-simx
+make: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/gemm_relu'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/stub'
+CONFIGS="-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DPERF_ENABLE -DWGMMA_RS"     make -C /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime
+make[1]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+DESTDIR=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime make -C /root/cs254a/project20/vortex/build32-pipeline/sim/simx /root/cs254a/project20/vortex/build32-pipeline/sw/runtime/libsimx.so
+make[2]: Entering directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[2]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sim/simx'
+make[1]: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/sw/runtime/simx'
+LD_LIBRARY_PATH=/root/cs254a/project20/vortex/build32-pipeline/sw/runtime: VORTEX_DRIVER=simx ./gemm_relu -m128 -n128 -k256 -s1 -v1 -a1
+CONFIG mode=1 M=128 N=128 K=256 seed=1 hardware_warps=8 compute_warps=4 active_CTA_warps=4 activation_stride=1
+COVERAGE positive=8029 negative=8095 zero=260
+SNAPSHOT gemm cumulative_cycles=121422 cumulative_instructions=38008
+STAGE gemm cycles=121422 instructions=38008 reads=11555 writes=1301
+SNAPSHOT relu cumulative_cycles=136191 cumulative_instructions=42888
+STAGE relu cycles=14769 instructions=4880 reads=2053 writes=1024
+CHAIN cycles=136191 instructions=42888 reads=13608 writes=2325 launches=2
+VERIFY errors=0 output_hash=16273368159333890853
+PASSED!
+make: Leaving directory '/root/cs254a/project20/vortex/build32-pipeline/tests/regression/gemm_relu'

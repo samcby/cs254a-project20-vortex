@@ -1,0 +1,28 @@
+command=./ci/toolchain_install.sh --libcrt32
+cwd=/root/cs254a/project20/vortex/build32
+--2026-10-23 13:44:56--  https://github.com/vortexgpgpu/vortex-toolchain-prebuilt/raw/v3.0.1/libcrt32/libcrt32.tar.bz2
+Resolving github.com (github.com)... 172.182.252.133
+Connecting to github.com (github.com)|172.182.252.133|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/vortexgpgpu/vortex-toolchain-prebuilt/v3.0.1/libcrt32/libcrt32.tar.bz2 [following]
+--2026-10-23 13:44:56--  https://raw.githubusercontent.com/vortexgpgpu/vortex-toolchain-prebuilt/v3.0.1/libcrt32/libcrt32.tar.bz2
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 74000 (72K) [application/octet-stream]
+Saving to: ‘libcrt32.tar.bz2’
+
+     0K .......... .......... .......... .......... .......... 69% 2.86M 0s
+    50K .......... .......... ..                              100% 5.78M=0.02s
+
+2026-10-23 13:44:57 (3.39 MB/s) - ‘libcrt32.tar.bz2’ saved [74000/74000]
+
+libcrt32/
+libcrt32/lib/
+libcrt32/lib/baremetal/
+libcrt32/lib/baremetal/libclang_rt.builtins-riscv32.a
+libcrt32/lib/baremetal/clang_rt.crtbegin-riscv32.o
+libcrt32/lib/baremetal/clang_rt.crtend-riscv32.o
+libcrt32/include/
+libcrt32/include/orc/
+libcrt32/include/orc/c_api.h

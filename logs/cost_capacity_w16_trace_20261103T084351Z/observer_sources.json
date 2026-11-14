@@ -1,0 +1,25 @@
+{
+  "overlay": "/root/cs254a/project20/cost-attribution-observer/simx",
+  "changed": {
+    "sfu_unit.cpp": {
+      "original": "8853daace046038caaeeb22313b5eb8e5a77bb336e1d91064b263e515469baf4",
+      "observed": "f9b74ba646124ba9f68d7d25900d913806331cedf98b74605f57678fd84abc0f"
+    },
+    "wctl_unit.cpp": {
+      "original": "454174acde6ad2954344c6eef3a3eac7900009d901b827f737a4f6815bcc0d68",
+      "observed": "dad2fc8c0e2a4c1bbcded083abfbbe58f99e541eccd1ab2262cd8d854760b208"
+    },
+    "barrier_unit.cpp": {
+      "original": "a6c224bfa80fef6d302d473ae2907a88887b6355e043532b98ccb221f87bdb7e",
+      "observed": "2b2cd202afd3515b4b08a766b9320b3493b3e5c655cdd860d0f8b9aa0d42625f"
+    },
+    "scheduler.cpp": {
+      "original": "ced5f4c6c2d7334ed5f9aa3fb643442cd7242c52bf27bfe32056414c51fe4fc5",
+      "observed": "2bebc03adc2968ef5f2142759dae23db97e0a56b93ecac288da02f32f91e0d5d"
+    },
+    "cta_dispatcher.cpp": {
+      "original": "490deabdd06e9d0f62679f7adf94849199440393e6053cb885f69b1167c9da3e",
+      "observed": "e9fbc1e9052498cb58628554b614257701fbcd995343492ddafefd78514fbabd"
+    }
+  }
+}

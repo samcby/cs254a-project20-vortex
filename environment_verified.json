@@ -1,0 +1,39 @@
+{
+  "distro": "Ubuntu-22.04",
+  "user": "root",
+  "os_release": "PRETTY_NAME=\"Ubuntu 22.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.5 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\n",
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "git_status": " ? third_party/cocogfx\n",
+  "tracked_diff": "",
+  "submodules": " b1befdb36df8af7ac9e2c96acaf81957aab5d107 third_party/cocogfx (b1befdb)\n 79e453139072df42c9ec8f697132ba485d74e23d third_party/cvfpu (79e4531)\n 6aeee85d0a34fedc06c14f04fd6363c9f7b4eeea third_party/cvfpu/src/common_cells (6aeee85)\n 86e1f558b3c95e91577c41b2fc452c86b04e85ac third_party/cvfpu/src/fpu_div_sqrt_mvp (86e1f55)\n 28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61 third_party/cvfpu/tb/flexfloat (28be2d4)\n aaf5736dffa521603b681fd5853760c671446c85 third_party/hardfloat (heads/master)\n e62c84a6f0e06566ba6e182d308434b4532068a5 third_party/ramulator (e62c84a)\n b51ef8f3201669b2288104c28546fc72532a1ea4 third_party/softfloat (b51ef8f)\n",
+  "cocogfx_status": "?? .depend\n?? libcocogfx.a\n?? src/blitter.o\n?? src/bmp.o\n?? src/cgltrace.o\n?? src/imageutil.o\n?? src/main.o\n?? src/math.o\n?? src/png.o\n?? src/tga.o\n",
+  "generated_files": {
+    "sw/VX_config.h": {
+      "sha256": "c6590b5d2395454140cd19cd51d23f1603c9f7bb951c992fd608c09be185c2ba"
+    },
+    "hw/VX_config.vh": {
+      "sha256": "02b2be2769951f6f2e3d9ff2b24b7a5859817b7924854881b21f1848b4f8993e"
+    },
+    "config.mk": {
+      "sha256": "ceba381cd8bacd456334f70c60a609a0e2427d51dfe30ad7190371f99fdc5c85"
+    },
+    "sw/runtime/simx_config.stamp": {
+      "sha256": "3cb06558fcaf4efbe40e3e4de448eacdc49ab4cf17988a6afbc93d17c20fe04b"
+    }
+  },
+  "tool_versions": {
+    "llvm-vortex/bin/clang": "clang version 20.1.8 (https://github.com/vortexgpgpu/llvm.git a81a5957f4060a2474ac372ff9eb98a64491aa0f)",
+    "riscv32-gnu-toolchain/bin/riscv32-unknown-elf-gcc": "riscv32-unknown-elf-gcc (g2ee5e430018-dirty) 12.2.0",
+    "verilator/bin/verilator": "Verilator 5.050 2026-07-01 rev v5.050"
+  },
+  "configuration_stamp": "-std=c++17 -Wall -Wextra -Wfatal-errors -Werror -fPIC -Wno-maybe-uninitialized -I/root/cs254a/project20/vortex/sim/simx -I/root/cs254a/project20/vortex/sim/simx/dxa -I/root/cs254a/project20/vortex/sim/simx/tex -I/root/cs254a/project20/vortex/sim/simx/om -I/root/cs254a/project20/vortex/sim/simx/raster -I/root/cs254a/project20/vortex/sim/simx/rtu -I/root/cs254a/project20/vortex/sim/simx/kmu -I/root/cs254a/project20/vortex/sim/simx/mem -I/root/cs254a/project20/vortex/sim/simx/dtm -I/root/cs254a/project20/vortex/sw/common -I/root/cs254a/project20/vortex/sim/common -I/root/cs254a/project20/vortex/build32-wgmma/sw -I/root/cs254a/project20/vortex/build32-wgmma/hw -I/root/cs254a/project20/vortex/third_party -I/root/cs254a/project20/vortex/third_party/softfloat/source/include -I/root/cs254a/project20/vortex/third_party/ramulator/ext/spdlog/include -I/root/cs254a/project20/vortex/third_party/ramulator/ext/yaml-cpp/include -I/root/cs254a/project20/vortex/third_party/ramulator/src -DVX_CFG_XLEN=32 -DVX_CFG_XLEN_32 -DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER -DPERF_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DWGMMA_RS -I/root/cs254a/project20/vortex/sim/simx/tcu -O2 -DNDEBUG -MMD -MP -MF /root/cs254a/project20/vortex/build32-wgmma/sw/runtime/simx_config.stamp\n",
+  "phases_complete": {
+    "setup": true,
+    "smoke": true,
+    "measure": true,
+    "trace": true
+  },
+  "trace_event_count": 31504,
+  "trace_instruction_slice_count": 4048,
+  "trace_sha256": "88482026704f3446debe09cc95355e94183f49a8b16bd02adc3a2cff10912873"
+}

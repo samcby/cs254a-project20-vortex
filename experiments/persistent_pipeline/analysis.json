@@ -1,0 +1,241 @@
+{
+  "simx_successful_executions": 44,
+  "rtl_status": "failed",
+  "rtl_cases": [],
+  "rtl_error": "t1_k16_v2_q1_g1_s1: exit=124\ncommand=./ci/blackbox.sh --driver=rtlsim --app=persistent_pipeline '--args=-m64 -n32 -k16 -v2 -q1 -g1 -s1' --perf=7\ncwd=/root/cs254a/project20/vortex/build32-warp-capacity-16\nCONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=16 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8\nCONFIGS=-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=16 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE\nRunning: CONFIGS=\"-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=16 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DVX_CFG_LMEM_LOG_SIZE=16 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_AMO_RS_SIZE=8 -DPERF_ENABLE\" make -C \"./ci/../tests/regression/persistent_pipeline\" runtime-rtlsim > /dev/null\nmake[3]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.\n",
+  "rtl_note": "首次 rtlsim runtime 模型构建超过本批每例 600 秒的上限，进程组已结束；超时前仍在 Verilator 生成的 C++ 模型编译阶段，没有进入 kernel 数值检查。这是构建时间限制，不能解释为三阶段内核死锁，也不能报告为 RTL PASS。日志还出现 jobserver 不可用并退回 -j1 的警告，实际并行未达到请求的 THREADS=4。脚本现已把首次模型构建独立成 build_rtlsim 步骤，默认允许 1800 秒，可用 --rtl-build-timeout 调整；每个数值 smoke 仍限 600 秒。分离构建后的 RTL 流程本批尚未重跑。",
+  "matrix": [
+    [
+      1,
+      16,
+      3512,
+      3809,
+      13060,
+      "+242.87%"
+    ],
+    [
+      1,
+      64,
+      6701,
+      6792,
+      16068,
+      "+136.57%"
+    ],
+    [
+      2,
+      16,
+      6076,
+      5958,
+      23546,
+      "+295.20%"
+    ],
+    [
+      2,
+      64,
+      12728,
+      11605,
+      26831,
+      "+131.20%"
+    ],
+    [
+      5,
+      16,
+      12759,
+      12065,
+      54516,
+      "+351.85%"
+    ],
+    [
+      5,
+      64,
+      28396,
+      26660,
+      58421,
+      "+119.13%"
+    ]
+  ],
+  "output_queue_depth": [
+    [
+      16,
+      54516,
+      14336,
+      54620,
+      22528,
+      "+0.19%"
+    ],
+    [
+      64,
+      58421,
+      14336,
+      58222,
+      22528,
+      "-0.34%"
+    ]
+  ],
+  "repeats": [
+    [
+      2,
+      1,
+      28396,
+      28396,
+      28396
+    ],
+    [
+      3,
+      1,
+      26660,
+      26660,
+      26660
+    ],
+    [
+      4,
+      1,
+      58421,
+      58421,
+      58421
+    ],
+    [
+      4,
+      2,
+      58222,
+      58222,
+      58222
+    ]
+  ],
+  "activities": [
+    {
+      "mode": 3,
+      "output_tiles": 5,
+      "dxa_transfers": 40,
+      "wgmma_compute_events": 2560,
+      "activation_events": 320,
+      "activation_events_during_next_compute_window": 0,
+      "same_cycle_activation_and_next_compute": 0,
+      "rows": [
+        {
+          "output": 0,
+          "compute_start": 2255,
+          "compute_end": 5451,
+          "activation_start": 5394,
+          "activation_end": 5724,
+          "activation_events_during_next_compute_window": 0,
+          "same_cycle_activation_and_next_compute": 0
+        },
+        {
+          "output": 1,
+          "compute_start": 7326,
+          "compute_end": 9995,
+          "activation_start": 9938,
+          "activation_end": 10274,
+          "activation_events_during_next_compute_window": 0,
+          "same_cycle_activation_and_next_compute": 0
+        },
+        {
+          "output": 2,
+          "compute_start": 11395,
+          "compute_end": 14585,
+          "activation_start": 14528,
+          "activation_end": 14861,
+          "activation_events_during_next_compute_window": 0,
+          "same_cycle_activation_and_next_compute": 0
+        },
+        {
+          "output": 3,
+          "compute_start": 16423,
+          "compute_end": 19744,
+          "activation_start": 19687,
+          "activation_end": 20023,
+          "activation_events_during_next_compute_window": 0,
+          "same_cycle_activation_and_next_compute": 0
+        },
+        {
+          "output": 4,
+          "compute_start": 21622,
+          "compute_end": 24937,
+          "activation_start": 24880,
+          "activation_end": 25213,
+          "activation_events_during_next_compute_window": 0,
+          "same_cycle_activation_and_next_compute": 0
+        }
+      ],
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w16_trace_20261028T185057Z/t5_k64_v3_q1_g1_s1.trace.log.gz"
+    },
+    {
+      "mode": 4,
+      "output_tiles": 5,
+      "dxa_transfers": 40,
+      "wgmma_compute_events": 2560,
+      "activation_events": 320,
+      "activation_events_during_next_compute_window": 71,
+      "same_cycle_activation_and_next_compute": 11,
+      "rows": [
+        {
+          "output": 0,
+          "compute_start": 2394,
+          "compute_end": 5570,
+          "activation_start": 6159,
+          "activation_end": 16120,
+          "activation_events_during_next_compute_window": 20,
+          "same_cycle_activation_and_next_compute": 0
+        },
+        {
+          "output": 1,
+          "compute_start": 6492,
+          "compute_end": 9928,
+          "activation_start": 16779,
+          "activation_end": 26660,
+          "activation_events_during_next_compute_window": 17,
+          "same_cycle_activation_and_next_compute": 4
+        },
+        {
+          "output": 2,
+          "compute_start": 17128,
+          "compute_end": 19976,
+          "activation_start": 27319,
+          "activation_end": 37204,
+          "activation_events_during_next_compute_window": 17,
+          "same_cycle_activation_and_next_compute": 3
+        },
+        {
+          "output": 3,
+          "compute_start": 27668,
+          "compute_end": 30532,
+          "activation_start": 37863,
+          "activation_end": 47750,
+          "activation_events_during_next_compute_window": 17,
+          "same_cycle_activation_and_next_compute": 4
+        },
+        {
+          "output": 4,
+          "compute_start": 38212,
+          "compute_end": 41076,
+          "activation_start": 48426,
+          "activation_end": 58002,
+          "activation_events_during_next_compute_window": 0,
+          "same_cycle_activation_and_next_compute": 0
+        }
+      ],
+      "trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w16_trace_20261028T185057Z/t5_k64_v4_q1_g1_s1.trace.log.gz"
+    }
+  ],
+  "source_hashes": {
+    "common.h": "f7e7d9df5a24e2accbee895ee0fff1ebc73d8ef9113266636c405a128e54c051",
+    "kernel.cpp": "f90defd300a68ecb973cc267786b52682ac1e529005331e08cec6e834ea6855d",
+    "main.cpp": "c1ae4c298392950d9092751aaf2ef2c1a4ba0c7b80024c4cc9512852db28997c",
+    "Makefile": "4bdb0f073ffd9e8586d789a1bf364cb1a6eb2db7a456535d555cd670810e294d",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "provenance": {
+    "w16_matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w16_matrix_20261028T185016Z",
+    "w16_depth": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w16_depth_20261028T185044Z",
+    "w8_depth": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w8_depth_20261028T185051Z",
+    "w16_trace": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w16_trace_20261028T185057Z",
+    "w16_repeat": "/mnt/d/UCLA_Master/CS 254A/project/logs/persistent_w16_repeat_20261028T185409Z"
+  },
+  "limitations": [
+    "single persistent CTA only",
+    "activation uses one SIMT warp",
+    "ordinary baseline prefetches across output tiles",
+    "new kernel layouts: do not directly compare absolute cycles with earlier apps"
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "successful_host_runs": 45,
+  "successful_kernel_launches": 63,
+  "input_groups": 9,
+  "performance": [
+    [
+      "64×32×16",
+      6882,
+      5790,
+      3451,
+      3637,
+      "-40.40%",
+      "+5.39%"
+    ],
+    [
+      "64×32×48",
+      8875,
+      7783,
+      5444,
+      5622,
+      "-30.05%",
+      "+3.27%"
+    ],
+    [
+      "64×32×64",
+      9857,
+      8765,
+      6442,
+      6628,
+      "-26.50%",
+      "+2.89%"
+    ],
+    [
+      "64×32×256",
+      24267,
+      23187,
+      20825,
+      18999,
+      "-10.19%",
+      "-8.77%"
+    ],
+    [
+      "128×128×64",
+      69335,
+      57375,
+      43658,
+      52052,
+      "-23.91%",
+      "+19.23%"
+    ],
+    [
+      "128×128×256",
+      148472,
+      136191,
+      121769,
+      150189,
+      "-10.59%",
+      "+23.34%"
+    ]
+  ],
+  "memory_requests": [
+    [
+      "64×32×16",
+      489,
+      264,
+      228,
+      136,
+      233,
+      138,
+      16384
+    ],
+    [
+      "64×32×48",
+      649,
+      264,
+      388,
+      136,
+      393,
+      138,
+      16384
+    ],
+    [
+      "64×32×64",
+      729,
+      264,
+      468,
+      136,
+      473,
+      138,
+      16384
+    ],
+    [
+      "64×32×256",
+      1689,
+      264,
+      1428,
+      136,
+      1433,
+      138,
+      16384
+    ],
+    [
+      "128×128×64",
+      5947,
+      2343,
+      3909,
+      1334,
+      3639,
+      1062,
+      131072
+    ],
+    [
+      "128×128×256",
+      13608,
+      2325,
+      11529,
+      1273,
+      11319,
+      1062,
+      131072
+    ]
+  ],
+  "activation_costs": [
+    [
+      "64×32×16",
+      3283,
+      168,
+      64,
+      3599,
+      2507
+    ],
+    [
+      "64×32×48",
+      5276,
+      168,
+      64,
+      3599,
+      2507
+    ],
+    [
+      "64×32×64",
+      6274,
+      168,
+      64,
+      3599,
+      2507
+    ],
+    [
+      "64×32×256",
+      20657,
+      168,
+      64,
+      3626,
+      2546
+    ],
+    [
+      "128×128×64",
+      43107,
+      551,
+      512,
+      26841,
+      14881
+    ],
+    [
+      "128×128×256",
+      120465,
+      1304,
+      512,
+      27050,
+      14769
+    ]
+  ],
+  "provenance": {
+    "matrix": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_matrix_20261028T081809Z",
+    "activation": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_activation_20261028T081828Z",
+    "validation": "/mnt/d/UCLA_Master/CS 254A/project/logs/relu_validation_20261028T082014Z"
+  },
+  "effective_config": {
+    "VX_CFG_NUM_CORES": "1",
+    "VX_CFG_L2_ENABLED": "0",
+    "VX_CFG_L3_ENABLED": "0",
+    "VX_CFG_NUM_WARPS": "8",
+    "VX_CFG_NUM_THREADS": "32",
+    "VX_CFG_NUM_BARRIERS": "8",
+    "VX_CFG_ISSUE_WIDTH": "4",
+    "VX_CFG_LMEM_LOG_SIZE": "16",
+    "VX_CFG_NUM_TCU_BLOCKS": "4"
+  },
+  "source_hashes": {
+    "base.cpp": "096054f59bf345f103506fbc2e772b63e175c1ad4baa030bec1a4061b1ce283b",
+    "common.h": "61c9a5c9a33a6755793b747bc60f1ba254ea1f93520ba93a65f48e5f8ab07b0a",
+    "main.cpp": "1ef0ebd0e8775bdd195f5f2f633807c7b32c42d63f9dd811f507666fe9e37edc",
+    "Makefile": "d2eb4f5bee9af7841b15e582c4a49c150f60ba1c5315320041c876893b10b01c",
+    "pc.cpp": "68d1abfb8bfe1dc8b9021eda42bfc37045e0e121259d1a31394bf2781e1a8e7e",
+    "relu.cpp": "3a5828305fa751835db00b974113d22f16d0cfbdb6acef1b58ec21fc958f6c1e"
+  },
+  "metric": "cumulative core cycle/instruction deltas, plus per-launch uncore memory counts",
+  "limitations": [
+    "cache state resets on each SimX launch",
+    "host scheduling gaps excluded",
+    "exact dyadic finite inputs, not arbitrary real-valued numerical stress",
+    "activation fused in compute warps; no separate activation warp yet"
+  ]
+}

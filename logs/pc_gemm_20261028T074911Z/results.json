@@ -1,0 +1,1169 @@
+{
+  "source_commit": "7fe19369587c087f902c3e2bc2add612aa910a95",
+  "phase": "gemm",
+  "build": "/root/cs254a/project20/vortex/build32-pipeline",
+  "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+  "logs": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z",
+  "status": "complete",
+  "steps": [
+    {
+      "name": "configure",
+      "command": [
+        "../configure",
+        "--xlen=32",
+        "--tooldir=/root/cs254a/project20/tools-v3.0.1"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/configure.log",
+      "exit_code": 0
+    },
+    {
+      "name": "software",
+      "command": [
+        "make",
+        "-j4",
+        "software"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/software.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build_pc_gemm",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/sgemm_tcu_wg_pc"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/build_pc_gemm.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_small_k16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k16 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k16.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_small_k32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k32 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_small_k48",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k48 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k48.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_small_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k64 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_small_k256",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k256 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k256.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_large_k32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m128 -n128 -k32 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_large_k32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_large_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m128 -n128 -k64 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_large_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d1_large_k256",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m128 -n128 -k256 -b1",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_large_k256.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_small_k16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k16 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k16.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_small_k32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k32 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_small_k48",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k48 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k48.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_small_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k64 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_small_k256",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m64 -n32 -k256 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k256.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_large_k32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m128 -n128 -k32 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_large_k32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_large_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m128 -n128 -k64 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_large_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "pc_d2_large_k256",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_pc",
+        "--args=-m128 -n128 -k256 -b2",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_large_k256.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build_baseline_single",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/sgemm_tcu_wg_dxa"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/build_baseline_single.log",
+      "exit_code": 0
+    },
+    {
+      "name": "single_small_k16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k16",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k16.log",
+      "exit_code": 0
+    },
+    {
+      "name": "single_small_k32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k32",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "single_small_k48",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k48",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k48.log",
+      "exit_code": 0
+    },
+    {
+      "name": "single_small_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k64",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "single_small_k256",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k256",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k256.log",
+      "exit_code": 0
+    },
+    {
+      "name": "single_large_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m128 -n128 -k64",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_large_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "build_baseline_double",
+      "command": [
+        "make",
+        "-j4",
+        "-C",
+        "tests/regression/sgemm_tcu_wg_dxa"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/build_baseline_double.log",
+      "exit_code": 0
+    },
+    {
+      "name": "double_small_k16",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k16",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k16.log",
+      "exit_code": 0
+    },
+    {
+      "name": "double_small_k32",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k32",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k32.log",
+      "exit_code": 0
+    },
+    {
+      "name": "double_small_k48",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k48",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k48.log",
+      "exit_code": 0
+    },
+    {
+      "name": "double_small_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k64",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k64.log",
+      "exit_code": 0
+    },
+    {
+      "name": "double_small_k256",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m64 -n32 -k256",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k256.log",
+      "exit_code": 0
+    },
+    {
+      "name": "double_large_k64",
+      "command": [
+        "./ci/blackbox.sh",
+        "--driver=simx",
+        "--app=sgemm_tcu_wg_dxa",
+        "--args=-m128 -n128 -k64",
+        "--perf=7"
+      ],
+      "configs": "-DVX_CFG_NUM_THREADS=32 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_ISSUE_WIDTH=4 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DWGMMA_NRC=16 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_NUM_FPU_BLOCKS=1 -DITYPE=fp16 -DOTYPE=fp32 -DPERF_ENABLE -DDXA_DOUBLE_BUFFER",
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_large_k64.log",
+      "exit_code": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "pc_d1_small_k16",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k16 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "667",
+        "3345",
+        "0.199"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=1158, bank_stalls=256 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=367 (r=229, w=138), lat=82.0 cyc, bank_st=71 (utility=84%)",
+        "PERF: instrs=667, cycles=3345, IPC=0.199"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=16)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k16.log"
+    },
+    {
+      "name": "pc_d1_small_k32",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k32 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "963",
+        "4982",
+        "0.193"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=2316, bank_stalls=512 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=447 (r=309, w=138), lat=74.0 cyc, bank_st=71 (utility=86%)",
+        "PERF: instrs=963, cycles=4982, IPC=0.193"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k32.log"
+    },
+    {
+      "name": "pc_d1_small_k48",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k48 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1259",
+        "6520",
+        "0.193"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=3474, bank_stalls=768 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=527 (r=389, w=138), lat=67.0 cyc, bank_st=71 (utility=88%)",
+        "PERF: instrs=1259, cycles=6520, IPC=0.193"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=9 ULP (K=48)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k48.log"
+    },
+    {
+      "name": "pc_d1_small_k64",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k64 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1555",
+        "8102",
+        "0.192"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4632, bank_stalls=1024 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=607 (r=469, w=138), lat=62.9 cyc, bank_st=71 (utility=90%)",
+        "PERF: instrs=1555, cycles=8102, IPC=0.192"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k64.log"
+    },
+    {
+      "name": "pc_d1_small_k256",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k256 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "5107",
+        "24775",
+        "0.206"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=18528, bank_stalls=4096 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=1567 (r=1429, w=138), lat=38.2 cyc, bank_st=71 (utility=96%)",
+        "PERF: instrs=5107, cycles=24775, IPC=0.206"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_small_k256.log"
+    },
+    {
+      "name": "pc_d1_large_k32",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m128 -n128 -k32 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "7576",
+        "36591",
+        "0.207"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=18528, bank_stalls=4096 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=3421 (r=2357, w=1064), lat=63.5 cyc, bank_st=4 (utility=100%)",
+        "PERF: instrs=7576, cycles=36591, IPC=0.207"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_large_k32.log"
+    },
+    {
+      "name": "pc_d1_large_k64",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m128 -n128 -k64 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "12312",
+        "61529",
+        "0.200"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=37056, bank_stalls=8192 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=4701 (r=3637, w=1064), lat=56.0 cyc, bank_st=4 (utility=100%)",
+        "PERF: instrs=12312, cycles=61529, IPC=0.200"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=3 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_large_k64.log"
+    },
+    {
+      "name": "pc_d1_large_k256",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m128 -n128 -k256 -b1",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "40728",
+        "195535",
+        "0.208"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=148224, bank_stalls=32768 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=12381 (r=11317, w=1064), lat=36.0 cyc, bank_st=4 (utility=100%)",
+        "PERF: instrs=40728, cycles=195535, IPC=0.208"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d1_large_k256.log"
+    },
+    {
+      "name": "pc_d2_small_k16",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k16 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "667",
+        "3345",
+        "0.199"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=1158, bank_stalls=256 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=367 (r=229, w=138), lat=82.0 cyc, bank_st=71 (utility=84%)",
+        "PERF: instrs=667, cycles=3345, IPC=0.199"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=16)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k16.log"
+    },
+    {
+      "name": "pc_d2_small_k32",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k32 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "958",
+        "4471",
+        "0.214"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=2316, bank_stalls=548 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=447 (r=309, w=138), lat=74.7 cyc, bank_st=71 (utility=86%)",
+        "PERF: instrs=958, cycles=4471, IPC=0.214"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k32.log"
+    },
+    {
+      "name": "pc_d2_small_k48",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k48 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1254",
+        "5524",
+        "0.227"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=3474, bank_stalls=796 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=527 (r=389, w=138), lat=67.5 cyc, bank_st=71 (utility=88%)",
+        "PERF: instrs=1254, cycles=5524, IPC=0.227"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=9 ULP (K=48)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k48.log"
+    },
+    {
+      "name": "pc_d2_small_k64",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k64 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1550",
+        "6477",
+        "0.239"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4648, bank_stalls=1056 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=607 (r=469, w=138), lat=62.9 cyc, bank_st=71 (utility=90%)",
+        "PERF: instrs=1550, cycles=6477, IPC=0.239"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k64.log"
+    },
+    {
+      "name": "pc_d2_small_k256",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m64 -n32 -k256 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "5102",
+        "19573",
+        "0.261"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=18772, bank_stalls=5508 (utility=77%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=1567 (r=1429, w=138), lat=38.3 cyc, bank_st=71 (utility=96%)",
+        "PERF: instrs=5102, cycles=19573, IPC=0.261"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_small_k256.log"
+    },
+    {
+      "name": "pc_d2_large_k32",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m128 -n128 -k32 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "7536",
+        "31986",
+        "0.236"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=18528, bank_stalls=4384 (utility=81%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=3421 (r=2357, w=1064), lat=63.5 cyc, bank_st=4 (utility=100%)",
+        "PERF: instrs=7536, cycles=31986, IPC=0.236"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_large_k32.log"
+    },
+    {
+      "name": "pc_d2_large_k64",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m128 -n128 -k64 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "12272",
+        "47646",
+        "0.258"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=36970, bank_stalls=9064 (utility=80%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=4701 (r=3637, w=1064), lat=56.0 cyc, bank_st=4 (utility=100%)",
+        "PERF: instrs=12272, cycles=47646, IPC=0.258"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=3 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_large_k64.log"
+    },
+    {
+      "name": "pc_d2_large_k256",
+      "app": "sgemm_tcu_wg_pc",
+      "options": "-m128 -n128 -k256 -b2",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "40688",
+        "152621",
+        "0.267"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=149996, bank_stalls=41708 (utility=78%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=12381 (r=11317, w=1064), lat=36.0 cyc, bank_st=4 (utility=100%)",
+        "PERF: instrs=40688, cycles=152621, IPC=0.267"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/pc_d2_large_k256.log"
+    },
+    {
+      "name": "single_small_k16",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k16",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "580",
+        "3209",
+        "0.181"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=1104, bank_stalls=256 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=361 (r=225, w=136), lat=77.5 cyc, bank_st=53 (utility=87%)",
+        "PERF: instrs=580, cycles=3209, IPC=0.181"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=16)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k16.log"
+    },
+    {
+      "name": "single_small_k32",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k32",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "791",
+        "4763",
+        "0.166"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=2234, bank_stalls=512 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=443 (r=307, w=136), lat=71.4 cyc, bank_st=76 (utility=85%)",
+        "PERF: instrs=791, cycles=4763, IPC=0.166"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k32.log"
+    },
+    {
+      "name": "single_small_k48",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k48",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "974",
+        "6058",
+        "0.161"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=3364, bank_stalls=768 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=523 (r=387, w=136), lat=64.9 cyc, bank_st=76 (utility=87%)",
+        "PERF: instrs=974, cycles=6058, IPC=0.161"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=9 ULP (K=48)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k48.log"
+    },
+    {
+      "name": "single_small_k64",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k64",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1157",
+        "7403",
+        "0.156"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4494, bank_stalls=1024 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=603 (r=467, w=136), lat=61.2 cyc, bank_st=77 (utility=89%)",
+        "PERF: instrs=1157, cycles=7403, IPC=0.156"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=2 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k64.log"
+    },
+    {
+      "name": "single_small_k256",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k256",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "3353",
+        "21242",
+        "0.158"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=18054, bank_stalls=4096 (utility=82%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=1563 (r=1427, w=136), lat=37.7 cyc, bank_st=77 (utility=95%)",
+        "PERF: instrs=3353, cycles=21242, IPC=0.158"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_small_k256.log"
+    },
+    {
+      "name": "single_large_k64",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m128 -n128 -k64",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "9160",
+        "39932",
+        "0.229"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=36712, bank_stalls=7880 (utility=82%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=4699 (r=3636, w=1063), lat=65.0 cyc, bank_st=27 (utility=99%)",
+        "PERF: instrs=9160, cycles=39932, IPC=0.229"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 3072 bytes",
+        "reference drift: max=3 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/single_large_k64.log"
+    },
+    {
+      "name": "double_small_k16",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k16",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "653",
+        "3191",
+        "0.205"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=1104, bank_stalls=256 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=363 (r=227, w=136), lat=74.8 cyc, bank_st=56 (utility=87%)",
+        "PERF: instrs=653, cycles=3191, IPC=0.205"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=16)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k16.log"
+    },
+    {
+      "name": "double_small_k32",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k32",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "919",
+        "4235",
+        "0.217"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=2208, bank_stalls=512 (utility=81%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=443 (r=307, w=136), lat=69.0 cyc, bank_st=56 (utility=89%)",
+        "PERF: instrs=919, cycles=4235, IPC=0.217"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=8 ULP (K=32)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k32.log"
+    },
+    {
+      "name": "double_small_k48",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k48",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1193",
+        "5184",
+        "0.230"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=3312, bank_stalls=808 (utility=80%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=523 (r=387, w=136), lat=63.0 cyc, bank_st=56 (utility=90%)",
+        "PERF: instrs=1193, cycles=5184, IPC=0.230"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=9 ULP (K=48)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k48.log"
+    },
+    {
+      "name": "double_small_k64",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k64",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "1467",
+        "6166",
+        "0.238"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=4416, bank_stalls=1164 (utility=79%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=603 (r=467, w=136), lat=60.6 cyc, bank_st=54 (utility=92%)",
+        "PERF: instrs=1467, cycles=6166, IPC=0.238"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=2 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k64.log"
+    },
+    {
+      "name": "double_small_k256",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m64 -n32 -k256",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "4755",
+        "16827",
+        "0.283"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=18002, bank_stalls=5160 (utility=78%)",
+        "PERF: core0: coalescer: misses=128",
+        "PERF: memory: reqs=1563 (r=1427, w=136), lat=37.4 cyc, bank_st=52 (utility=97%)",
+        "PERF: instrs=4755, cycles=16827, IPC=0.283"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=5 ULP, bound=51 ULP (K=256)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_small_k256.log"
+    },
+    {
+      "name": "double_large_k64",
+      "app": "sgemm_tcu_wg_dxa",
+      "options": "-m128 -n128 -k64",
+      "profile": 7,
+      "passed": true,
+      "exit_code": 0,
+      "summary": [
+        "11640",
+        "41970",
+        "0.277"
+      ],
+      "perf": [
+        "PERF: core0: lmem: reqs=36140, bank_stalls=9429 (utility=79%)",
+        "PERF: core0: coalescer: misses=1024",
+        "PERF: memory: reqs=5190 (r=3882, w=1308), lat=76.7 cyc, bank_st=30 (utility=99%)",
+        "PERF: instrs=11640, cycles=41970, IPC=0.277"
+      ],
+      "verification": [
+        "CTA tile: M=64 (warps=4)",
+        "smem: 6144 bytes",
+        "reference drift: max=3 ULP, bound=12 ULP (K=64)"
+      ],
+      "tiles": [],
+      "log": "/mnt/d/UCLA_Master/CS 254A/project/logs/pc_gemm_20261028T074911Z/double_large_k64.log"
+    }
+  ],
+  "source_hashes": {
+    "common.h": "cf6406a6c6f41edda081057892e85b4f4dcf7c9931797b8b825bfef96bde7b83",
+    "kernel.cpp": "30c98516a9d4862a6e3687c0f8306d836ffefae3a8a8dcef6f0af2126f52391b",
+    "main.cpp": "df59f249e64ccd67f7f45efcfe29130edc92dc53b4fbc5801ad7be4a6abb7d1a",
+    "Makefile": "2815e4d619cc5c9991c31fa02438098d6da2624f156ba8010419f5569d68bbfb"
+  },
+  "git_status": " ? third_party/cocogfx\n?? tests/regression/dxa_pc/\n?? tests/regression/sgemm_tcu_wg_pc/\n"
+}
